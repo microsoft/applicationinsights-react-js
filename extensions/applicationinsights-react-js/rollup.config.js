@@ -1,8 +1,12 @@
-import nodeResolve from "rollup-plugin-node-resolve";
-import {uglify} from "rollup-plugin-uglify";
-import replace from "rollup-plugin-replace";
-import commonjs from "rollup-plugin-commonjs";
+import nodeResolve from "@rollup/plugin-node-resolve";
+import commonjs from "@rollup/plugin-commonjs";
+import replace from "@rollup/plugin-replace";
+import cleanup from "rollup-plugin-cleanup";
+import peerDepsExternal from 'rollup-plugin-peer-deps-external';
+import { uglify } from "../../tools/rollup-plugin-uglify3-js/dist/esm/rollup-plugin-uglify3-js";
 import { es3Poly, importCheck } from "@microsoft/applicationinsights-rollup-es3";
+import dynamicRemove from "@microsoft/dynamicproto-js/tools/rollup/node/removedynamic";
+import { updateDistEsmFiles } from "../../tools/updateDistEsm/updateDistEsm";
 
 const version = require("./package.json").version;
 const outputName = "applicationinsights-react-js";
@@ -12,17 +16,21 @@ const banner = [
   " * Copyright (c) Microsoft and contributors. All rights reserved.",
   " */"
 ].join("\n");
-const reactNamedExports = [
-  "Children",
-  "Component",
-  "PropTypes",
-  "createElement",
-  "createContext",
-  "useContext",
-  "useState",
-  "useEffect",
-  "useRef",
-];
+
+const replaceValues = {
+  "// Copyright (c) Microsoft Corporation. All rights reserved.": "",
+  "// Licensed under the MIT License.": ""
+};
+
+function doCleanup() {
+  return cleanup({
+    comments: [
+      'some', 
+      /^.\s*@DynamicProtoStub/i,
+      /^\*\*\s*@class\s*$/
+    ]
+  })
+}
 
 const browserRollupConfigFactory = isProduction => {
   const browserRollupConfig = {
@@ -37,25 +45,21 @@ const browserRollupConfigFactory = isProduction => {
       sourcemap: true
     },
     plugins: [
+      dynamicRemove(),
       replace({
         preventAssignment: true,
         delimiters: ["", ""],
-        values: {
-          "// Copyright (c) Microsoft Corporation. All rights reserved.": "",
-          "// Licensed under the MIT License.": ""
-        }
+        values: replaceValues
       }),
       importCheck({ exclude: [ "applicationinsights-react-js" ] }),
+      peerDepsExternal(),
       nodeResolve({
-        browser: false,
-        preferBuiltins: false
+        browser: true,
+        preferBuiltins: true,
+        dedupe: [ "react", "react-dom" ]
       }),
-      commonjs({
-        namedExports: {
-          "node_modules/react/index.js": reactNamedExports,
-          "node_modules/react-dom/index.js": ["render"]
-        }
-      }),
+      commonjs(),
+      doCleanup(),
       es3Poly()
     ]
   };
@@ -89,27 +93,26 @@ const nodeUmdRollupConfigFactory = (isProduction) => {
       banner: banner,
       format: "umd",
       name: "Microsoft.ApplicationInsights",
-      freeze: false,
       extend: true,
+      freeze: false,
       sourcemap: true
     },
     plugins: [
+      dynamicRemove(),
       replace({
         preventAssignment: true,
         delimiters: ["", ""],
-        values: {
-          "// Copyright (c) Microsoft Corporation. All rights reserved.": "",
-          "// Licensed under the MIT License.": ""
-        }
+        values: replaceValues
       }),
       importCheck({ exclude: [ "applicationinsights-react-js" ] }),
-      nodeResolve({ preferBuiltins: true }),
-      commonjs({
-        namedExports: {
-          "node_modules/react/index.js": reactNamedExports,
-          "node_modules/react-dom/index.js": ["render"]
-        }
+      peerDepsExternal(),
+      nodeResolve({
+        browser: true,
+        preferBuiltins: true,
+        dedupe: [ "react", "react-dom" ]
       }),
+      commonjs(),
+      doCleanup(),
       es3Poly()
     ]
   };
@@ -134,6 +137,8 @@ const nodeUmdRollupConfigFactory = (isProduction) => {
 
   return nodeRollupConfig;
 };
+
+updateDistEsmFiles(replaceValues, banner);
 
 export default [
   browserRollupConfigFactory(true),
