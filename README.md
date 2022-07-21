@@ -95,7 +95,29 @@ Please note that it can take up to 10 minutes for new custom metric to appear in
 
 [Azure-Samples/application-insights-react-demo](https://github.com/Azure-Samples/application-insights-react-demo).
 
+## Compatibility Maxtrix
 
+| Version |  Application Insights | React     | Branch
+|---------|-----------------------|-----------|-----------
+| 3.3.5   | 2.8.5                 | ^17.0.1   | [main](https://github.com/microsoft/applicationinsights-react-js) and [AI master](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-react-js)
+| 3.3.4   | 2.8.4                 | ^17.0.1   | [AI master](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-react-js)
+| 3.3.3   | 2.8.3                 | ^17.0.1   | [AI master](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-react-js)
+| 3.3.2   | 2.8.2                 | ^17.0.1   | [AI master](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-react-js)
+| 3.3.1   | 2.8.1                 | ^17.0.1   | [AI master](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-react-js)
+| 3.3.0   | 2.8.0                 | ^17.0.1   | [AI master](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-react-js)
+| 3.2.4   | 2.7.4                 | ^17.0.1   | [AI master](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-react-js)
+| 3.2.3   | 2.7.3                 | ^17.0.1   | [AI master](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-react-js)
+| 3.2.2   | 2.7.2                 | ^17.0.1   | [AI master](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-react-js)
+| 3.2.1   | 2.7.1                 | ^17.0.1   | [AI master](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-react-js)
+| 3.2.0   | 2.7.0                 | ^17.0.1   | [AI master](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-react-js)
+| 3.1.5   | ^2.6.5                | ^17.0.1   | [AI master](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-react-js)
+| 3.1.4   | ^2.6.4                | ^17.0.1   | [AI master](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-react-js)
+| 3.1.3   | ^2.6.3                | ^17.0.1   | [AI master](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-react-js)
+| 3.1.2   | ^2.6.2                | ^17.0.1   | [AI master](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-react-js)
+| 3.1.1   | ^2.6.2                | ^17.0.1   | [AI master](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-react-js)
+| 3.1.0   | ^2.6.0                | ^17.0.1   | [AI master](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-react-js)
+| 3.0.5   | ^2.5.10               | ^16.0.0   | [AI master](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-react-js)
+| 3.0.4   | ^2.5.9                | ^16.0.0   | [AI master](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-react-js)
 
 ## Contributing
 
