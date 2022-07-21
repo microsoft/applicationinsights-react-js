@@ -1,0 +1,28 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/rush/v5/rush.schema.json",
+  "npmVersion": "8.15.0",
+  "rushVersion": "5.75.0",
+  "projectFolderMaxDepth": 4,
+  "projects": [
+    {
+      "packageName": "applicationinsights-js-release-tools",
+      "projectFolder": "tools/release-tools",
+      "shouldPublish": false
+    },
+    {
+      "packageName": "@microsoft/ai-test-framework",
+      "projectFolder": "common/Tests/Framework",
+      "shouldPublish": true
+    },
+    {
+      "packageName": "@microsoft/applicationinsights-rollup-plugin-uglify3-js",
+      "projectFolder": "tools/rollup-plugin-uglify3-js",
+      "shouldPublish": true
+    },
+    {
+      "packageName": "@microsoft/applicationinsights-react-js",
+      "projectFolder": "applicationinsights-react-js",
+      "shouldPublish": true
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+# NPM Ignore
+
+# ignore everything
+*
+
+# ... but these files
+!/package.json
+!/README.md
+!/API-reference.md
+!/bundle/ai.module.*
+!/dist/ai.js
+!/dist/ai.js.map
+!/dist/ai.0.js
+!/dist/ai.0.js.map
