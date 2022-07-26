@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "inlineSources": true,
+    "noImplicitAny": false,
+    "module": "amd",
+    "target": "es3",
+    "alwaysStrict": true,
+    "declaration": true
+  },
+  "files": [],
+  "exclude": [
+    "node_modules/**",
+    "**/*.d.ts"
+  ]
+}
