@@ -1,5 +1,10 @@
 # Releases
 
+## 3.3.6 (July 27th, 2022)
+
+- First release from [new repo](https://github.com/microsoft/applicationinsights-react-js)
+- Updates React Plugin to v3.3.6 (with UNPINNED ApplicationInsights ^2.8.5 as dependency) -- using React 17
+
 ## 3.3.5 (Jul 6th, 2022)
 
 - [Released from ApplicationInsights Repo](https://github.com/Microsoft/ApplicationInsights-JS)

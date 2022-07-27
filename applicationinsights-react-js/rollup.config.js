@@ -4,7 +4,7 @@ import replace from "@rollup/plugin-replace";
 import cleanup from "rollup-plugin-cleanup";
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import { uglify } from "../tools/rollup-plugin-uglify3-js/dist/esm/rollup-plugin-uglify3-js";
-import { es3Poly, importCheck } from "@microsoft/applicationinsights-rollup-es3";
+import { importCheck } from "@microsoft/applicationinsights-rollup-es3";
 import dynamicRemove from "@microsoft/dynamicproto-js/tools/rollup/node/removedynamic";
 import { updateDistEsmFiles } from "../tools/updateDistEsm/updateDistEsm";
 
@@ -59,8 +59,7 @@ const browserRollupConfigFactory = isProduction => {
         dedupe: [ "react", "react-dom" ]
       }),
       commonjs(),
-      doCleanup(),
-      es3Poly()
+      doCleanup()
     ]
   };
 
@@ -115,8 +114,7 @@ const nodeUmdRollupConfigFactory = (isProduction) => {
         dedupe: [ "react", "react-dom" ]
       }),
       commonjs(),
-      doCleanup(),
-      es3Poly()
+      doCleanup()
     ]
   };
 
