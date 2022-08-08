@@ -27,7 +27,7 @@
     {
       "packageName": "@microsoft/applicationinsights-react-sample",
       "projectFolder": "sample/applicationinsights-react-sample",
-      "shouldPublish": false
+      "shouldPublish": true
     }
   ]
 }
