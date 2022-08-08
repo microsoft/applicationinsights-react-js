@@ -32,6 +32,7 @@
         "@types/cheerio": "0.22.13",
         "@types/history": "^4.7.9",
         "@types/jest": "^27.0.2",
+        "@types/node": "11.13.2",
         "@types/prop-types": "^15.7.3",
         "@types/qunit": "^2.5.3",
         "@types/react": "^16.9.11",
@@ -2813,11 +2814,11 @@
     "node_modules/@rush-temp/applicationinsights-react-sample": {
       "version": "0.0.0",
       "resolved": "file:projects/applicationinsights-react-sample.tgz",
-      "integrity": "sha512-juSC+fzx1OoGJIM6AXI6ysnZVzZVndswChY80l+JQIso9WNaj1pf7sBrVXdod+QF/kFiTqIyRkTpnG4zOqeumA==",
+      "integrity": "sha512-vwLQ7Xc8NDLDWObQhzSM2zvaM6ekAg3wK9RlE0nedvQoKGEZCtqH/z8cxsLyOlCcAnxbNq76wv8c3bsu77SfAA==",
       "dependencies": {
         "@microsoft/applicationinsights-web": "^2.8.6",
         "@types/jest": "^27.0.2",
-        "@types/node": "^11.13.2",
+        "@types/node": "11.13.2",
         "@types/react": "^16.9.11",
         "@types/react-dom": "^16.9.4",
         "react": "^17.0.2",
@@ -27701,11 +27702,11 @@
     },
     "@rush-temp/applicationinsights-react-sample": {
       "version": "file:projects\\applicationinsights-react-sample.tgz",
-      "integrity": "sha512-juSC+fzx1OoGJIM6AXI6ysnZVzZVndswChY80l+JQIso9WNaj1pf7sBrVXdod+QF/kFiTqIyRkTpnG4zOqeumA==",
+      "integrity": "sha512-vwLQ7Xc8NDLDWObQhzSM2zvaM6ekAg3wK9RlE0nedvQoKGEZCtqH/z8cxsLyOlCcAnxbNq76wv8c3bsu77SfAA==",
       "requires": {
         "@microsoft/applicationinsights-web": "^2.8.6",
         "@types/jest": "^27.0.2",
-        "@types/node": "^11.13.2",
+        "@types/node": "11.13.2",
         "@types/react": "^16.9.11",
         "@types/react-dom": "^16.9.4",
         "react": "^17.0.2",
