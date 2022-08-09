@@ -345,6 +345,10 @@ function shouldProcess(name) {
         return updateAll || isReact;
     }
 
+    if (name.indexOf("-react-sample") !== -1) {
+        return updateAll || isReact;
+    }
+
     if (name.indexOf("-react-native") !== -1) {
         return updateAll || isReactNative;
     }
