@@ -72,7 +72,7 @@
     },
     "peerDependencies": {
         "tslib": "*",
-        "react": "^17.0.1",
+        "react": ">= 17.0.1",
         "history": ">= 4.10.1"
     }
 }
