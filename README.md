@@ -75,7 +75,6 @@ appInsights.loadAppInsights();
 To instrument various React components usage tracking, apply the `withAITracking` higher-order
 component function.
 
-
 It will measure time from the `ComponentDidMount` event through the `ComponentWillUnmount` event.
 However, in order to make this more accurate, it will subtract the time in which the user was idle.
 In other words, `React Component Engaged Time = ComponentWillUnmount timestamp - ComponentDidMount timestamp - idle time`.
@@ -122,6 +121,28 @@ Please note that it can take up to 10 minutes for new custom metric to appear in
 | 3.1.0   | ^2.6.0                | ^17.0.1   | [AI master](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-react-js)
 | 3.0.5   | ^2.5.10               | ^16.0.0   | [AI master](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-react-js)
 | 3.0.4   | ^2.5.9                | ^16.0.0   | [AI master](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-react-js)
+
+## Nightly Builds
+
+To aid with testing and validation we also produce and publish nightly builds whenever there is a change from the previous build. These builds are published to the [NpmJs registry](https://www.npmjs.com/package/@microsoft/applicationinsights-react-js) on a successful build / test pass.
+
+This process also [tags the source code](https://github.com/microsoft/applicationInsights-react-js/tags) so that we can track the specific changes included using a nightly build specific version number which is the format "nightly-yymm-##" eg. ```nightly-2208-05```
+
+These nightly builds will not be retained indefinitely and should only be used for __pre-production__ testing and/or validation of any changes that have not yet been released.
+
+### NPM
+
+The NPM builds are tagged as "nightly" and can by downloaded using this as the version number ```npm install @microsoft/applicationinsights-react-js@nightly``` or using the nightly specific version number which is "nightly.yyyymm-###" (```npm install @microsoft/applicationinsights-react-js@2.7.3-nightly.2112-08```) where ## is the specific build number for the month (Note, slightly different version from the source code tag due to compatibility issues between the different systems).
+
+### Deployment process
+
+When a new release is deployed the following occurs as part of the release
+
+- NPM packages are created and published to [NpmJs](https://www.npmjs.com/package/@microsoft/applicationinsights-react-js)
+
+## Release Notes
+
+[Release Notes](./RELEASES.md)
 
 ## Contributing
 
