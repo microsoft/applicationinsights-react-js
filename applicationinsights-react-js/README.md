@@ -99,6 +99,15 @@ Please note that it can take up to 10 minutes for new custom metric to appear in
 
 [react-router]: https://github.com/ReactTraining/react-router/blob/master/FAQ.md#how-do-i-access-the-history-object-outside-of-components
 
+## Compatibility Matrix
+
+The [Compatibility Matrix](https://github.com/microsoft/applicationinsights-react-js#compatibility-matrix)
+is tracked and updated on the main project README.md page.
+
+## Nightly Builds
+
+See the [Main Readme](https://github.com/microsoft/applicationinsights-react-js#nightly-builds)
+
 ## Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
