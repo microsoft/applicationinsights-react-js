@@ -1,5 +1,22 @@
 # Releases
 
+## 3.4.1 (Feb 7th, 2023)
+
+- [Released from applicationinsights-react-js Repo](https://github.com/microsoft/applicationinsights-react-js)
+- Updates React Plugin to v3.4.1 (with UNPINNED ApplicationInsights ^2.8.10 as dependency) -- using React 17, compatible with React 18
+- #33 Update to ApplicationInsights v2.8.10
+- #31 Update base applicationinsights to version 2.8.9
+- #30 Add code owners
+- #26 Change react-scripts to a dev dependency
+- #23 Add --no-sandbox to test runs
+
+### Changelog
+
+- #14 Add react sample and build with rush
+- #15 Upgrade to support React 18
+- #17 Add nightly release documentation
+- #16  Address Component Governance issues
+
 ## 3.4.0 (Aug 15th, 2022)
 
 - [Released from applicationinsights-react-js Repo](https://github.com/microsoft/applicationinsights-react-js)
