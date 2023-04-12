@@ -1,5 +1,14 @@
 # Releases
 
+## 3.4.2 (Apr 12th, 2023)
+
+### Changelog
+
+- [Released from applicationinsights-react-js Repo](https://github.com/microsoft/applicationinsights-react-js)
+- #39 Update to ApplicationInsights ^2.8.12
+- #36 Internal Task 17133116: Add Policheck exclusion file
+- #35 Fix up formatting / typo's in release notes
+
 ## 3.4.1 (Feb 7th, 2023)
 
 ### Changelog
