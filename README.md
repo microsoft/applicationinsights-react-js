@@ -99,8 +99,15 @@ Please note that it can take up to 10 minutes for new custom metric to appear in
 
 ## Compatibility Matrix
 
+As part of updating to support [ApplicationInsights 3.x](https://github.com/microsoft/ApplicationInsights-JS/blob/main/RELEASES.md) we will be bumping the major version
+number of this extension to match the major version of the supported React-JS version (which will be v17.x for the first release).
+
+Additionally, as part of this change the existing v3.x extension has been moved into the [release3.x branch](https://github.com/microsoft/applicationinsights-react-js/tree/release3.x)
+
 | Version |  Application Insights | React     | Branch
 |---------|-----------------------|-----------|-----------
+| 17.0.0  | TBD (^3.x)            | >= 17.0.2 | [main](https://github.com/microsoft/applicationinsights-react-js)
+| 3.4.3   | ^2.8.14               | >= 17.0.2 | [release3.x](https://github.com/microsoft/applicationinsights-react-js/tree/release3.x)
 | 3.4.2   | ^2.8.12               | >= 17.0.1 | [main](https://github.com/microsoft/applicationinsights-react-js)
 | 3.4.1   | ^2.8.10               | >= 17.0.1 | [main](https://github.com/microsoft/applicationinsights-react-js)
 | 3.4.0   | ^2.8.5                | >= 17.0.1 | [main](https://github.com/microsoft/applicationinsights-react-js)
