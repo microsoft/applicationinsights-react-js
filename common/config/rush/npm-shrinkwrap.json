@@ -3400,7 +3400,7 @@
     "node_modules/@rush-temp/applicationinsights-react-sample": {
       "version": "0.0.0",
       "resolved": "file:projects/applicationinsights-react-sample.tgz",
-      "integrity": "sha512-6LWSH87uZ0LuWpncto7UqSdzHzwDwN61QHJoeVTo94kB+Bz4McSLh9edkjLaDRN7o1Rgl/5wFc03L+9e6037oA==",
+      "integrity": "sha512-Xj2dBdp58CUEG1VGOFd27l9dqX6YTL0FbIYnhstung0AwccU5c1p35DZ4CsI0+2d+eokNVFQx/NK1kJenu5pGg==",
       "dependencies": {
         "@microsoft/applicationinsights-web": "^2.8.14",
         "@types/jest": "^27.0.2",
@@ -19928,7 +19928,7 @@
     },
     "@rush-temp/applicationinsights-react-sample": {
       "version": "file:projects\\applicationinsights-react-sample.tgz",
-      "integrity": "sha512-6LWSH87uZ0LuWpncto7UqSdzHzwDwN61QHJoeVTo94kB+Bz4McSLh9edkjLaDRN7o1Rgl/5wFc03L+9e6037oA==",
+      "integrity": "sha512-Xj2dBdp58CUEG1VGOFd27l9dqX6YTL0FbIYnhstung0AwccU5c1p35DZ4CsI0+2d+eokNVFQx/NK1kJenu5pGg==",
       "requires": {
         "@microsoft/applicationinsights-web": "^2.8.14",
         "@types/jest": "^27.0.2",
