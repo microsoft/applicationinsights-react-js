@@ -101,6 +101,7 @@ Please note that it can take up to 10 minutes for new custom metric to appear in
 
 | Version |  Application Insights | React     | Branch
 |---------|-----------------------|-----------|-----------
+| 3.4.3   | ^2.8.14               | >= 17.0.1 | [release3.x](https://github.com/microsoft/applicationinsights-react-js/tree/release3.x)
 | 3.4.2   | ^2.8.12               | >= 17.0.1 | [main](https://github.com/microsoft/applicationinsights-react-js)
 | 3.4.1   | ^2.8.10               | >= 17.0.1 | [main](https://github.com/microsoft/applicationinsights-react-js)
 | 3.4.0   | ^2.8.5                | >= 17.0.1 | [main](https://github.com/microsoft/applicationinsights-react-js)

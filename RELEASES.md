@@ -1,5 +1,14 @@
 # Releases
 
+## 3.4.3 (June 8th, 2023)
+
+Version 3.x is now being maintained / released from the [release3.x branch](https://github.com/microsoft/applicationinsights-react-js/tree/release3.x) as
+[main](https://github.com/microsoft/applicationinsights-react-js/tree/main) is being updated to support [ApplicationInsights 3.x](https://github.com/microsoft/ApplicationInsights-JS/blob/main/RELEASES.md) and will have it's major version number bumped to match the major version of the supported React-JS version (which will be v17.x as the first release)
+### Changelog
+
+- #44 [Update to ApplicationInsights ^2.8.14 from ^2.8.12](https://github.com/microsoft/ApplicationInsights-JS/blob/master/RELEASES.md)
+- Moved to release3.x branch
+
 ## 3.4.2 (Apr 12th, 2023)
 
 ### Changelog
