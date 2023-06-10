@@ -5,7 +5,7 @@ import cleanup from "rollup-plugin-cleanup";
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import { uglify } from "../tools/rollup-plugin-uglify3-js/dist/esm/rollup-plugin-uglify3-js";
 import { importCheck } from "@microsoft/applicationinsights-rollup-es3";
-import dynamicRemove from "@microsoft/dynamicproto-js/tools/rollup/node/removedynamic";
+import dynamicRemove from "@microsoft/dynamicproto-js/tools/rollup";
 import { updateDistEsmFiles } from "../tools/updateDistEsm/updateDistEsm";
 
 const version = require("./package.json").version;

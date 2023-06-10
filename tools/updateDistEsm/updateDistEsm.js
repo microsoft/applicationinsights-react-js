@@ -1,4 +1,4 @@
-import dynamicRemove from "@microsoft/dynamicproto-js/tools/rollup/node/removedynamic";
+import dynamicRemove from "@microsoft/dynamicproto-js/tools/rollup";
 import MagicString from "magic-string";
 
 const fs = require("fs");

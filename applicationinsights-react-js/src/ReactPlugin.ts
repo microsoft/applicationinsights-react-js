@@ -10,11 +10,17 @@ import {
 import {
     BaseTelemetryPlugin, IAppInsightsCore, IConfiguration, ICookieMgr, ICustomProperties, IPlugin, IProcessTelemetryContext,
     IProcessTelemetryUnloadContext, ITelemetryItem, ITelemetryPlugin, ITelemetryPluginChain, ITelemetryUnloadState, _eInternalMessageId,
-    _throwInternal, arrForEach, eLoggingSeverity, isFunction, objDefineAccessors, proxyFunctions, safeGetCookieMgr
+    _throwInternal, arrForEach, eLoggingSeverity, isFunction, proxyFunctions, safeGetCookieMgr, IConfigDefaults, onConfigChange, objDefineAccessors
 } from "@microsoft/applicationinsights-core-js";
+import {objDeepFreeze} from "@nevware21/ts-utils";
+
 import { History, Location, Update } from "history";
 
 import { IReactExtensionConfig } from './Interfaces/IReactExtensionConfig';
+const defaultReactExtensionConfig: IConfigDefaults<IReactExtensionConfig> = objDeepFreeze({
+    history: undefined
+});
+
 export default class ReactPlugin extends BaseTelemetryPlugin {
     public priority = 185;
     public identifier = 'ReactPlugin';
@@ -31,24 +37,24 @@ export default class ReactPlugin extends BaseTelemetryPlugin {
 
             _self.initialize = (config: IConfiguration & IConfig, core: IAppInsightsCore, extensions: IPlugin[], pluginChain?:ITelemetryPluginChain) => {
                 super.initialize(config, core, extensions, pluginChain);
-                _extensionConfig =
-                    config.extensionConfig && config.extensionConfig[_self.identifier]
-                        ? (config.extensionConfig[_self.identifier] as IReactExtensionConfig)
-                        : { history: null };
-        
-                arrForEach(extensions, ext => {
-                    const identifier = (ext as ITelemetryPlugin).identifier;
-                    if (identifier === 'ApplicationInsightsAnalytics') {
-                        _analyticsPlugin = (ext as any) as IAppInsights;
+
+                _self._addHook(onConfigChange(config, (details) => {
+                    let ctx = _self._getTelCtx();
+                    _extensionConfig = ctx.getExtCfg<IReactExtensionConfig>(this.identifier, defaultReactExtensionConfig);
+                    arrForEach(extensions, ext => {
+                        const identifier = (ext as ITelemetryPlugin).identifier;
+                        if (identifier === 'ApplicationInsightsAnalytics') {
+                            _analyticsPlugin = (ext as any) as IAppInsights;
+                        }
+                    });
+                    if (_extensionConfig.history) {
+                        _addHistoryListener(_extensionConfig.history);
+                        const pageViewTelemetry: IPageViewTelemetry = {
+                            uri: _extensionConfig.history.location.pathname
+                        };
+                        _self.trackPageView(pageViewTelemetry);
                     }
-                });
-                if (_extensionConfig.history) {
-                    _addHistoryListener(_extensionConfig.history);
-                    const pageViewTelemetry: IPageViewTelemetry = {
-                        uri: _extensionConfig.history.location.pathname
-                    };
-                    _self.trackPageView(pageViewTelemetry);
-                }
+                }));
             };
 
             _self.getCookieMgr = (): ICookieMgr => {
