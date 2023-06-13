@@ -34,7 +34,6 @@
         "ai-restore": "node common/scripts/install-run-rush.js ai-restore"
     },
     "devDependencies": {
-        "@babel/plugin-proposal-private-property-in-object": "^7.21.0",
         "@microsoft/rush": "5.82.1",
         "@nevware21/grunt-eslint-ts": "^0.2.2",
         "@nevware21/grunt-ts-plugin": "^0.4.3",

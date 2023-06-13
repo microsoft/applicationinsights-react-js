@@ -13,6 +13,7 @@
         "web-vitals": "^2.1.4"
     },
     "devDependencies": {
+        "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
         "@types/jest": "^27.0.2",
         "@types/node": "11.13.2",
         "@types/react": "^16.9.11",
