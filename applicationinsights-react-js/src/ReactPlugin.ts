@@ -48,6 +48,9 @@ export default class ReactPlugin extends BaseTelemetryPlugin {
                         }
                     });
                     if (_extensionConfig.history) {
+                        if (_unlisten){
+                            _unlisten();
+                        }
                         _addHistoryListener(_extensionConfig.history);
                         const pageViewTelemetry: IPageViewTelemetry = {
                             uri: _extensionConfig.history.location.pathname
