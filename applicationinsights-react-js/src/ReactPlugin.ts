@@ -5,6 +5,7 @@
 
 import dynamicProto from "@microsoft/dynamicproto-js";
 import {
+    AnalyticsPluginIdentifier,
     IAppInsights, IConfig, IEventTelemetry, IExceptionTelemetry, IMetricTelemetry, IPageViewTelemetry, ITraceTelemetry
 } from "@microsoft/applicationinsights-common";
 import {
@@ -47,6 +48,8 @@ export default class ReactPlugin extends BaseTelemetryPlugin {
                             _analyticsPlugin = (ext as any) as IAppInsights;
                         }
                     });
+                    _analyticsPlugin = core.getPlugin<any>(AnalyticsPluginIdentifier)?.plugin as IAppInsights;
+
                     if (_extensionConfig.history) {
                         if (_unlisten){
                             _unlisten();
