@@ -19,6 +19,7 @@ import { History, Location, Update } from "history";
 
 import { IReactExtensionConfig } from './Interfaces/IReactExtensionConfig';
 const defaultReactExtensionConfig: IConfigDefaults<IReactExtensionConfig> = objDeepFreeze({
+    blkVal: true,
     history: undefined
 });
 
@@ -32,6 +33,7 @@ export default class ReactPlugin extends BaseTelemetryPlugin {
         let _extensionConfig: IReactExtensionConfig;
         let _unlisten: any;
         let _pageViewTimer: any;
+        let _pageViewTracked:boolean;
 
         dynamicProto(ReactPlugin, this, (_self, _base) => {
             _initDefaults();
@@ -42,23 +44,21 @@ export default class ReactPlugin extends BaseTelemetryPlugin {
                 _self._addHook(onConfigChange(config, (details) => {
                     let ctx = _self._getTelCtx();
                     _extensionConfig = ctx.getExtCfg<IReactExtensionConfig>(this.identifier, defaultReactExtensionConfig);
-                    arrForEach(extensions, ext => {
-                        const identifier = (ext as ITelemetryPlugin).identifier;
-                        if (identifier === 'ApplicationInsightsAnalytics') {
-                            _analyticsPlugin = (ext as any) as IAppInsights;
-                        }
-                    });
                     _analyticsPlugin = core.getPlugin<any>(AnalyticsPluginIdentifier)?.plugin as IAppInsights;
+                    
+                    if (isFunction(_unlisten)) {
+                        _unlisten();
+                    }
 
                     if (_extensionConfig.history) {
-                        if (_unlisten){
-                            _unlisten();
-                        }
                         _addHistoryListener(_extensionConfig.history);
-                        const pageViewTelemetry: IPageViewTelemetry = {
-                            uri: _extensionConfig.history.location.pathname
-                        };
-                        _self.trackPageView(pageViewTelemetry);
+                        if (!_pageViewTracked){
+                            const pageViewTelemetry: IPageViewTelemetry = {
+                                uri: _extensionConfig.history.location.pathname
+                            };
+                            _self.trackPageView(pageViewTelemetry);
+                            _pageViewTracked = true;
+                        }
                     }
                 }));
             };
@@ -99,6 +99,7 @@ export default class ReactPlugin extends BaseTelemetryPlugin {
                 _extensionConfig = null;
                 _unlisten = null;
                 _pageViewTimer = null;
+                _pageViewTracked = false;
             }
 
             function _getAnalytics() {

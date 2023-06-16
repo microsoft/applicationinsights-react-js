@@ -7,8 +7,8 @@ let buildNum = null;
 let preRel = null;
 let isRelease = false;
 let testOnly = null;
-let updateAll = true;
-let isReact = false;
+let updateAll = false;
+let isReact = true;
 let isReactNative = false;
 
 const theVersion = require(process.cwd() + "/version.json");

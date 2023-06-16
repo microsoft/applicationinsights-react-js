@@ -1,4 +1,4 @@
-import { AppInsightsCore, IConfiguration, DiagnosticLogger, ITelemetryItem, IPlugin } from "@microsoft/applicationinsights-core-js";
+import { AppInsightsCore, IConfiguration, DiagnosticLogger, ITelemetryItem, IPlugin, IAppInsightsCore } from "@microsoft/applicationinsights-core-js";
 import { IPageViewTelemetry } from "@microsoft/applicationinsights-common";
 import ReactPlugin from "../src/ReactPlugin";
 import { IReactExtensionConfig } from "../src/Interfaces/IReactExtensionConfig";
@@ -6,6 +6,7 @@ import { createBrowserHistory } from "history";
 
 let reactPlugin: ReactPlugin;
 let core: AppInsightsCore;
+let coreConfig: IConfiguration;
 let orgWarn = console && console.warn;
 
 describe("ReactAI", () => {
@@ -26,19 +27,22 @@ describe("ReactAI", () => {
     core = new AppInsightsCore();
     core.logger = new DiagnosticLogger();
     reactPlugin = new ReactPlugin();
+    coreConfig = {
+      instrumentationKey: 'testIkey',
+      endpointUrl: 'testEndpoint',
+      extensionConfig: {}
+  };
   }
 
   it("React Configuration: Config options can be passed from root config", () => {
     const history = createBrowserHistory();
     init();
-    reactPlugin.initialize({
-      instrumentationKey: 'instrumentation_key',
-      extensionConfig: {
-        [reactPlugin.identifier]: {
-          history
-        }
+    coreConfig.extensionConfig = {
+      [reactPlugin.identifier]: {
+        history
       }
-    }, core, []);
+    }
+    core.initialize(coreConfig, [ reactPlugin, new ChannelPlugin() ]);
     const reactConfig: IReactExtensionConfig = reactPlugin['_extensionConfig'];
     expect(reactConfig.history).toEqual(history);
   });
@@ -109,6 +113,48 @@ describe("ReactAI", () => {
     jest.runOnlyPendingTimers();
     expect(loggerMock).toHaveBeenCalledTimes(1);
   });
+
+  it("React Dynamic Config: default Config history could be updated", () => {
+    const history = createBrowserHistory();
+    jest.useFakeTimers();
+    init();
+    
+    const channel = new ChannelPlugin();
+    const config: IConfiguration = {
+      instrumentationKey: 'instrumentation_key',
+      extensionConfig: {
+        [reactPlugin.identifier]: {
+          history
+        },
+      }
+    };
+    core.initialize(config, [reactPlugin, channel]);
+    // Mock page view track
+    const reactMock = reactPlugin.trackPageView = jest.fn();
+    const newHistory = createBrowserHistory();
+
+    // Emulate navigation to different URL-addressed pages
+    history.push("/home", { some: "state" });
+    history.push("/should-received");
+    jest.runOnlyPendingTimers();
+    let id = reactPlugin.identifier;
+    //change config - history object
+    core.config.extensionConfig[id].history  = newHistory;
+    jest.advanceTimersByTime(1000)
+    history.push("/old-history-should-not-received");
+    jest.runOnlyPendingTimers();
+    newHistory.push("/new-history-should-received")
+    jest.runOnlyPendingTimers();
+    
+    expect(reactPlugin.trackPageView).toHaveBeenCalledTimes(3);
+    let reactEvent: IPageViewTelemetry = reactMock.mock.calls[0][0]
+    expect(reactEvent.uri).toBe("/home");
+    reactEvent = reactMock.mock.calls[1][0]
+    console.log("answer", reactEvent.uri)
+    expect(reactEvent.uri).toBe("/should-received");
+    reactEvent = reactMock.mock.calls[2][0]
+    expect(reactEvent.uri).toBe("/new-history-should-received")
+  });
 });
 
 class ChannelPlugin implements IPlugin {
@@ -149,7 +195,8 @@ class ChannelPlugin implements IPlugin {
     // no next setup
   }
 
-  public initialize = (config: IConfiguration, core: AppInsightsCore, plugin: IPlugin[]) => {
+  public initialize = (config: IConfiguration, core: IAppInsightsCore, plugin: IPlugin[]) => {
+    // Mocked - Do Nothing
   }
 
   private _processTelemetry(env: ITelemetryItem) {
