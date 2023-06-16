@@ -47,6 +47,7 @@ export default class ReactPlugin extends BaseTelemetryPlugin {
                     
                     if (isFunction(_unlisten)) {
                         _unlisten();
+                        _unlisten = null;
                     }
                     if (_extensionConfig.history) {
                         _addHistoryListener(_extensionConfig.history);
