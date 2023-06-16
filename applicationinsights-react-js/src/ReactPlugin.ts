@@ -60,23 +60,6 @@ export default class ReactPlugin extends BaseTelemetryPlugin {
                             _pageViewTracked = true;
                         }
                     }
-
-                    // if (_prevHistory != _extensionConfig.history){
-                    //     if (isFunction(_unlisten)) {
-                    //         console.log("unlisten");
-                    //         _unlisten();
-                    //         _unlisten = null;
-                    //     }
-                    //     if (_extensionConfig.history){
-                    //         _addHistoryListener(_extensionConfig.history);
-                    //         const pageViewTelemetry: IPageViewTelemetry = {
-                    //             uri: _extensionConfig.history.location.pathname
-                    //         };
-                    //         console.log("me track", _extensionConfig.history.location.pathname)
-                    //         _self.trackPageView(pageViewTelemetry);
-                    //     }
-                    //     _prevHistory = _extensionConfig.history;
-                    // }
                 }));
             };
 
