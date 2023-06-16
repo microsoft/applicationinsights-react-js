@@ -155,6 +155,48 @@ describe("ReactAI", () => {
     reactEvent = reactMock.mock.calls[2][0]
     expect(reactEvent.uri).toBe("/new-history-should-received")
   });
+
+  it("React Dynamic Config: Config history could be removed and added", () => {
+    const history = createBrowserHistory();
+    jest.useFakeTimers();
+    init();
+    
+    const channel = new ChannelPlugin();
+    const config: IConfiguration = {
+      instrumentationKey: 'instrumentation_key',
+      extensionConfig: {
+        [reactPlugin.identifier]: {
+          history
+        },
+      }
+    };
+    core.initialize(config, [reactPlugin, channel]);
+    // Mock page view track
+    const reactMock = reactPlugin.trackPageView = jest.fn();
+
+    // Emulate navigation to different URL-addressed pages
+    history.push("/should-received");
+    jest.runOnlyPendingTimers();
+    let id = reactPlugin.identifier;
+    //change config - history remove
+    core.config.extensionConfig[id].history  = undefined;
+    jest.advanceTimersByTime(1000)
+    history.push("/removed-history-should-not-received");
+    jest.runOnlyPendingTimers();
+    //change config - history added back
+    core.config.extensionConfig[id].history  = history;
+    jest.advanceTimersByTime(1000)
+    history.push("/new-history-should-received")
+    jest.runOnlyPendingTimers();
+    
+    expect(reactPlugin.trackPageView).toHaveBeenCalledTimes(2);
+    let reactEvent: IPageViewTelemetry = reactMock.mock.calls[0][0]
+    expect(reactEvent.uri).toBe("/should-received");
+    reactEvent = reactMock.mock.calls[1][0]
+    console.log("answer", reactEvent.uri)
+    expect(reactEvent.uri).toBe("/new-history-should-received");
+
+  });
 });
 
 class ChannelPlugin implements IPlugin {
