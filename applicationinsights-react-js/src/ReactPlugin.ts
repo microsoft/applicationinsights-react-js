@@ -34,6 +34,7 @@ export default class ReactPlugin extends BaseTelemetryPlugin {
         let _unlisten: any;
         let _pageViewTimer: any;
         let _pageViewTracked:boolean;
+        // let _prevHistory: History;
 
         dynamicProto(ReactPlugin, this, (_self, _base) => {
             _initDefaults();
@@ -49,7 +50,6 @@ export default class ReactPlugin extends BaseTelemetryPlugin {
                     if (isFunction(_unlisten)) {
                         _unlisten();
                     }
-
                     if (_extensionConfig.history) {
                         _addHistoryListener(_extensionConfig.history);
                         if (!_pageViewTracked){
@@ -60,6 +60,23 @@ export default class ReactPlugin extends BaseTelemetryPlugin {
                             _pageViewTracked = true;
                         }
                     }
+
+                    // if (_prevHistory != _extensionConfig.history){
+                    //     if (isFunction(_unlisten)) {
+                    //         console.log("unlisten");
+                    //         _unlisten();
+                    //         _unlisten = null;
+                    //     }
+                    //     if (_extensionConfig.history){
+                    //         _addHistoryListener(_extensionConfig.history);
+                    //         const pageViewTelemetry: IPageViewTelemetry = {
+                    //             uri: _extensionConfig.history.location.pathname
+                    //         };
+                    //         console.log("me track", _extensionConfig.history.location.pathname)
+                    //         _self.trackPageView(pageViewTelemetry);
+                    //     }
+                    //     _prevHistory = _extensionConfig.history;
+                    // }
                 }));
             };
 
@@ -100,6 +117,7 @@ export default class ReactPlugin extends BaseTelemetryPlugin {
                 _unlisten = null;
                 _pageViewTimer = null;
                 _pageViewTracked = false;
+                _prevHistory = null;
             }
 
             function _getAnalytics() {
