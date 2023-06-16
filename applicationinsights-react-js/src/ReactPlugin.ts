@@ -99,7 +99,6 @@ export default class ReactPlugin extends BaseTelemetryPlugin {
                 _unlisten = null;
                 _pageViewTimer = null;
                 _pageViewTracked = false;
-                _prevHistory = null;
             }
 
             function _getAnalytics() {
