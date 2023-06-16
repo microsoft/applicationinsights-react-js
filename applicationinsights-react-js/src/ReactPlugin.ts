@@ -19,8 +19,7 @@ import { History, Location, Update } from "history";
 
 import { IReactExtensionConfig } from './Interfaces/IReactExtensionConfig';
 const defaultReactExtensionConfig: IConfigDefaults<IReactExtensionConfig> = objDeepFreeze({
-    blkVal: true,
-    history: undefined
+    history: { blkVal: true, v: undefined }
 });
 
 export default class ReactPlugin extends BaseTelemetryPlugin {
