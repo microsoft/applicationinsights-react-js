@@ -65,10 +65,10 @@
         "history": "^5.1.0"
     },
     "dependencies": {
-        "@microsoft/applicationinsights-shims": "^2.0.2",
-        "@microsoft/applicationinsights-core-js": "^2.8.14",
-        "@microsoft/applicationinsights-common": "^2.8.14",
-        "@microsoft/dynamicproto-js": "^1.1.9"
+        "@microsoft/applicationinsights-shims": "^3.0.1",
+        "@microsoft/applicationinsights-core-js": "^3.0.2",
+        "@microsoft/applicationinsights-common": "^3.0.2",
+        "@microsoft/dynamicproto-js": "^2.0.2"
     },
     "peerDependencies": {
         "tslib": "*",

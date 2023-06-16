@@ -5,16 +5,23 @@
 
 import dynamicProto from "@microsoft/dynamicproto-js";
 import {
+    AnalyticsPluginIdentifier,
     IAppInsights, IConfig, IEventTelemetry, IExceptionTelemetry, IMetricTelemetry, IPageViewTelemetry, ITraceTelemetry
 } from "@microsoft/applicationinsights-common";
 import {
     BaseTelemetryPlugin, IAppInsightsCore, IConfiguration, ICookieMgr, ICustomProperties, IPlugin, IProcessTelemetryContext,
     IProcessTelemetryUnloadContext, ITelemetryItem, ITelemetryPlugin, ITelemetryPluginChain, ITelemetryUnloadState, _eInternalMessageId,
-    _throwInternal, arrForEach, eLoggingSeverity, isFunction, objDefineAccessors, proxyFunctions, safeGetCookieMgr
+    _throwInternal, arrForEach, eLoggingSeverity, isFunction, proxyFunctions, safeGetCookieMgr, IConfigDefaults, onConfigChange, objDefineAccessors
 } from "@microsoft/applicationinsights-core-js";
+import {objDeepFreeze} from "@nevware21/ts-utils";
+
 import { History, Location, Update } from "history";
 
 import { IReactExtensionConfig } from './Interfaces/IReactExtensionConfig';
+const defaultReactExtensionConfig: IConfigDefaults<IReactExtensionConfig> = objDeepFreeze({
+    history: { blkVal: true, v: undefined }
+});
+
 export default class ReactPlugin extends BaseTelemetryPlugin {
     public priority = 185;
     public identifier = 'ReactPlugin';
@@ -25,30 +32,34 @@ export default class ReactPlugin extends BaseTelemetryPlugin {
         let _extensionConfig: IReactExtensionConfig;
         let _unlisten: any;
         let _pageViewTimer: any;
+        let _pageViewTracked:boolean;
 
         dynamicProto(ReactPlugin, this, (_self, _base) => {
             _initDefaults();
 
             _self.initialize = (config: IConfiguration & IConfig, core: IAppInsightsCore, extensions: IPlugin[], pluginChain?:ITelemetryPluginChain) => {
                 super.initialize(config, core, extensions, pluginChain);
-                _extensionConfig =
-                    config.extensionConfig && config.extensionConfig[_self.identifier]
-                        ? (config.extensionConfig[_self.identifier] as IReactExtensionConfig)
-                        : { history: null };
-        
-                arrForEach(extensions, ext => {
-                    const identifier = (ext as ITelemetryPlugin).identifier;
-                    if (identifier === 'ApplicationInsightsAnalytics') {
-                        _analyticsPlugin = (ext as any) as IAppInsights;
+
+                _self._addHook(onConfigChange(config, (details) => {
+                    let ctx = _self._getTelCtx();
+                    _extensionConfig = ctx.getExtCfg<IReactExtensionConfig>(this.identifier, defaultReactExtensionConfig);
+                    _analyticsPlugin = core.getPlugin<any>(AnalyticsPluginIdentifier)?.plugin as IAppInsights;
+                    
+                    if (isFunction(_unlisten)) {
+                        _unlisten();
+                        _unlisten = null;
                     }
-                });
-                if (_extensionConfig.history) {
-                    _addHistoryListener(_extensionConfig.history);
-                    const pageViewTelemetry: IPageViewTelemetry = {
-                        uri: _extensionConfig.history.location.pathname
-                    };
-                    _self.trackPageView(pageViewTelemetry);
-                }
+                    if (_extensionConfig.history) {
+                        _addHistoryListener(_extensionConfig.history);
+                        if (!_pageViewTracked){
+                            const pageViewTelemetry: IPageViewTelemetry = {
+                                uri: _extensionConfig.history.location.pathname
+                            };
+                            _self.trackPageView(pageViewTelemetry);
+                            _pageViewTracked = true;
+                        }
+                    }
+                }));
             };
 
             _self.getCookieMgr = (): ICookieMgr => {
@@ -87,6 +98,7 @@ export default class ReactPlugin extends BaseTelemetryPlugin {
                 _extensionConfig = null;
                 _unlisten = null;
                 _pageViewTimer = null;
+                _pageViewTracked = false;
             }
 
             function _getAnalytics() {

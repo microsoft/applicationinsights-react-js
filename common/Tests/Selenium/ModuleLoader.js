@@ -35,7 +35,7 @@ function loadCommonModules(moduleLoader) {
     moduleLoader.add("@microsoft/applicationinsights-shims", "./node_modules/@microsoft/applicationinsights-shims/browser/applicationinsights-shims");
 
     // Load DynamicProto
-    moduleLoader.add("@microsoft/dynamicproto-js", "./node_modules/@microsoft/dynamicproto-js/lib/dist/umd/dynamicproto-js", true);
+    moduleLoader.add("@microsoft/dynamicproto-js", "./node_modules/@microsoft/dynamicproto-js/dist/es5/umd/dynamicproto-js", true);
 }
 
 function ModuleLoader(config) {
