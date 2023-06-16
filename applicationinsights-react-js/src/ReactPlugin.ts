@@ -34,7 +34,6 @@ export default class ReactPlugin extends BaseTelemetryPlugin {
         let _unlisten: any;
         let _pageViewTimer: any;
         let _pageViewTracked:boolean;
-        // let _prevHistory: History;
 
         dynamicProto(ReactPlugin, this, (_self, _base) => {
             _initDefaults();
