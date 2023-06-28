@@ -328,7 +328,7 @@ function shouldProcess(name) {
     }
 
     if (name === "package.json") {
-        return true;
+        return updateAll;
     }
 
     return false;
