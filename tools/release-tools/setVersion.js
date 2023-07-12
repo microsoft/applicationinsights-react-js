@@ -7,9 +7,7 @@ let buildNum = null;
 let preRel = null;
 let isRelease = false;
 let testOnly = null;
-let updateAll = false;
-let isReact = true;
-let isReactNative = false;
+let updateAll = true;
 
 const theVersion = require(process.cwd() + "/version.json");
 const orgPkgVersions = {};
@@ -116,7 +114,6 @@ function parseArgs() {
             if (!setPreRelVer(process.argv[idx + 1] || "pre")) {
                 return false;
             }
-
             idx++;
         } else if (theArg === "-bld") {
             buildNum = (process.argv[idx + 1] || "");
@@ -132,12 +129,6 @@ function parseArgs() {
 
             newVer = theArg;
             updateAll = false;      // We have mixed versions so we can't update all of them if we have a version#
-        } else if (!isReact && theArg === "-react") {
-            isReact = true;
-            updateAll = false;
-        } else if (!isReactNative && theArg === "-reactNative") {
-            isReactNative = true;
-            updateAll = false;
         } else {
             console.error("!!! Invalid Argument [" + theArg + "] detected");
             return false;
@@ -172,7 +163,7 @@ function updateVersions() {
     let newVersion = calculateVersion(rootVersion.version, verNext);
     if (newVersion) {
         console.log("New version [" + theVersion.release + "] => [" + newVersion + "]");
-        if (updateAll || (!isReact && !isReactNative)) {
+        if (updateAll) {
             theVersion.release = newVersion;
         }
     }
@@ -311,23 +302,14 @@ function getVersionDetails(theVersion) {
 }
 
 function shouldUpdatePackage(name) {
-    if (!updateAll) {
-        if (name.indexOf("-react-js") !== -1) {
-            return isReact;
-        }
-
-        if (name.indexOf("-react-native") !== -1) {
-            return isReactNative;
-        }
-
-        return !isReact && !isReactNative;
+    if (name.indexOf("-react-js") !== -1 || name.indexOf("-react-sample") !== -1) {
+        return true;
+    } else {
+        return updateAll;
     }
-
-    return updateAll;
 }
 
 function shouldProcess(name) {
-    let updateDefPkgs = updateAll || (!isReact && !isReactNative);
 
     if (name.indexOf("node_modules/") !== -1) {
         return false;
@@ -341,48 +323,12 @@ function shouldProcess(name) {
         return false;
     }
 
-    if (name.indexOf("-react-js") !== -1) {
-        return updateAll || isReact;
-    }
-
-    if (name.indexOf("-react-sample") !== -1) {
-        return updateAll || isReact;
-    }
-
-    if (name.indexOf("-react-native") !== -1) {
-        return updateAll || isReactNative;
-    }
-
-    if (name.indexOf("-angularplugin") !== -1) {
-        return false;
-    }
-
-    if (name.indexOf("AISKU/") !== -1) {
-        return updateDefPkgs;
-    }
-
-    if (name.indexOf("AISKULight/") !== -1) {
-        return updateDefPkgs;
-    }
-
-    if (name.indexOf("channels/") !== -1) {
-        return updateDefPkgs;
-    }
-
-    if (name.indexOf("extensions/") !== -1) {
-        return updateDefPkgs;
-    }
-
-    if (name.indexOf("shared/") !== -1) {
-        return updateDefPkgs;
-    }
-
-    if (name.indexOf("tools/chrome-debug-extension") !== -1) {
-        return updateDefPkgs;
+    if (name.indexOf("-react-js") !== -1 || name.indexOf("-react-sample") !== -1) {
+        return true;
     }
 
     if (name === "package.json") {
-        return updateDefPkgs;
+        return updateAll;
     }
 
     return false;
