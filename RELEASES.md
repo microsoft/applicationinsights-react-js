@@ -1,5 +1,19 @@
 # Releases
 
+## 17.0.0 (July 21st, 2023)
+
+Major update to support ApplicationInsights v3.x, see the [ApplicationInsights breaking changes](https://microsoft.github.io/ApplicationInsights-JS/upgrade/v3_BreakingChanges.html)
+
+We are also re-numbering the plugin to match the major version number of the targeted react version used to create the plugin.
+
+### Changelog
+
+- #42 ApplicationInsights-JS v3 Compatibility
+- #45 Update main branch to prepare for next major version.
+- #47 Merge release3.x changes into main
+- #49 Dynmic Config Change
+- #50 fix version update
+
 ## 3.4.3 (June 8th, 2023)
 
 Version 3.x is now being maintained / released from the [release3.x branch](https://github.com/microsoft/applicationinsights-react-js/tree/release3.x) as
