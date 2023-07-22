@@ -4,7 +4,7 @@ import {ReactPlugin} from '@microsoft/applicationinsights-react-js';
 const reactPlugin = new ReactPlugin();
 const appInsights = new ApplicationInsights({
   config: {
-    connectionString: "YOUR CONNECTION STRING",
+    instrumentationKey: "YOUR INSTRUMENTATION KEY",
     extensions: [reactPlugin],
     extensionConfig: {},
     enableAutoRouteTracking: true,
