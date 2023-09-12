@@ -1,7 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from "react";
 import { useAppInsightsContext, useTrackEvent } from "@microsoft/applicationinsights-react-js";
-import { configPlugin } from './ApplicationInsightsService';
 
 const TestComponent = () => {
   const appInsights = useAppInsightsContext();
@@ -19,7 +18,6 @@ const TestComponent = () => {
   }
 
   function onClick2() {
-    configPlugin.sync();
   }
 
   return (
