@@ -1,6 +1,6 @@
 {
     "name": "@microsoft/applicationinsights-react-js",
-    "version": "17.0.0",
+    "version": "17.0.1",
     "description": "Microsoft Application Insights React plugin",
     "author": "Microsoft Application Insights Team",
     "license": "MIT",
@@ -66,8 +66,8 @@
     },
     "dependencies": {
         "@microsoft/applicationinsights-shims": "^3.0.1",
-        "@microsoft/applicationinsights-core-js": "^3.0.2",
-        "@microsoft/applicationinsights-common": "^3.0.2",
+        "@microsoft/applicationinsights-core-js": "^3.0.3",
+        "@microsoft/applicationinsights-common": "^3.0.3",
         "@microsoft/dynamicproto-js": "^2.0.2"
     },
     "peerDependencies": {

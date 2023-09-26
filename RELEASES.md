@@ -1,5 +1,14 @@
 # Releases
 
+## 17.0.1 (Sep 26th, 2023)
+
+### Changelog
+
+- #32 Fix Type error caused by application-insights
+- #52 Update sample dependency 
+- #55 Fix skipFirstRun at useCustomEvent in strict mode 
+
+
 ## 17.0.0 (July 21st, 2023)
 
 Major update to support ApplicationInsights v3.x, see the [ApplicationInsights breaking changes](https://microsoft.github.io/ApplicationInsights-JS/upgrade/v3_BreakingChanges.html)
