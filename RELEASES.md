@@ -1,6 +1,6 @@
 # Releases
 
-## 17.0.2 (Sep 26th, 2023)
+## 17.0.1 (Sep 26th, 2023)
 
 ### Changelog
 
