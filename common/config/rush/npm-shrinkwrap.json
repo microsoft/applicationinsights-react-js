@@ -3702,7 +3702,7 @@
     "node_modules/@rush-temp/applicationinsights-react-sample": {
       "version": "0.0.0",
       "resolved": "file:projects/applicationinsights-react-sample.tgz",
-      "integrity": "sha512-eGBqe8LHAyOsM/tlSI2dpKHnMu40YEe5GT+zjOwdB1uXK2QuCeOMNyaeTrppZ+gwYmeIxihjIlgvT1sIuJOllQ==",
+      "integrity": "sha512-pnppNBwietaFKRGbf/GlIVdoB72ItCdP4oYXoR4OerS6EucuPtEw8zKBqqPIF2xczfBa95vmjp1g7nGTtJsvtQ==",
       "dependencies": {
         "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
         "@microsoft/applicationinsights-core-js": "^3.0.3",
@@ -23135,7 +23135,7 @@
     },
     "@rush-temp/applicationinsights-react-sample": {
       "version": "file:projects\\applicationinsights-react-sample.tgz",
-      "integrity": "sha512-eGBqe8LHAyOsM/tlSI2dpKHnMu40YEe5GT+zjOwdB1uXK2QuCeOMNyaeTrppZ+gwYmeIxihjIlgvT1sIuJOllQ==",
+      "integrity": "sha512-pnppNBwietaFKRGbf/GlIVdoB72ItCdP4oYXoR4OerS6EucuPtEw8zKBqqPIF2xczfBa95vmjp1g7nGTtJsvtQ==",
       "requires": {
         "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
         "@microsoft/applicationinsights-core-js": "^3.0.3",
