@@ -4,15 +4,14 @@ import {ReactPlugin} from '@microsoft/applicationinsights-react-js';
 const reactPlugin = new ReactPlugin();
 const appInsights = new ApplicationInsights({
   config: {
-    connectionString: "YOUR CONNECTION STRING",
+    connectionString: "instrumentationKey=test",
     extensions: [reactPlugin],
-    extensionConfig: {},
     enableAutoRouteTracking: true,
     disableAjaxTracking: false,
     autoTrackPageVisitTime: true,
     enableCorsCorrelation: true,
     enableRequestHeaderTracking: true,
-    enableResponseHeaderTracking: true
+    enableResponseHeaderTracking: true,
   }
 });
 appInsights.loadAppInsights();

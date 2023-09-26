@@ -5,6 +5,7 @@ import { useAppInsightsContext, useTrackEvent } from "@microsoft/applicationinsi
 const TestComponent = () => {
   const appInsights = useAppInsightsContext();
   const [testNumber, setTestNumber] = useState(0);
+  
   const trackEvent = useTrackEvent(appInsights, "TestNumber", testNumber);
   
   useEffect(() => {
@@ -16,12 +17,16 @@ const TestComponent = () => {
     setTestNumber(curTestNumber + 1);
   }
 
+  function onClick2() {
+  }
+
   return (
     <div className="App">
       <h1>Test <code>useAppInsightsContext</code></h1>
       <div>
         <p>Current Number: {testNumber}</p>
         <button onClick={onClick}>Add Number</button>
+        <button onClick={onClick2}>TEST</button>
       </div>
     </div>
   );

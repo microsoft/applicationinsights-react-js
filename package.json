@@ -34,7 +34,7 @@
         "ai-restore": "node common/scripts/install-run-rush.js ai-restore"
     },
     "devDependencies": {
-        "@microsoft/rush": "5.82.1",
+        "@microsoft/rush": "^5.105.0",
         "@nevware21/grunt-eslint-ts": "^0.2.2",
         "@nevware21/grunt-ts-plugin": "^0.4.3",
         "@typescript-eslint/eslint-plugin": "^4.28.0",
@@ -58,5 +58,8 @@
         "typedoc": "^0.22.8",
         "typescript": "^4.3.4",
         "whatwg-fetch": "^3.0.0"
+    },
+    "dependencies": {
+        "web-vitals": "^3.4.0"
     }
 }
