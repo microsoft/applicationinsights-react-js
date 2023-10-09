@@ -10,6 +10,7 @@
             "hasInstallScript": true,
             "license": "MIT",
             "dependencies": {
+                "@nevware21/ts-utils": "^0.10.1",
                 "web-vitals": "^3.4.0"
             },
             "devDependencies": {
@@ -970,6 +971,11 @@
                 "grunt": ">=1",
                 "typescript": ">=1"
             }
+        },
+        "node_modules/@nevware21/ts-utils": {
+            "version": "0.10.1",
+            "resolved": "https://registry.npmjs.org/@nevware21/ts-utils/-/ts-utils-0.10.1.tgz",
+            "integrity": "sha512-pMny25NnF2/MJwdqC3Iyjm2pGIXNxni4AROpcqDeWa+td9JMUY4bUS9uU9XW+BoBRqTLUL+WURF9SOd/6OQzRg=="
         },
         "node_modules/@nodelib/fs.scandir": {
             "version": "2.1.5",
