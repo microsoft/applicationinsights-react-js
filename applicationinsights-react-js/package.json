@@ -68,7 +68,8 @@
         "@microsoft/applicationinsights-shims": "^3.0.1",
         "@microsoft/applicationinsights-core-js": "^3.0.3",
         "@microsoft/applicationinsights-common": "^3.0.3",
-        "@microsoft/dynamicproto-js": "^2.0.2"
+        "@microsoft/dynamicproto-js": "^2.0.2",
+        "@nevware21/ts-utils": ">= 0.10.1 < 2.x"
     },
     "peerDependencies": {
         "tslib": "*",
