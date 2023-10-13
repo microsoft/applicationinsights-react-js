@@ -1,6 +1,6 @@
 {
     "name": "@microsoft/applicationinsights-react-sample",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Microsoft Application Insights React plugin Sample",
     "author": "Microsoft Application Insights Team",
     "license": "MIT",
