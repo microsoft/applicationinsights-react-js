@@ -6,7 +6,7 @@
     "pkgs": {
         "@microsoft/applicationinsights-react-js": {
             "package": "package.json",
-            "release": "17.0.1"
+            "release": "17.0.2"
         },
         "@microsoft/applicationinsights-react-sample": {
             "package": "sample/applicationinsights-react-sample/package.json",
