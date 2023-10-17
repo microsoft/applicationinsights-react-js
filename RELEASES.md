@@ -1,5 +1,11 @@
 # Releases
 
+## 17.0.2 (Oct 13rd, 2023)
+
+### Changelog
+
+- #60 [fix] add ts-utils dependency in package.json
+
 ## 17.0.1 (Sep 26th, 2023)
 
 ### Changelog
