@@ -4,13 +4,17 @@ import AppInsightsErrorBoundary from "../src/AppInsightsErrorBoundary";
 import { TestComponent, ErrorTestComponent } from "./TestComponent";
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
-import { App, LocationDisplay } from "./testapp";
+import { MemoryRouter as Router, Link, Route, Routes, useNavigate, useLocation} from "react-router-dom";
 import userEvent from '@testing-library/user-event';
 
 let reactPlugin: ReactPlugin;
 let trackExceptionSpy;
 let orgWarn = console && console.warn;
+const LocationDisplay = () => {
+  const location = useLocation()
+
+  return <div data-testid="location-display">{location.pathname}</div>
+}
 
 describe("<AppInsightsErrorBoundary />", () => {
   beforeEach(() => {
@@ -89,48 +93,70 @@ describe("<AppInsightsErrorBoundary />", () => {
     }
   });
 
-  test("error state would not show again after user use back button", async () => {
-    const orgError = console && console.error;
-    if (orgError) {
-      console.error = msg => { /* Do Nothing */ };
-    }
-    const history = useHistory();
-    const Home = () => <div>Home Page</div>
+  function NewError() {
+    const navigate = useNavigate();
     const ErrorDisplay = () => <div>You are on the error page</div>;
-    const Error = () => 
-    <div>
+    function handleClick() {
+      navigate(-1);
+    }
+    return (
+      <div>
+        <button onClick={handleClick}>go back</button>
       <AppInsightsErrorBoundary
         appInsights={reactPlugin}
         onError={ErrorDisplay}>
       <ErrorTestComponent />
       </AppInsightsErrorBoundary>
     </div>
+    );
+  }
+
+  test("error state would not show again after user use back button", async () => {
+    const orgError = console && console.error;
+    if (orgError) {
+      console.error = msg => { /* Do Nothing */ };
+    }
+    const Home = () => <div>Home Page</div>
+    const About = () => <div>About Page</div>
+
     try {
       render(
-        <BrowserRouter>
+        <Router>
             <div>
             <Link to="/">Home</Link>
+            <Link to="/about">About</Link>
             <Link to="/error">Error</Link>
-            <Routes>
+            <button type="button" onClick={() => { window.history.go(-1); }}>Back</button>
+             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/error" element={<Error/>} />
+              <Route path="/about" element={<About />} />
+              <Route path="/error" element={<NewError/>} />
             </Routes>
             <LocationDisplay />
           </div>
-        </BrowserRouter>
+        </Router>
       );
       expect(screen.getByText(/Home Page/i)).toBeInTheDocument()
-      // verify page content for expected route after navigating
+      
+      // go to error page
       await userEvent.click(screen.getByText(/error/i))
-      // console.log("------------get", screen)
       expect(screen.getByText(/You are on the error page/i)).toBeInTheDocument()
-    
       expect(trackExceptionSpy).toHaveBeenCalledTimes(1);
 
-      await userEvent.click(screen.getByText(/home/i))
-      console.log("------------go back to home")
+      // go back to home page
+      await userEvent.click(screen.getByText(/go back/i));
       expect(screen.getByText(/Home Page/i)).toBeInTheDocument();
       expect(trackExceptionSpy).toHaveBeenCalledTimes(1);
+
+      // go to error page again
+      await userEvent.click(screen.getByText(/error/i))
+      expect(screen.getByText(/You are on the error page/i)).toBeInTheDocument()
+      console.log("track time", trackExceptionSpy.mock.calls.length);
+
+      // navigate to about page
+      await userEvent.click(screen.getByText(/about/i))
+      expect(screen.getByText(/About Page/i)).toBeInTheDocument()
+      console.log("track time", trackExceptionSpy.mock.calls.length);
 
     } finally {
       if (orgError) {
