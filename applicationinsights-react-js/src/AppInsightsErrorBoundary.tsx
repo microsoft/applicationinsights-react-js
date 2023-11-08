@@ -19,6 +19,8 @@ export default class AppInsightsErrorBoundary extends React.Component<IAppInsigh
     state = { hasError: false };
 
     componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+        // console.log("Error caught:", error);
+        console.log("Error info:", errorInfo);
         this.setState({ hasError: true });
         this.props.appInsights.trackException({
             error: error,
@@ -28,7 +30,25 @@ export default class AppInsightsErrorBoundary extends React.Component<IAppInsigh
         });
     }
 
+    componentDidMount() {
+        // Add a listener for the popstate event
+        window.addEventListener("popstate", this.handlePopState);
+      }
+    
+      componentWillUnmount() {
+        // Remove the listener when the component unmounts
+        console.log("---- remove");
+        window.removeEventListener("popstate", this.handlePopState);
+      }
+    
+      handlePopState = () => {
+        // Reset the hasError state if the user navigates to a new page
+        console.log("set state back");
+        // this.setState({ hasError: false });
+      };
+
     render() {
+        console.log("rendering--------------", this.state.hasError);
         if (this.state.hasError) {
             const { onError } = this.props;
             return React.createElement(onError);
