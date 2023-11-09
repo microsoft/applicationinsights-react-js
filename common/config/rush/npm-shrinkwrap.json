@@ -3659,7 +3659,7 @@
     "node_modules/@rush-temp/applicationinsights-react-js": {
       "version": "0.0.0",
       "resolved": "file:projects/applicationinsights-react-js.tgz",
-      "integrity": "sha512-dDundYuUIH12K4GJnj3XXEO5Oiq8KMiyAjQ/59+4nRXCsQGUtgvQlflHJ8QZrMyNY7NeQIWQOCUcpwENF0AiMA==",
+      "integrity": "sha512-dRHmGC+OdxsJUnJC6NdySgruFWMYAhlKL3FQMArgfbI/l9Y6qRYiCCX/3mB2iKPPj18L1BE50m/yknuBdtqRKw==",
       "dependencies": {
         "@microsoft/api-extractor": "^7.18.1",
         "@microsoft/applicationinsights-common": "^3.0.5",
@@ -3691,7 +3691,7 @@
         "magic-string": "^0.25.7",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
-        "react-router-dom": "^6.10.0",
+        "react-router-dom": "^6.11.2",
         "rollup": "^2.32.0",
         "rollup-plugin-cleanup": "^3.2.1",
         "rollup-plugin-peer-deps-external": "^2.2.4",
@@ -11380,9 +11380,9 @@
       }
     },
     "node_modules/istanbul-lib-coverage": {
-      "version": "3.2.1",
-      "resolved": "https://registry.npmjs.org/istanbul-lib-coverage/-/istanbul-lib-coverage-3.2.1.tgz",
-      "integrity": "sha512-opCrKqbthmq3SKZ10mFMQG9dk3fTa3quaOLD35kJa5ejwZHd9xAr+kLuziiZz2cG32s4lMZxNdmdcEQnTDP4+g==",
+      "version": "3.2.2",
+      "resolved": "https://registry.npmjs.org/istanbul-lib-coverage/-/istanbul-lib-coverage-3.2.2.tgz",
+      "integrity": "sha512-O8dpsF+r0WV/8MNRKfnmrtCWhuKjxrq2w+jpzBL5UZKTi2LeVWnWOmWRxFlesJONmc+wLAGvKQZEOanko0LFTg==",
       "engines": {
         "node": ">=8"
       }
@@ -23170,7 +23170,7 @@
     },
     "@rush-temp/applicationinsights-react-js": {
       "version": "file:projects\\applicationinsights-react-js.tgz",
-      "integrity": "sha512-dDundYuUIH12K4GJnj3XXEO5Oiq8KMiyAjQ/59+4nRXCsQGUtgvQlflHJ8QZrMyNY7NeQIWQOCUcpwENF0AiMA==",
+      "integrity": "sha512-dRHmGC+OdxsJUnJC6NdySgruFWMYAhlKL3FQMArgfbI/l9Y6qRYiCCX/3mB2iKPPj18L1BE50m/yknuBdtqRKw==",
       "requires": {
         "@microsoft/api-extractor": "^7.18.1",
         "@microsoft/applicationinsights-common": "^3.0.5",
@@ -23202,7 +23202,7 @@
         "magic-string": "^0.25.7",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
-        "react-router-dom": "^6.10.0",
+        "react-router-dom": "^6.11.2",
         "rollup": "^2.32.0",
         "rollup-plugin-cleanup": "^3.2.1",
         "rollup-plugin-peer-deps-external": "^2.2.4",
@@ -28762,9 +28762,9 @@
       "integrity": "sha512-WhB9zCku7EGTj/HQQRz5aUQEUeoQZH2bWcltRErOpymJ4boYE6wL9Tbr23krRPSZ+C5zqNSrSw+Cc7sZZ4b7vg=="
     },
     "istanbul-lib-coverage": {
-      "version": "3.2.1",
-      "resolved": "https://registry.npmjs.org/istanbul-lib-coverage/-/istanbul-lib-coverage-3.2.1.tgz",
-      "integrity": "sha512-opCrKqbthmq3SKZ10mFMQG9dk3fTa3quaOLD35kJa5ejwZHd9xAr+kLuziiZz2cG32s4lMZxNdmdcEQnTDP4+g=="
+      "version": "3.2.2",
+      "resolved": "https://registry.npmjs.org/istanbul-lib-coverage/-/istanbul-lib-coverage-3.2.2.tgz",
+      "integrity": "sha512-O8dpsF+r0WV/8MNRKfnmrtCWhuKjxrq2w+jpzBL5UZKTi2LeVWnWOmWRxFlesJONmc+wLAGvKQZEOanko0LFTg=="
     },
     "istanbul-lib-instrument": {
       "version": "5.2.1",
