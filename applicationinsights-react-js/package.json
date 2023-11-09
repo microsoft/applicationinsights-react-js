@@ -30,7 +30,7 @@
         "ai-restore": "grunt react-restore"
     },
     "devDependencies": {
-        "react-router-dom": "^6.11.2",
+        "react-router-dom": "~6.11.2",
         "@microsoft/ai-test-framework": "0.0.1",
         "@microsoft/applicationinsights-rollup-es3": "^1.1.3",
         "@microsoft/api-extractor": "^7.18.1",
