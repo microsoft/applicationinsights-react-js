@@ -94,14 +94,25 @@ describe("<AppInsightsErrorBoundary />", () => {
   });
 
   function NewError() {
+    const navigate = useNavigate();
+  
     function handleClick() {
-      history.back()
+      navigate(-1);
     }
+  
     return (
       <div>
         <button onClick={handleClick}>go back</button>
         <div>You are on the error page</div>
       </div>
+    );
+  }
+
+  function BackButton() {
+    const navigate = useNavigate();
+  
+    return (
+      <button type="button" onClick={() => navigate(-1)}>Back</button>
     );
   }
 
@@ -117,20 +128,20 @@ describe("<AppInsightsErrorBoundary />", () => {
 
     try {
       render(
-        <AppInsightsErrorBoundary appInsights={reactPlugin} onError={NewError}>
-          <Router>
+        <Router>
+          <AppInsightsErrorBoundary appInsights={reactPlugin} onError={NewError}>
             <div>
               <Link to="/">Home</Link>
               <Link to="/about">About</Link>
-              <button type="button" onClick={() => { window.history.go(-1); }}>Back</button>
+              <BackButton />
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
               </Routes>
               <LocationDisplay />
             </div>
-          </Router>
-        </AppInsightsErrorBoundary>
+          </AppInsightsErrorBoundary>
+        </Router>
       );
       expect(screen.getByText(/Home Page/i)).toBeInTheDocument()
 
