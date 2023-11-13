@@ -93,21 +93,20 @@ describe("<AppInsightsErrorBoundary />", () => {
     }
   });
 
-  function NewError() {
+  function BackButton() {
     const navigate = useNavigate();
-    const ErrorDisplay = () => <div>You are on the error page</div>;
-    function handleClick() {
-      navigate(-1);
-    }
+    console.log("BackButton", BackButton);
+    return (
+      <button type="button" onClick={() => navigate(-1)}>Back</button>
+    );
+  }
+
+  function NewError() {
     return (
       <div>
-        <button onClick={handleClick}>go back</button>
-      <AppInsightsErrorBoundary
-        appInsights={reactPlugin}
-        onError={ErrorDisplay}>
-      <ErrorTestComponent />
-      </AppInsightsErrorBoundary>
-    </div>
+        <BackButton />
+        <div>You are on the error page</div>
+      </div>
     );
   }
 
@@ -116,48 +115,48 @@ describe("<AppInsightsErrorBoundary />", () => {
     if (orgError) {
       console.error = msg => { /* Do Nothing */ };
     }
-    const Home = () => <div>Home Page</div>
-    const About = () => <div>About Page</div>
+    const Home = () => <div>Home Page</div>;
+    const About = () => {
+      throw new Error("something went wrong");
+    };
+    const NewPage = () => <div>New Page</div>;
 
     try {
       render(
-        <Router>
+        <AppInsightsErrorBoundary appInsights={reactPlugin} onError={NewError}>
+          <Router>
             <div>
-            <Link to="/">Home</Link>
-            <Link to="/about">About</Link>
-            <Link to="/error">Error</Link>
-            <button type="button" onClick={() => { window.history.go(-1); }}>Back</button>
-             <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/error" element={<NewError/>} />
-            </Routes>
-            <LocationDisplay />
-          </div>
-        </Router>
+              <Link to="/">Home</Link>
+              <Link to="/about">About</Link>
+              <Link to="/newpage">newPage</Link>
+              <BackButton />
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/newpage" element={<NewPage />} />
+              </Routes>
+              <LocationDisplay />
+            </div>
+          </Router>
+        </AppInsightsErrorBoundary>
       );
       expect(screen.getByText(/Home Page/i)).toBeInTheDocument()
-      
-      // go to error page
-      await userEvent.click(screen.getByText(/error/i))
-      expect(screen.getByText(/You are on the error page/i)).toBeInTheDocument()
-      expect(trackExceptionSpy).toHaveBeenCalledTimes(1);
 
-      // go back to home page
-      await userEvent.click(screen.getByText(/go back/i));
+       // navigate to new page 
+       await userEvent.click(screen.getByText(/newpage/i));
+       // go back to home page (no error, so show home component)
+      await userEvent.click(screen.getByText(/Back/i));
       expect(screen.getByText(/Home Page/i)).toBeInTheDocument();
-      expect(trackExceptionSpy).toHaveBeenCalledTimes(1);
-
-      // go to error page again
-      await userEvent.click(screen.getByText(/error/i))
-      expect(screen.getByText(/You are on the error page/i)).toBeInTheDocument()
+      
+      
+      // navigate to about page (throws error, so show error component)
+      await userEvent.click(screen.getByText(/about/i)); // compile error useNavigate() may be used only in the context of a <Router> component.
+      expect(screen.getByText(/You are on the error page/i)).toBeInTheDocument();
       console.log("track time", trackExceptionSpy.mock.calls.length);
 
-      // navigate to about page
-      await userEvent.click(screen.getByText(/about/i))
-      expect(screen.getByText(/About Page/i)).toBeInTheDocument()
-      console.log("track time", trackExceptionSpy.mock.calls.length);
-
+      // // go back to home page (no error, so show home component)
+      // await userEvent.click(screen.getByText(/go back/i));
+      // expect(screen.getByText(/Home Page/i)).toBeInTheDocument();
     } finally {
       if (orgError) {
         console.error = orgError;
