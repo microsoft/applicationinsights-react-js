@@ -5,6 +5,7 @@ import React from "react";
 import { SeverityLevel } from "@microsoft/applicationinsights-common";
 import ReactPlugin from "./ReactPlugin";
 
+
 export interface IAppInsightsErrorBoundaryProps {
     appInsights: ReactPlugin
     onError: React.ComponentType<any>
@@ -30,8 +31,17 @@ export default class AppInsightsErrorBoundary extends React.Component<IAppInsigh
 
     render() {
         if (this.state.hasError) {
+            if(this.props.appInsights.getErrorReset()) {
+                console.log("----------------bbbbbbbbbbb------------")
+                this.state.hasError = false;
+            }
+            // const { onError: OnErrorComponent} = this.props;
+
+            // const OnErrorWithHistory = withRouter(OnErrorComponent);
             const { onError } = this.props;
             return React.createElement(onError);
+
+            //  return <OnErrorWithHistory />;
         }
 
         return this.props.children;

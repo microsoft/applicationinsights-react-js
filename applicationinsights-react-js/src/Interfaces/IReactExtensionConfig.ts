@@ -14,4 +14,9 @@ export interface IReactExtensionConfig {
    * @memberof IReactAISettings
    */
   readonly history?: History;
+
+  /**
+   * Optional If true, will reset errors states
+   */
+  errorReset?: boolean;
 }
