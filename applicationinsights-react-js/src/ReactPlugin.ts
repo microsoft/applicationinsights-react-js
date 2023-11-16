@@ -25,6 +25,7 @@ const defaultReactExtensionConfig: IConfigDefaults<IReactExtensionConfig> = objD
 export default class ReactPlugin extends BaseTelemetryPlugin {
     public priority = 185;
     public identifier = 'ReactPlugin';
+    getErrorReset: () => boolean;
 
     constructor() {
         super();
@@ -65,6 +66,10 @@ export default class ReactPlugin extends BaseTelemetryPlugin {
             _self.getCookieMgr = (): ICookieMgr => {
                 return safeGetCookieMgr(_self.core);
             };
+
+            _self.getErrorReset = (): boolean => {
+                return _extensionConfig?.errorReset;
+            }
         
             _self.getAppInsights = _getAnalytics;
         

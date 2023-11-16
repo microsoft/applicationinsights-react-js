@@ -5,6 +5,7 @@ import React from "react";
 import { SeverityLevel } from "@microsoft/applicationinsights-common";
 import ReactPlugin from "./ReactPlugin";
 
+
 export interface IAppInsightsErrorBoundaryProps {
     appInsights: ReactPlugin
     onError: React.ComponentType<any>
@@ -28,27 +29,19 @@ export default class AppInsightsErrorBoundary extends React.Component<IAppInsigh
         });
     }
 
-    // componentDidMount() {
-    //     // Add a listener for the popstate event
-    //     window.addEventListener("popstate", this.handlePopState);
-    //   }
-    
-    //   componentWillUnmount() {
-    //     // Remove the listener when the component unmounts
-    //     console.log("---- remove");
-    //     window.removeEventListener("popstate", this.handlePopState);
-    //   }
-    
-    //   handlePopState = () => {
-    //     // Reset the hasError state if the user navigates to a new page
-    //     console.log("set state back");
-    //     // this.setState({ hasError: false });
-    //   };
-
     render() {
         if (this.state.hasError) {
+            if(this.props.appInsights.getErrorReset()) {
+                console.log("----------------bbbbbbbbbbb------------")
+                this.state.hasError = false;
+            }
+            // const { onError: OnErrorComponent} = this.props;
+
+            // const OnErrorWithHistory = withRouter(OnErrorComponent);
             const { onError } = this.props;
             return React.createElement(onError);
+
+            //  return <OnErrorWithHistory />;
         }
 
         return this.props.children;
