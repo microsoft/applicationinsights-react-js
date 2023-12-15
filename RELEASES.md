@@ -1,5 +1,11 @@
 # Releases
 
+## 17.0.3 (Nov 3rd, 2023)
+
+### Changelog
+
+- #65 [pre-release] udpate application insight dependency, get ready for release 
+
 ## 17.0.2 (Oct 13rd, 2023)
 
 ### Changelog
