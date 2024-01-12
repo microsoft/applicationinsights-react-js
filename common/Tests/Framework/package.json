@@ -49,6 +49,6 @@
         "tslib": "*"
     },
     "dependencies": {
-        "@microsoft/dynamicproto-js": "^2.0.2"
+        "@microsoft/dynamicproto-js": "^2.0.3"
     }
 }
