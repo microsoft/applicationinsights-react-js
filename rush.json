@@ -23,11 +23,6 @@
       "packageName": "@microsoft/applicationinsights-react-js",
       "projectFolder": "applicationinsights-react-js",
       "shouldPublish": true
-    },
-    {
-      "packageName": "@microsoft/applicationinsights-react-sample",
-      "projectFolder": "sample/applicationinsights-react-sample",
-      "shouldPublish": true
     }
   ]
 }
