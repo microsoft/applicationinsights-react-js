@@ -1,6 +1,6 @@
 {
     "name": "@microsoft/applicationinsights-react-js",
-    "version": "17.0.3",
+    "version": "17.0.4",
     "description": "Microsoft Application Insights React plugin",
     "author": "Microsoft Application Insights Team",
     "license": "MIT",
@@ -36,7 +36,7 @@
         "sample": "cd sample/applicationinsights-react-sample && npm install && npm run build"
     },
     "devDependencies": {
-        "@microsoft/rush": "^5.82.1",
+        "@microsoft/rush": "^5.113.4",
         "@nevware21/grunt-eslint-ts": "^0.2.2",
         "@nevware21/grunt-ts-plugin": "^0.4.3",
         "@typescript-eslint/eslint-plugin": "^4.28.0",
