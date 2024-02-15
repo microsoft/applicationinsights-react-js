@@ -10,7 +10,7 @@
         },
         "@microsoft/applicationinsights-react-sample": {
             "package": "sample/applicationinsights-react-sample/package.json",
-            "release": "1.0.5"
+            "release": "1.1.0"
         }
     }
 }
