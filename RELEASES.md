@@ -1,6 +1,6 @@
 # Releases
 
-## 17.0.5 (Feb 15th, 2024)
+## 17.1.0 (Feb 15th, 2024)
 
 ### Changelog
 
