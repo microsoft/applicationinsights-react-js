@@ -33,7 +33,8 @@
         "ai-min": "node common/scripts/install-run-rush.js ai-min",
         "ai-restore": "node common/scripts/install-run-rush.js ai-restore",
         "gh-status": "node ./tools/status-tools/github-status.js",
-        "sample": "cd sample/applicationinsights-react-sample && npm install && npm run build"
+        "sample": "cd sample/applicationinsights-react-sample && npm install && npm run build",
+        "npm-package": "node ./tools/release-tools/npm-package.js"
     },
     "devDependencies": {
         "@microsoft/rush": "^5.113.4",
