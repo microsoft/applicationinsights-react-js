@@ -1,5 +1,11 @@
 # Releases
 
+## 17.1.1 (Mar 13rd, 2024)
+
+### Changelog
+
+- #84 [pre-release] update application insight to 3.1.1 
+
 ## 17.1.0 (Feb 15th, 2024)
 
 ### Changelog

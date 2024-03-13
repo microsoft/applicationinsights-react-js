@@ -1,12 +1,12 @@
 {
     "name": "@microsoft/applicationinsights-react-sample",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "description": "Microsoft Application Insights React plugin Sample",
     "author": "Microsoft Application Insights Team",
     "license": "MIT",
     "dependencies": {
         "@microsoft/applicationinsights-core-js": "^3.1.1",
-        "@microsoft/applicationinsights-react-js": "17.1.0",
+        "@microsoft/applicationinsights-react-js": "17.1.1",
         "@microsoft/applicationinsights-web": "^3.1.1",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
