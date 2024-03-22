@@ -1,0 +1,9 @@
+// ------------------------------
+// NPM Publish group definitions
+// ------------------------------
+{
+    // DynamicProto packages
+    "react": [
+        "./applicationinsights-react-js"
+    ]
+}
