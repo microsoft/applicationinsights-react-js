@@ -7,7 +7,7 @@
 - #76 [npm fix] remove sample project from rush
 - #75 Update Application Insights to ^3.0.8
 - #77 Update @microsoft/rush to ^5.113.4
-- #78 Bump postcss from 8.4.29 to 8.4.35 
+- #78 Bump postcss from 8.4.29 to 8.4.35
 
 ## 17.0.3 (Nov 3rd, 2023)
 
