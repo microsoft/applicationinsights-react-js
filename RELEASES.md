@@ -1,5 +1,11 @@
 # Releases
 
+## 17.1.2 (Mar 21st, 2024)
+
+### Changelog
+
+- #87 [pre-release] update application insight to 3.1.2 and remove node 14 from build 
+
 ## 17.1.1 (Mar 13rd, 2024)
 
 ### Changelog
