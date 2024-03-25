@@ -6,7 +6,7 @@
     "license": "MIT",
     "dependencies": {
         "@microsoft/applicationinsights-core-js": "^3.0.9",
-        "@microsoft/applicationinsights-react-js": "17.0.4",
+        "@microsoft/applicationinsights-react-js": "17.0.5",
         "@microsoft/applicationinsights-web": "^3.0.9",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",

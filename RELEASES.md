@@ -1,5 +1,11 @@
 # Releases
 
+## 17.0.5 (Mar 25th, 2024)
+
+### Changelog
+
+- #90 [react 17][pre-release] udpate application insight dependency 
+
 ## 17.0.4 (Feb 12th, 2024)
 
 ### Changelog
