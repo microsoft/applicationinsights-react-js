@@ -18,7 +18,12 @@ appInsights.loadAppInsights();
 
 appInsights.addTelemetryInitializer((env:ITelemetryItem) => {
     env.tags = env.tags || [];
-    env.tags["ai.cloud.role"] = "testTag";
+    env.tags["ai.cloud.role"] = "<app-role-frontend>";
+    //custom props
+    env.data = env.data || {};
+    env.data["ms-appName"] = "<frontend-name>";
+    env.data["ms-user"] = "<frontend-auth-user>";
+    env.data["ms-userid"] = "<frontend-auth-userid>";
 });
 
 export { reactPlugin, appInsights };
