@@ -1,5 +1,21 @@
 # Releases
 
+## 17.3.0 (July 2nd, 2024)
+
+### Changelog
+
+- #101 [Pre-Release] Update Application Insights dependencies to v3.3.0
+  - Adds support to internally defer initialization completion of the SDK while waiting for the connectionString, instrumentationKey or endpointURL to be resolved via a Promise.
+  - During this period the SDK will not send any telemetry, and it will be internally batched if the promise(s) never resolve then the telemetry will be dropped.
+- #102 Bump braces from 3.0.2 to 3.0.3 in /sample/applicationinsights-react-sample
+- #99 Update README.md
+- #93 Bump express from 4.18.2 to 4.19.2 in /sample/applicationinsights-react-sample
+- #71 Update Sample ApplicationInsightsService.tsx
+
+### Potential breaking change (from @microsoft/applicationInsights-web v3.3.0)
+
+This release contains a potential break change due to enhancing the definition of the [IConfiguration](https://github.com/microsoft/ApplicationInsights-JS/blob/main/shared/AppInsightsCore/src/JavaScriptSDK.Interfaces/IConfiguration.ts) to support Promise types for the connectionString, instrumentationKey and endpointURL; any extension that relies on these base interfaces will VERY likely cause TypeScript to fail with potential warnings about the types being different.
+
 ## 17.2.0 (May 6th, 2024)
 
 ### Changelog
