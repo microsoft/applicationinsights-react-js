@@ -1,6 +1,6 @@
 {
     "name": "@microsoft/applicationinsights-react-js",
-    "version": "17.2.0",
+    "version": "17.3.0",
     "description": "Microsoft Application Insights React plugin",
     "author": "Microsoft Application Insights Team",
     "license": "MIT",
