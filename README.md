@@ -29,7 +29,7 @@ const browserHistory = createBrowserHistory({ basename: '' });
 var reactPlugin = new ReactPlugin();
 var appInsights = new ApplicationInsights({
     config: {
-        instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE',
+        connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
         extensions: [reactPlugin],
         extensionConfig: {
           [reactPlugin.identifier]: { history: browserHistory }
@@ -53,7 +53,7 @@ For `react-router v6` or other scenarios where router history is not exposed, ap
 var reactPlugin = new ReactPlugin();
 var appInsights = new ApplicationInsights({
     config: {
-        instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE',
+        connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
         enableAutoRouteTracking: true,
         extensions: [reactPlugin]
         }
@@ -106,6 +106,12 @@ Additionally, as part of this change the existing v3.x extension has been moved 
 
 | Version |  Application Insights | React     | Branch
 |---------|-----------------------|-----------|-----------
+| 17.2.0  | ^3.2.0                | >= 17.0.2 | [main](https://github.com/microsoft/applicationinsights-react-js)
+| 17.1.2  | ^3.1.2                | >= 17.0.2 | [main](https://github.com/microsoft/applicationinsights-react-js)
+| 17.1.1  | ^3.1.1                | >= 17.0.2 | [main](https://github.com/microsoft/applicationinsights-react-js)
+| 17.1.0  | ^3.1.0                | >= 17.0.2 | [main](https://github.com/microsoft/applicationinsights-react-js)
+| 17.0.4  | ^3.0.8                | >= 17.0.2 | [main](https://github.com/microsoft/applicationinsights-react-js)
+| 17.0.3  | ^3.0.7                | >= 17.0.2 | [main](https://github.com/microsoft/applicationinsights-react-js)
 | 17.0.2  | ^3.0.3                | >= 17.0.2 | [main](https://github.com/microsoft/applicationinsights-react-js)
 | 17.0.1  | ^3.0.3                | >= 17.0.2 | [main](https://github.com/microsoft/applicationinsights-react-js)
 | 17.0.0  | ^3.0.2                | >= 17.0.2 | [main](https://github.com/microsoft/applicationinsights-react-js)

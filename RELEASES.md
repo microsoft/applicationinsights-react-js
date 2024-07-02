@@ -1,5 +1,45 @@
 # Releases
 
+## 17.2.0 (May 6th, 2024)
+
+### Changelog
+
+- #97 [pre-release] update application insight to 3.2.0 
+
+## 17.1.2 (Mar 21st, 2024)
+
+### Changelog
+
+- #87 [pre-release] update application insight to 3.1.2 and remove node 14 from build 
+
+## 17.1.1 (Mar 13rd, 2024)
+
+### Changelog
+
+- #84 [pre-release] update application insight to 3.1.1 
+
+## 17.1.0 (Feb 15th, 2024)
+
+### Changelog
+
+- #75 Update Application Insights to ^3.1.0
+
+## 17.0.4 (Feb 12th, 2024)
+
+### Changelog
+
+- #76 [npm fix] remove sample project from rush
+- #75 Update Application Insights to ^3.0.8
+- #77 Update @microsoft/rush to ^5.113.4
+- #78 Bump postcss from 8.4.29 to 8.4.35
+
+## 17.0.3 (Nov 3rd, 2023)
+
+### Changelog
+
+- #65 [pre-release] udpate application insight dependency, get ready for release 
+
+
 ## 17.0.2 (Oct 13rd, 2023)
 
 ### Changelog

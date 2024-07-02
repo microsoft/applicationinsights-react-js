@@ -1,6 +1,6 @@
 {
     "name": "@microsoft/applicationinsights-react-js",
-    "version": "17.0.2",
+    "version": "17.2.0",
     "description": "Microsoft Application Insights React plugin",
     "author": "Microsoft Application Insights Team",
     "license": "MIT",
@@ -32,10 +32,12 @@
         "fullCleanBuild": "npm run fullClean && npm run rebuild",
         "ai-min": "node common/scripts/install-run-rush.js ai-min",
         "ai-restore": "node common/scripts/install-run-rush.js ai-restore",
-        "gh-status": "node ./tools/status-tools/github-status.js"
+        "gh-status": "node ./tools/status-tools/github-status.js",
+        "sample": "cd sample/applicationinsights-react-sample && npm install && npm run build",
+        "npm-package": "node ./tools/release-tools/npm-package.js"
     },
     "devDependencies": {
-        "@microsoft/rush": "^5.105.0",
+        "@microsoft/rush": "^5.113.4",
         "@nevware21/grunt-eslint-ts": "^0.2.2",
         "@nevware21/grunt-ts-plugin": "^0.4.3",
         "@typescript-eslint/eslint-plugin": "^4.28.0",
@@ -61,7 +63,7 @@
         "whatwg-fetch": "^3.0.0"
     },
     "dependencies": {
-        "@nevware21/ts-utils": ">= 0.10.1 < 2.x",
+        "@nevware21/ts-utils": ">= 0.11.3 < 2.x",
         "web-vitals": "^3.4.0"
     }
 }
