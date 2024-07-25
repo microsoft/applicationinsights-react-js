@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { SeverityLevel } from '@microsoft/applicationinsights-web';
 import { appInsights } from './ApplicationInsightsService';
 import './App.css';
-import { start } from 'repl';
 
 function TestPage() {
   const [time, setTime] = useState(0);
