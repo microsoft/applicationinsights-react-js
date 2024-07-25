@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {SeverityLevel} from '@microsoft/applicationinsights-web';
 import { appInsights} from './ApplicationInsightsService';
 import './App.css';
@@ -22,6 +22,14 @@ function TestPage() {
     appInsights.flush();
   }
 
+  function startTrackPageView() {
+    appInsights.startTrackPage("TestPage");
+  }
+
+  function stopTrackPageView() {
+    appInsights.stopTrackPage("TestPage");
+  }
+
   function throwError() {
       throw new Error("test error");
   }
@@ -36,6 +44,7 @@ function TestPage() {
       fetch('https://httpbin.org/status/200');
   }
 
+ 
   return (
     <div className="App">
       <h1>Test Page</h1>
@@ -66,6 +75,14 @@ function TestPage() {
       <div>
         <div>Test track Throw Error</div>
         <button onClick={throwError}>Autocollect an Error</button>
+      </div>
+      <div>
+        <div>Start Track Page View</div>
+        <button onClick={startTrackPageView}>Start Track Page View</button>
+      </div>
+      <div>
+        <div>Stop Track Page View</div>
+        <button onClick={stopTrackPageView}>Stop Track Page View</button>
       </div>
     </div>
   )
