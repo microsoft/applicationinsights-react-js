@@ -1,21 +1,25 @@
-import React, { useState } from 'react';
-import {SeverityLevel} from '@microsoft/applicationinsights-web';
-import { appInsights} from './ApplicationInsightsService';
+import React, { useState, useEffect, useRef } from 'react';
+import { SeverityLevel } from '@microsoft/applicationinsights-web';
+import { appInsights } from './ApplicationInsightsService';
 import './App.css';
-
+import { start } from 'repl';
 
 function TestPage() {
+  const [time, setTime] = useState(0);
+  const [isRunning, setIsRunning] = useState(false);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const startTimeRef = useRef<number | null>(null);
 
   function trackException() {
     appInsights.trackException({ error: new Error('some error'), severityLevel: SeverityLevel.Error });
   }
 
   function trackTrace() {
-      appInsights.trackTrace({ message: 'some trace', severityLevel: SeverityLevel.Information });
+    appInsights.trackTrace({ message: 'some trace', severityLevel: SeverityLevel.Information });
   }
 
   function trackEvent() {
-      appInsights.trackEvent({ name: 'some event' });
+    appInsights.trackEvent({ name: 'some event' });
   }
 
   function flush() {
@@ -24,27 +28,61 @@ function TestPage() {
 
   function startTrackPageView() {
     appInsights.startTrackPage("TestPage");
+    startClock();
   }
 
   function stopTrackPageView() {
     appInsights.stopTrackPage("TestPage");
+    stopClock();
   }
 
   function throwError() {
-      throw new Error("test error");
+    throw new Error("test error");
   }
 
   function ajaxRequest() {
-      let xhr = new XMLHttpRequest();
-      xhr.open('GET', 'https://httpbin.org/status/200');
-      xhr.send();
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://httpbin.org/status/200');
+    xhr.send();
   }
 
   function fetchRequest() {
-      fetch('https://httpbin.org/status/200');
+    fetch('https://httpbin.org/status/200');
   }
 
- 
+  const startClock = () => {
+    if (!isRunning) {
+      setIsRunning(true);
+      startTimeRef.current = Date.now();
+      timerRef.current = setInterval(() => {
+        if (startTimeRef.current !== null) {
+          setTime(Date.now() - startTimeRef.current);
+        }
+      }, 100);
+    }
+  };
+
+  const stopClock = () => {
+    if (isRunning && timerRef.current !== null) {
+      clearInterval(timerRef.current);
+      setIsRunning(false);
+    }
+  };
+
+  const resetClock = () => {
+    setTime(0);
+  }
+
+  useEffect(() => {
+    return () => {
+      if (timerRef.current !== null) {
+        clearInterval(timerRef.current);
+      }
+    };
+  }, []);
+
+
+
   return (
     <div className="App">
       <h1>Test Page</h1>
@@ -83,6 +121,11 @@ function TestPage() {
       <div>
         <div>Stop Track Page View</div>
         <button onClick={stopTrackPageView}>Stop Track Page View</button>
+      </div>
+      <div>
+        <div>Clock</div>
+        <h1>Time: {(time / 1000).toFixed(3)}s</h1>
+        <button onClick={resetClock}>Reset clock</button>
       </div>
     </div>
   )
