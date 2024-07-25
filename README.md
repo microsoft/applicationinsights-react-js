@@ -93,6 +93,11 @@ Please note that it can take up to 10 minutes for new custom metric to appear in
 
 [Azure-Samples/application-insights-react-demo](https://github.com/Azure-Samples/application-insights-react-demo).
 
+### Example of Measuring Page Duration in an SPA
+Measuring the duration for a Single Page Application (SPA) can be challenging when the URL does not change. Therefore, we recommend using [startTrackPage](https://microsoft.github.io/ApplicationInsights-JS/webSdk/applicationinsights-analytics-js/classes/AnalyticsPlugin.html#startTrackPage) and [stopTrackPage](https://microsoft.github.io/ApplicationInsights-JS/webSdk/applicationinsights-analytics-js/classes/AnalyticsPlugin.html#stopTrackPage) for accurate duration calculation.
+
+You can find an example in our sample app. After running the app, visit http://localhost:3000/test to see it in action.
+
 ## React Router
 
 [react-router]: https://github.com/ReactTraining/react-router/blob/master/FAQ.md#how-do-i-access-the-history-object-outside-of-components
