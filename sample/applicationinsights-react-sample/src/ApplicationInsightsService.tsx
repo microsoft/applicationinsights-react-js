@@ -17,7 +17,7 @@ const appInsights = new ApplicationInsights({
 appInsights.loadAppInsights();
 
 appInsights.addTelemetryInitializer((env:ITelemetryItem) => {
-    env.tags = env.tags || [];
+    env.tags = env.tags || {};
     env.tags["ai.cloud.role"] = "<app-role-frontend>";
     //custom props
     env.data = env.data || {};
