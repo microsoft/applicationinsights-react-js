@@ -1,5 +1,17 @@
 # Releases
 
+## 17.3.1 (Aug 20th, 2024)
+
+### Changelog
+
+- #104 Add an Example for Using startTrackPage and stopTrackPage to Measure Duration in an SPA 
+- #106 Fix ITelemetryItem tags initialisation in sample 
+- #108 [Pre-Release] Update Application Insights dependencies to v3.3.1 
+
+### Potential breaking change (from @microsoft/applicationInsights-web v3.3.1)
+
+This release contains a potential break change due to the new configuration **expCfg** under [IConfiguration](https://github.com/microsoft/ApplicationInsights-JS/blob/main/shared/AppInsightsCore/src/JavaScriptSDK.Interfaces/IConfiguration.ts)
+
 ## 17.3.0 (July 2nd, 2024)
 
 ### Changelog
