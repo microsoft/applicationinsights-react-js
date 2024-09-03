@@ -9,8 +9,8 @@
       "version": "0.0.0",
       "dependencies": {
         "@microsoft/api-extractor": "^7.18.1",
-        "@microsoft/applicationinsights-common": "^3.3.1",
-        "@microsoft/applicationinsights-core-js": "^3.3.1",
+        "@microsoft/applicationinsights-common": "^3.3.2",
+        "@microsoft/applicationinsights-core-js": "^3.3.2",
         "@microsoft/applicationinsights-rollup-es3": "^1.1.3",
         "@microsoft/applicationinsights-shims": "^3.0.1",
         "@microsoft/dynamicproto-js": "^2.0.3",
@@ -1182,23 +1182,23 @@
       }
     },
     "node_modules/@microsoft/applicationinsights-common": {
-      "version": "3.3.1",
-      "resolved": "https://registry.npmjs.org/@microsoft/applicationinsights-common/-/applicationinsights-common-3.3.1.tgz",
-      "integrity": "sha512-5cniYigDAMGXdmPQeSg/oAXe7eeQkaMQgdxdjCsdB+/j+dOR+Z30vziiY7mkwMvtHvlcoPoiIfUpSu1FNGXEhg==",
+      "version": "3.3.2",
+      "resolved": "https://registry.npmjs.org/@microsoft/applicationinsights-common/-/applicationinsights-common-3.3.2.tgz",
+      "integrity": "sha512-RR6LpIC9JLQGTcgUaAXhuIZW69W00T6sF7GC6LvLy5PRjvg4m3MqflpQfNHt7yGy72ZHFG/TpLH5zJIghrNRew==",
       "dependencies": {
-        "@microsoft/applicationinsights-core-js": "3.3.1",
+        "@microsoft/applicationinsights-core-js": "3.3.2",
         "@microsoft/applicationinsights-shims": "3.0.1",
         "@microsoft/dynamicproto-js": "^2.0.3",
         "@nevware21/ts-utils": ">= 0.11.3 < 2.x"
       },
       "peerDependencies": {
-        "tslib": "*"
+        "tslib": ">= 1.0.0"
       }
     },
     "node_modules/@microsoft/applicationinsights-core-js": {
-      "version": "3.3.1",
-      "resolved": "https://registry.npmjs.org/@microsoft/applicationinsights-core-js/-/applicationinsights-core-js-3.3.1.tgz",
-      "integrity": "sha512-6mef2NmyQF1B/zvB8BLZlo0B6gAOfFhE5+2l7SqLVdeftWOZILZj7/oqXLECTQ+P3WcthMVWjXtOe8MpGz255g==",
+      "version": "3.3.2",
+      "resolved": "https://registry.npmjs.org/@microsoft/applicationinsights-core-js/-/applicationinsights-core-js-3.3.2.tgz",
+      "integrity": "sha512-Jo3Mkl6zPswjS90SBbe+TxAOjQqHbwpD00VPca1ZeICc+31dbVNIBgkK42G0DbMB/ml1kqwkFV2/kpAH8QJCrw==",
       "dependencies": {
         "@microsoft/applicationinsights-shims": "3.0.1",
         "@microsoft/dynamicproto-js": "^2.0.3",
@@ -1206,7 +1206,7 @@
         "@nevware21/ts-utils": ">= 0.11.3 < 2.x"
       },
       "peerDependencies": {
-        "tslib": "*"
+        "tslib": ">= 1.0.0"
       }
     },
     "node_modules/@microsoft/applicationinsights-rollup-es3": {
@@ -8497,20 +8497,20 @@
       }
     },
     "@microsoft/applicationinsights-common": {
-      "version": "3.3.1",
-      "resolved": "https://registry.npmjs.org/@microsoft/applicationinsights-common/-/applicationinsights-common-3.3.1.tgz",
-      "integrity": "sha512-5cniYigDAMGXdmPQeSg/oAXe7eeQkaMQgdxdjCsdB+/j+dOR+Z30vziiY7mkwMvtHvlcoPoiIfUpSu1FNGXEhg==",
+      "version": "3.3.2",
+      "resolved": "https://registry.npmjs.org/@microsoft/applicationinsights-common/-/applicationinsights-common-3.3.2.tgz",
+      "integrity": "sha512-RR6LpIC9JLQGTcgUaAXhuIZW69W00T6sF7GC6LvLy5PRjvg4m3MqflpQfNHt7yGy72ZHFG/TpLH5zJIghrNRew==",
       "requires": {
-        "@microsoft/applicationinsights-core-js": "3.3.1",
+        "@microsoft/applicationinsights-core-js": "3.3.2",
         "@microsoft/applicationinsights-shims": "3.0.1",
         "@microsoft/dynamicproto-js": "^2.0.3",
         "@nevware21/ts-utils": ">= 0.11.3 < 2.x"
       }
     },
     "@microsoft/applicationinsights-core-js": {
-      "version": "3.3.1",
-      "resolved": "https://registry.npmjs.org/@microsoft/applicationinsights-core-js/-/applicationinsights-core-js-3.3.1.tgz",
-      "integrity": "sha512-6mef2NmyQF1B/zvB8BLZlo0B6gAOfFhE5+2l7SqLVdeftWOZILZj7/oqXLECTQ+P3WcthMVWjXtOe8MpGz255g==",
+      "version": "3.3.2",
+      "resolved": "https://registry.npmjs.org/@microsoft/applicationinsights-core-js/-/applicationinsights-core-js-3.3.2.tgz",
+      "integrity": "sha512-Jo3Mkl6zPswjS90SBbe+TxAOjQqHbwpD00VPca1ZeICc+31dbVNIBgkK42G0DbMB/ml1kqwkFV2/kpAH8QJCrw==",
       "requires": {
         "@microsoft/applicationinsights-shims": "3.0.1",
         "@microsoft/dynamicproto-js": "^2.0.3",
