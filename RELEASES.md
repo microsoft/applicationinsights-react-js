@@ -1,5 +1,16 @@
 # Releases
 
+## 17.3.2 (Sep 3rd, 2024)
+
+This release contains a potential type break change due to the definition of the expCfg in [IConfiguration](https://github.com/microsoft/ApplicationInsights-JS/blob/main/shared/AppInsightsCore/src/JavaScriptSDK.Interfaces/IConfiguration.ts)
+
+### Changelog
+
+- #107 [doc] add document for how to fix type error in extensions for #95
+- #109 Bump braces from 3.0.2 to 3.0.3
+- #111 Bump webpack in /sample/applicationinsights-react-sample
+- #113 [Pre-Release] Update Application Insights dependencies to v3.3.2
+
 ## 17.3.1 (Aug 20th, 2024)
 
 ### Changelog
