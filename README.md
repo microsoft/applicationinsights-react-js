@@ -118,6 +118,7 @@ Additionally, as part of this change the existing v3.x extension has been moved 
 
 | Version |  Application Insights | React     | Branch
 |---------|-----------------------|-----------|-----------
+| 17.3.1  | ^3.3.1                | >= 17.0.2 | [main](https://github.com/microsoft/applicationinsights-react-js)
 | 17.3.0  | ^3.3.0                | >= 17.0.2 | [main](https://github.com/microsoft/applicationinsights-react-js)
 | 17.2.0  | ^3.2.0                | >= 17.0.2 | [main](https://github.com/microsoft/applicationinsights-react-js)
 | 17.1.2  | ^3.1.2                | >= 17.0.2 | [main](https://github.com/microsoft/applicationinsights-react-js)
