@@ -109,6 +109,13 @@ number of this extension to match the major version of the supported React-JS ve
 
 Additionally, as part of this change the existing v3.x extension has been moved into the [release3.x branch](https://github.com/microsoft/applicationinsights-react-js/tree/release3.x)
 
+> :bulb: **Note**
+> If you have encounter error as this: 
+> ```plaintext
+> Type 'ReactPlugin' is not assignable to type 'ITelemetryPlugin'.
+> ```
+> Click here for a [Type Error Fixed Guideline](https://microsoft.github.io/ApplicationInsights-JS/ExtensionErrorSteps)
+
 | Version |  Application Insights | React     | Branch
 |---------|-----------------------|-----------|-----------
 | 17.3.1  | ^3.3.1                | >= 17.0.2 | [main](https://github.com/microsoft/applicationinsights-react-js)
