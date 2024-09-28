@@ -1,5 +1,14 @@
 # Releases
 
+## 17.3.3 (Sep 27th, 2024)
+
+### Changelog
+
+- #112 Bump micromatch from 4.0.5 to 4.0.8
+- #115 Bump serve-static from 1.15.0 to 1.16.2 
+- #116 Bump express in /sample/applicationinsights-react-sample
+- #118 [Pre-Release] Update Application Insights dependencies to v3.3.3
+
 ## 17.3.2 (Sep 3rd, 2024)
 
 This release contains a potential type break change due to the definition of the expCfg in [IConfiguration](https://github.com/microsoft/ApplicationInsights-JS/blob/main/shared/AppInsightsCore/src/JavaScriptSDK.Interfaces/IConfiguration.ts)
