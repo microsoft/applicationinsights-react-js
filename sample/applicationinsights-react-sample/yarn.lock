@@ -1644,7 +1644,7 @@
     "@nevware21/ts-async" ">= 0.5.2 < 2.x"
     "@nevware21/ts-utils" ">= 0.11.3 < 2.x"
 
-"@microsoft/applicationinsights-common@3.3.3", "@microsoft/applicationinsights-common@^3.3.2":
+"@microsoft/applicationinsights-common@3.3.3", "@microsoft/applicationinsights-common@^3.3.3":
   version "3.3.3"
   resolved "https://registry.yarnpkg.com/@microsoft/applicationinsights-common/-/applicationinsights-common-3.3.3.tgz#8c4709ec0a9800dc70ad92580fd73b1c264e3954"
   integrity sha512-WB6iOVjXuBfyNiYL7gyg5S2KveK8zrgPH94llbUCMw+qWX0yENQQf/r3k1PzybxkWwy/8hwAmrV+ACvLcQrdcw==
@@ -1654,7 +1654,7 @@
     "@microsoft/dynamicproto-js" "^2.0.3"
     "@nevware21/ts-utils" ">= 0.11.3 < 2.x"
 
-"@microsoft/applicationinsights-core-js@3.3.3", "@microsoft/applicationinsights-core-js@^3.3.2", "@microsoft/applicationinsights-core-js@^3.3.3":
+"@microsoft/applicationinsights-core-js@3.3.3", "@microsoft/applicationinsights-core-js@^3.3.3":
   version "3.3.3"
   resolved "https://registry.yarnpkg.com/@microsoft/applicationinsights-core-js/-/applicationinsights-core-js-3.3.3.tgz#67e0bacbb830bfb758cc4a37061a82df52a40914"
   integrity sha512-U+IaAx/RS60jl8TAgtKzAeojbJgI+eCnYQGSvVE7IxdHgsmQ3hV3IYrBEf98q5nZD4U1zGoKtI8VEpkepoaYhQ==
@@ -1687,13 +1687,13 @@
     "@microsoft/dynamicproto-js" "^2.0.3"
     "@nevware21/ts-utils" ">= 0.11.3 < 2.x"
 
-"@microsoft/applicationinsights-react-js@17.3.2":
-  version "17.3.2"
-  resolved "https://registry.yarnpkg.com/@microsoft/applicationinsights-react-js/-/applicationinsights-react-js-17.3.2.tgz#18f6daabb027dbd99fbfea99a3ae71896f680505"
-  integrity sha512-QeKZoIYG7I4V0BiKaVeNScQORlXVcUvI3fYlIntkTIWixRK1dWirunRJ92tMwSWnpKmLK06/XgLIK5W6xp8hHg==
+"@microsoft/applicationinsights-react-js@17.3.3":
+  version "17.3.3"
+  resolved "https://registry.yarnpkg.com/@microsoft/applicationinsights-react-js/-/applicationinsights-react-js-17.3.3.tgz#2917f4976ed4738e3b2d4826496312fcb849c2cc"
+  integrity sha512-DbnoNJTMcX7sPuwj2oczrhwmUrnqNEcknFohfB/aSHO45vQjOvAAcNLIsPlXaj7wRZc/PGeUPR92AyC7lNU9zA==
   dependencies:
-    "@microsoft/applicationinsights-common" "^3.3.2"
-    "@microsoft/applicationinsights-core-js" "^3.3.2"
+    "@microsoft/applicationinsights-common" "^3.3.3"
+    "@microsoft/applicationinsights-core-js" "^3.3.3"
     "@microsoft/applicationinsights-shims" "^3.0.1"
     "@microsoft/dynamicproto-js" "^2.0.3"
     "@nevware21/ts-utils" ">= 0.11.3 < 2.x"
@@ -5185,9 +5185,9 @@ http-proxy-agent@^4.0.1:
     debug "4"
 
 http-proxy-middleware@^2.0.3:
-  version "2.0.6"
-  resolved "https://registry.yarnpkg.com/http-proxy-middleware/-/http-proxy-middleware-2.0.6.tgz#e1a4dd6979572c7ab5a4e4b55095d1f32a74963f"
-  integrity sha512-ya/UeJ6HVBYxrgYotAZo1KvPWlgB48kUJLDePFeneHsVujFaW5WNj2NgWCAE//B1Dl02BIfYlpNgBy8Kf8Rjmw==
+  version "2.0.7"
+  resolved "https://registry.yarnpkg.com/http-proxy-middleware/-/http-proxy-middleware-2.0.7.tgz#915f236d92ae98ef48278a95dedf17e991936ec6"
+  integrity sha512-fgVY8AV7qU7z/MmXJ/rxwbrtQH4jBQ9m7kp3llF0liB7glmFeVZFBepQb32T3y8n8k2+AEYuMPCpinYW+/CuRA==
   dependencies:
     "@types/http-proxy" "^1.17.8"
     http-proxy "^1.18.1"
