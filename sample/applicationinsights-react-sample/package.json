@@ -5,9 +5,9 @@
     "author": "Microsoft Application Insights Team",
     "license": "MIT",
     "dependencies": {
-        "@microsoft/applicationinsights-core-js": "^3.3.3",
+        "@microsoft/applicationinsights-core-js": "^3.3.4",
         "@microsoft/applicationinsights-react-js": "17.3.3",
-        "@microsoft/applicationinsights-web": "^3.3.3",
+        "@microsoft/applicationinsights-web": "^3.3.4",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
         "react-router-dom": "^6.11.2",
