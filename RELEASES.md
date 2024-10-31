@@ -1,5 +1,13 @@
 # Releases
 
+## 17.3.4 (Oct 31st, 2024)
+
+### Changelog
+
+- #122 Bump http-proxy-middleware in /sample/applicationinsights-react-sample
+- #123 Bump micromatch in /sample/applicationinsights-react-sample
+- #124 [Pre-Release] Update Application Insights dependencies to v3.3.4
+
 ## 17.3.3 (Sep 27th, 2024)
 
 ### Changelog
