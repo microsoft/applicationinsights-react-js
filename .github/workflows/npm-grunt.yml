@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.x, 20.x, 22.x]
+        node-version: [16.x, 18.x, 20.x, 22.x]
 
     steps:
     - uses: actions/checkout@v4
@@ -21,6 +21,13 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
+    
+    - name: Update dependencies in package.json
+      run: |
+        sed -i 's/"@microsoft\/applicationinsights-core-js": "^3.3.4"/"@microsoft\/applicationinsights-core-js": "3.3.3"/' sample/applicationinsights-react-sample/package.json
+        sed -i 's/"@microsoft\/applicationinsights-react-js": "17.3.4"/"@microsoft\/applicationinsights-react-js": "17.3.3"/' sample/applicationinsights-react-sample/package.json
+        sed -i 's/"@microsoft\/applicationinsights-web": "^3.3.4"/"@microsoft\/applicationinsights-web": "3.3.3"/' sample/applicationinsights-react-sample/package.json
+        echo '"@microsoft/applicationinsights-common": "3.3.3",' | sed -i '/"@microsoft\/applicationinsights-core-js": "3.3.3"/i \        "@microsoft/applicationinsights-common": "3.3.3",' sample/applicationinsights-react-sample/package.json
 
     - name: Build
       working-directory: sample/applicationinsights-react-sample
