@@ -36,5 +36,6 @@ jobs:
       working-directory: sample/applicationinsights-react-sample
       run: |
         npm install
+        npm install @microsoft/applicationinsights-web@3.3.4 --verbose
         npm run build
 
