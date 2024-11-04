@@ -29,6 +29,9 @@ jobs:
         sed -i 's/"@microsoft\/applicationinsights-web": "^3.3.4"/"@microsoft\/applicationinsights-web": "3.3.3"/' sample/applicationinsights-react-sample/package.json
         echo '"@microsoft/applicationinsights-common": "3.3.3",' | sed -i '/"@microsoft\/applicationinsights-core-js": "3.3.3"/i \        "@microsoft/applicationinsights-common": "3.3.3",' sample/applicationinsights-react-sample/package.json
 
+    - name: Display updated package.json
+      run: cat sample/applicationinsights-react-sample/package.json
+        
     - name: Build
       working-directory: sample/applicationinsights-react-sample
       run: |
