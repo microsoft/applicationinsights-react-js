@@ -29,8 +29,7 @@ jobs:
         echo "Current version: $current_version"
 
         # Extract the part of the version after the first dot
-        ai_version=${current_version#*.}
-
+        remaining_version=${current_version#*.}
         # Concatenate "3." with the remaining part
         ai_version="3.$remaining_version"
 
