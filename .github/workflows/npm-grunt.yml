@@ -24,7 +24,9 @@ jobs:
     
     - name: Update dependencies in package.json
       run: |
-        current_version=$(jq -r '.dependencies["@microsoft/applicationinsights-react-js"]' package.json)
+        current_version=$(jq -r '.version' package.json)
+
+        echo "Current version: $current_version"
 
         # Replace the versions in sample/applicationinsights-react-sample/package.json with the current reactJS version
         sed -i "s/\"@microsoft\\/applicationinsights-core-js\": \"[^\"]*\"/\"@microsoft\/applicationinsights-core-js\": \"$current_version\"/" sample/applicationinsights-react-sample/package.json
