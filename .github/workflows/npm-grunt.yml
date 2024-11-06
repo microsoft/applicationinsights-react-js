@@ -24,18 +24,31 @@ jobs:
     
     - name: Update dependencies in package.json
       run: |
-        sed -i 's/"@microsoft\/applicationinsights-core-js": "^3.3.4"/"@microsoft\/applicationinsights-core-js": "3.3.3"/' sample/applicationinsights-react-sample/package.json
-        sed -i 's/"@microsoft\/applicationinsights-react-js": "17.3.4"/"@microsoft\/applicationinsights-react-js": "17.3.3"/' sample/applicationinsights-react-sample/package.json
-        sed -i 's/"@microsoft\/applicationinsights-web": "^3.3.4"/"@microsoft\/applicationinsights-web": "3.3.3"/' sample/applicationinsights-react-sample/package.json
-        echo '"@microsoft/applicationinsights-common": "3.3.3",' | sed -i '/"@microsoft\/applicationinsights-core-js": "3.3.3"/i \        "@microsoft/applicationinsights-common": "3.3.3",' sample/applicationinsights-react-sample/package.json
+        current_version=$(jq -r '.dependencies["@microsoft/applicationinsights-react-js"]' package.json)
 
+        # Replace the versions in sample/applicationinsights-react-sample/package.json with the current reactJS version
+        sed -i "s/\"@microsoft\\/applicationinsights-core-js\": \"[^\"]*\"/\"@microsoft\/applicationinsights-core-js\": \"$current_version\"/" sample/applicationinsights-react-sample/package.json
+        sed -i "s/\"@microsoft\\/applicationinsights-react-js\": \"[^\"]*\"/\"@microsoft\/applicationinsights-react-js\": \"$current_version\"/" sample/applicationinsights-react-sample/package.json
+        sed -i "s/\"@microsoft\\/applicationinsights-web\": \"[^\"]*\"/\"@microsoft\/applicationinsights-web\": \"$current_version\"/" sample/applicationinsights-react-sample/package.json
+
+        # add applicationinsights-common into package.json also
+        echo "\"@microsoft/applicationinsights-common\": \"$current_version\"," | sed -i "/\"@microsoft\/applicationinsights-core-js\": \"$current_version\"/i \        \"@microsoft/applicationinsights-common\": \"$current_version\"," sample/applicationinsights-react-sample/package.json
     - name: Display updated package.json
       run: cat sample/applicationinsights-react-sample/package.json
+    
+    - name: Get latest version of @microsoft/applicationinsights-web
+      id: get_version
+      run: |
+        latest_version=$(npm show @microsoft/applicationinsights-web version)
+        echo "Latest version: $latest_version"
+        echo "latest_version=$latest_version" >> $GITHUB_ENV
         
     - name: Build
       working-directory: sample/applicationinsights-react-sample
       run: |
         npm install
-        npm install @microsoft/applicationinsights-web@3.3.4 --verbose
+        npm install @microsoft/applicationinsights-web@$latest_version --verbose
         npm run build
+      env:
+          latest_version: ${{ env.latest_version }}
 
