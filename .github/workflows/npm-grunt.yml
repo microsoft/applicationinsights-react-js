@@ -47,7 +47,7 @@ jobs:
       working-directory: sample/applicationinsights-react-sample
       run: |
         npm install
-        npm install @microsoft/applicationinsights-web@$latest_version --verbose
+        npm install @microsoft/applicationinsights-web@${{ env.latest_version }} --verbose
         npm run build
       env:
           latest_version: ${{ env.latest_version }}
