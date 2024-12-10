@@ -74,6 +74,7 @@
     "peerDependencies": {
         "tslib": "*",
         "react": ">= 17.0.1",
-        "history": ">= 4.10.1"
+        "history": ">= 4.10.1",
+        "@microsoft/applicationinsights-web": "^3.3.4"
     }
 }
