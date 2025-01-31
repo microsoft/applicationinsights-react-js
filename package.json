@@ -37,7 +37,7 @@
         "npm-package": "node ./tools/release-tools/npm-package.js"
     },
     "devDependencies": {
-        "@microsoft/rush": "^5.113.4",
+        "@microsoft/rush": "5.148.0",
         "@nevware21/grunt-eslint-ts": "^0.2.2",
         "@nevware21/grunt-ts-plugin": "^0.4.3",
         "@typescript-eslint/eslint-plugin": "^4.28.0",
