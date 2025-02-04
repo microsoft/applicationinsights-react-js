@@ -1,16 +1,16 @@
 {
     "description": "The release value identifies the base version that will be applied via the tools/release-tools/setVersion.js",
     "usage": "When creating a new release you should update this value directly or via the eg. 'npm run setVersion -- 3.2.0' or 'npm run setVersion -- -patch' or 'npm run setVersion -- -minor'",
-    "release": "17.3.4",
+    "release": "17.3.5",
     "next": "patch",
     "pkgs": {
         "@microsoft/applicationinsights-react-js": {
             "package": "package.json",
-            "release": "17.3.4"
+            "release": "17.3.5"
         },
         "@microsoft/applicationinsights-react-sample": {
             "package": "sample/applicationinsights-react-sample/package.json",
-            "release": "1.3.0"
+            "release": "1.3.1"
         }
     }
 }

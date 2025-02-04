@@ -1,5 +1,14 @@
 # Releases
 
+## 17.3.5 (Feb 4th, 2025)
+
+### Changelog
+
+- #139 Update to ApplicationInsights 3.3.5
+- #127 Add AI version update script to assist with automated integration testing
+- #130 Update Stale Issue action
+- #131 Update Lock Issue action
+
 ## 17.3.4 (Oct 31st, 2024)
 
 ### Changelog
