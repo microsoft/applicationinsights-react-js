@@ -1,5 +1,11 @@
 # Releases
 
+## 17.3.6 (March 6th, 2025)
+
+### Changelog
+
+- #144 [Pre-Release] Update Application Insights dependencies to v3.3.6 
+
 ## 17.3.5 (Feb 4th, 2025)
 
 ### Changelog
