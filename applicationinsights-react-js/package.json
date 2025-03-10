@@ -75,5 +75,8 @@
         "tslib": "*",
         "react": ">= 17.0.1",
         "history": ">= 4.10.1"
+    },
+    "publishConfig": {
+        "tag": "React17.3.x"
     }
 }
