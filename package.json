@@ -66,5 +66,8 @@
     "dependencies": {
         "@nevware21/ts-utils": ">= 0.11.3 < 2.x",
         "web-vitals": "^3.4.0"
+    },
+    "publishConfig": {
+        "tag": "React17.3.x"
     }
 }
