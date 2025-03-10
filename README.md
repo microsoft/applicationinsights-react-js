@@ -118,9 +118,9 @@ Additionally, as part of this change the existing v3.x extension has been moved 
 
 | Version |  Application Insights | React     | Branch
 |---------|-----------------------|-----------|-----------
-| 17.3.6  | ^3.3.6                | >= 17.0.2 | [main](https://github.com/microsoft/applicationinsights-react-js)
-| 17.3.5  | ^3.3.5                | >= 17.0.2 | [main](https://github.com/microsoft/applicationinsights-react-js)
-| 17.3.4  | ^3.3.4                | >= 17.0.2 | [main](https://github.com/microsoft/applicationinsights-react-js)
+| 17.3.6  | ^3.3.6                | >= 17.0.2 | [release17.3.x](https://github.com/microsoft/applicationinsights-react-js/tree/17.3.6)
+| 17.3.5  | ^3.3.5                | >= 17.0.2 | [release17.3.x](https://github.com/microsoft/applicationinsights-react-js/tree/17.3.5)
+| 17.3.4  | ^3.3.4                | >= 17.0.2 | [main](https://github.com/microsoft/applicationinsights-react-js/tree/17.3.4)
 | 17.3.3  | ^3.3.3                | >= 17.0.2 | [main](https://github.com/microsoft/applicationinsights-react-js)
 | 17.3.2  | ^3.3.2                | >= 17.0.2 | [main](https://github.com/microsoft/applicationinsights-react-js)
 | 17.3.1  | ^3.3.1                | >= 17.0.2 | [main](https://github.com/microsoft/applicationinsights-react-js)
@@ -128,8 +128,9 @@ Additionally, as part of this change the existing v3.x extension has been moved 
 | 17.2.0  | ^3.2.0                | >= 17.0.2 | [main](https://github.com/microsoft/applicationinsights-react-js)
 | 17.1.2  | ^3.1.2                | >= 17.0.2 | [main](https://github.com/microsoft/applicationinsights-react-js)
 | 17.1.1  | ^3.1.1                | >= 17.0.2 | [main](https://github.com/microsoft/applicationinsights-react-js)
-| 17.1.0  | ^3.1.0                | >= 17.0.2 | [main](https://github.com/microsoft/applicationinsights-react-js)
-| 17.0.4  | ^3.0.8                | >= 17.0.2 | [main](https://github.com/microsoft/applicationinsights-react-js)
+| 17.1.0  | ^3.1.0                | >= 17.0.2 | [main](https://github.com/microsoft/applicationinsights-react-js/tree/17.1.0)
+| 17.0.5  | ^3.0.9                | >= 17.0.2 | [release17.0.x](https://github.com/microsoft/applicationinsights-react-js/tree/17.0.5)
+| 17.0.4  | ^3.0.8                | >= 17.0.2 | [release17.0.x](https://github.com/microsoft/applicationinsights-react-js/tree/17.0.4)
 | 17.0.3  | ^3.0.7                | >= 17.0.2 | [main](https://github.com/microsoft/applicationinsights-react-js)
 | 17.0.2  | ^3.0.3                | >= 17.0.2 | [main](https://github.com/microsoft/applicationinsights-react-js)
 | 17.0.1  | ^3.0.3                | >= 17.0.2 | [main](https://github.com/microsoft/applicationinsights-react-js)
