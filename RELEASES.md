@@ -1,5 +1,14 @@
 # Releases
 
+## 18.3.6 (March 12th, 2025)
+
+Version 17.x is now being maintained / released from the [release17.x branch](https://github.com/microsoft/applicationinsights-react-js/tree/release17.3.x) as
+[main](https://github.com/microsoft/applicationinsights-react-js/tree/main) is being updated to support [ApplicationInsights 18.x](https://github.com/microsoft/ApplicationInsights-JS/blob/main/RELEASES.md) and will have it's major version number bumped to match the major version of the supported React-JS version (which will be v18.x as the first release)
+
+### Changelog
+
+- #142 [React18] upgrade to react 18 
+
 ## 17.3.6 (March 6th, 2025)
 
 ### Changelog
