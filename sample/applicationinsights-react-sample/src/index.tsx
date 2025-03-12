@@ -1,18 +1,19 @@
 import React from 'react';
 import {  BrowserRouter,Routes,Route, } from 'react-router-dom'
-import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import TestPage from './TestPage';
+import { createRoot } from "react-dom/client";
 
-ReactDOM.render(
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<App />} />
-      <Route path="/test" element={<TestPage />} />
-    </Routes>
-  </BrowserRouter>,
-  document.getElementById('root') as HTMLElement
+const container = document.getElementById('app');
+const root = createRoot(container!);
+root.render(
+    <BrowserRouter>
+        <Routes>
+            <Route path="/" element={<App />} />
+            <Route path="/test" element={<TestPage />} />
+        </Routes>
+    </BrowserRouter>
 );
 
 

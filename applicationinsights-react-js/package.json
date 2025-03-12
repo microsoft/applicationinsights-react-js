@@ -1,6 +1,6 @@
 {
     "name": "@microsoft/applicationinsights-react-js",
-    "version": "17.3.6",
+    "version": "18.3.6",
     "description": "Microsoft Application Insights React plugin",
     "author": "Microsoft Application Insights Team",
     "license": "MIT",
@@ -48,8 +48,8 @@
         "grunt": "^1.5.3",
         "grunt-cli": "^1.4.3",
         "jest": "^27.3.1",
-        "react": "^17.0.2",
-        "react-dom": "^17.0.2",
+        "react": "^18.0.0",
+        "react-dom": "^18.0.0",
         "globby": "^11.0.0",
         "magic-string": "^0.25.7",
         "@rollup/plugin-commonjs": "^18.0.0",
@@ -73,7 +73,7 @@
     },
     "peerDependencies": {
         "tslib": "*",
-        "react": ">= 17.0.1",
+        "react": ">= 18.0.0",
         "history": ">= 4.10.1"
     }
 }
