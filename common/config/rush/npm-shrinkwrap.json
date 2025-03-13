@@ -611,9 +611,9 @@
       "integrity": "sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw=="
     },
     "node_modules/@eslint-community/eslint-utils": {
-      "version": "4.5.0",
-      "resolved": "https://registry.npmjs.org/@eslint-community/eslint-utils/-/eslint-utils-4.5.0.tgz",
-      "integrity": "sha512-RoV8Xs9eNwiDvhv7M+xcL4PWyRyIXRY/FLp3buU4h1EYfdF7unWUy3dOjPqb3C7rMUewIcqwW850PgS8h1o1yg==",
+      "version": "4.5.1",
+      "resolved": "https://registry.npmjs.org/@eslint-community/eslint-utils/-/eslint-utils-4.5.1.tgz",
+      "integrity": "sha512-soEIOALTfTK6EjmKMMoLugwaP0rzkad90iIWd1hMO9ARkSAyjfMfkRRhLvD5qH7vvM0Cg72pieUfR6yh6XxC4w==",
       "peer": true,
       "dependencies": {
         "eslint-visitor-keys": "^3.4.3"
@@ -1463,7 +1463,7 @@
     "node_modules/@rush-temp/ai-test-framework": {
       "version": "0.0.0",
       "resolved": "file:projects/ai-test-framework.tgz",
-      "integrity": "sha512-KWeZ+eItCzdHNgQPc/MvZeRTewRlrgDNiDFFXUTp3tWzvPgxSHj2yTjA//j3FpktXGkj7VE7gIaabgPVvibpYg==",
+      "integrity": "sha512-sB/s+uMbnvRDTT7iBwgwhppZ0Sq7KE9xkq68UXTQm0LWxe6bJiXzdwD4P7vZ3EA1vM/Le7qRJODVO1l9MqL9Hw==",
       "dependencies": {
         "@microsoft/dynamicproto-js": "^2.0.3",
         "@nevware21/grunt-ts-plugin": "^0.4.3",
@@ -1486,7 +1486,7 @@
     "node_modules/@rush-temp/applicationinsights-js-release-tools": {
       "version": "0.0.0",
       "resolved": "file:projects/applicationinsights-js-release-tools.tgz",
-      "integrity": "sha512-6sVB5NMzKj/P9v9UvZlA/IjQSkGeupaDliSt2IZqy+SlR59Hv335Ekz/5f54xMHu+QiARXJATbjX7lDfCMG8qw==",
+      "integrity": "sha512-e9jw61D/jeRuLlSL+dQ2bFp8iqw6Q9ZMeboqX0CX0iYwjAPRiN/59ZK66D0UOgggNkqYgSEqgDi+ycw9XRtGnA==",
       "dependencies": {
         "globby": "^11.0.0",
         "grunt": "^1.5.3"
@@ -1495,7 +1495,7 @@
     "node_modules/@rush-temp/applicationinsights-react-js": {
       "version": "0.0.0",
       "resolved": "file:projects/applicationinsights-react-js.tgz",
-      "integrity": "sha512-XWM+TwtSXeY2QvBmD1oqRPgQrEK742dxHEHCg410z7lvTVO2xCgazwt0xvpE4iejpj5ZcgSAewLPDVZZ/C3L1w==",
+      "integrity": "sha512-1jR6sFits0iKlH8KGxoQLIz225VOXC50rxjuxh4Qj0/S/jiMGlK2jSihQ+od+Fbs/4LEWq3OLlZIn6IbJpl1VQ==",
       "dependencies": {
         "@microsoft/api-extractor": "^7.18.1",
         "@microsoft/applicationinsights-common": "^3.3.6",
@@ -1539,7 +1539,7 @@
     "node_modules/@rush-temp/applicationinsights-rollup-plugin-uglify3-js": {
       "version": "0.0.0",
       "resolved": "file:projects/applicationinsights-rollup-plugin-uglify3-js.tgz",
-      "integrity": "sha512-nyTS9NrkpDQoAGTnEEW18/jYPSzOHTrtp38RKb8mcxLOi9e5VntkYfYg2keuseXNzIQL/rrIJMF93BeHP1COfw==",
+      "integrity": "sha512-BwIRV2PMSopLL1hyvkVqiLDqX6h5fvd9PcoagM9cXTk/w4A7fqef/j7MpWUj7flXDMfhFR021AycJl69O98KnA==",
       "dependencies": {
         "@nevware21/grunt-eslint-ts": "^0.2.2",
         "@nevware21/grunt-ts-plugin": "^0.4.3",
@@ -2725,9 +2725,9 @@
       }
     },
     "node_modules/caniuse-lite": {
-      "version": "1.0.30001703",
-      "resolved": "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001703.tgz",
-      "integrity": "sha512-kRlAGTRWgPsOj7oARC9m1okJEXdL/8fekFVcxA8Hl7GH4r/sN4OJn/i6Flde373T50KS7Y37oFbMwlE8+F42kQ==",
+      "version": "1.0.30001704",
+      "resolved": "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001704.tgz",
+      "integrity": "sha512-+L2IgBbV6gXB4ETf0keSvLr7JUrRVbIaB/lrQ1+z8mRcQiisG5k+lG6O4n6Y5q6f5EuNfaYXKgymucphlEXQew==",
       "funding": [
         {
           "type": "opencollective",
@@ -3093,9 +3093,9 @@
       }
     },
     "node_modules/electron-to-chromium": {
-      "version": "1.5.114",
-      "resolved": "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.5.114.tgz",
-      "integrity": "sha512-DFptFef3iktoKlFQK/afbo274/XNWD00Am0xa7M8FZUepHlHT8PEuiNBoRfFHbH1okqN58AlhbJ4QTkcnXorjA=="
+      "version": "1.5.118",
+      "resolved": "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.5.118.tgz",
+      "integrity": "sha512-yNDUus0iultYyVoEFLnQeei7LOQkL8wg8GQpkPCRrOlJXlcCwa6eGKZkxQ9ciHsqZyYbj8Jd94X1CTPzGm+uIA=="
     },
     "node_modules/emittery": {
       "version": "0.8.1",

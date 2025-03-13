@@ -75,5 +75,8 @@
         "tslib": "*",
         "react": ">= 18.0.0",
         "history": ">= 4.10.1"
+    },
+    "publishConfig": {
+        "tag": "React18"
     }
 }
