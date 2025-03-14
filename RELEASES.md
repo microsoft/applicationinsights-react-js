@@ -8,7 +8,7 @@ For users on React 17.x, ongoing maintenance and releases will be available from
 
 ### Changelog
 
-- #142 [React18] upgrade to react 18 
+- #153 [React19] upgrade react to 19
 
 ## 18.3.6 (March 12th, 2025)
 
