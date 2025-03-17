@@ -1451,7 +1451,7 @@
     "node_modules/@rush-temp/ai-test-framework": {
       "version": "0.0.0",
       "resolved": "file:projects/ai-test-framework.tgz",
-      "integrity": "sha512-sB/s+uMbnvRDTT7iBwgwhppZ0Sq7KE9xkq68UXTQm0LWxe6bJiXzdwD4P7vZ3EA1vM/Le7qRJODVO1l9MqL9Hw==",
+      "integrity": "sha512-KWeZ+eItCzdHNgQPc/MvZeRTewRlrgDNiDFFXUTp3tWzvPgxSHj2yTjA//j3FpktXGkj7VE7gIaabgPVvibpYg==",
       "dependencies": {
         "@microsoft/dynamicproto-js": "^2.0.3",
         "@nevware21/grunt-ts-plugin": "^0.4.3",
@@ -1474,7 +1474,7 @@
     "node_modules/@rush-temp/applicationinsights-js-release-tools": {
       "version": "0.0.0",
       "resolved": "file:projects/applicationinsights-js-release-tools.tgz",
-      "integrity": "sha512-e9jw61D/jeRuLlSL+dQ2bFp8iqw6Q9ZMeboqX0CX0iYwjAPRiN/59ZK66D0UOgggNkqYgSEqgDi+ycw9XRtGnA==",
+      "integrity": "sha512-6sVB5NMzKj/P9v9UvZlA/IjQSkGeupaDliSt2IZqy+SlR59Hv335Ekz/5f54xMHu+QiARXJATbjX7lDfCMG8qw==",
       "dependencies": {
         "globby": "^11.0.0",
         "grunt": "^1.5.3"
@@ -1483,7 +1483,7 @@
     "node_modules/@rush-temp/applicationinsights-react-js": {
       "version": "0.0.0",
       "resolved": "file:projects/applicationinsights-react-js.tgz",
-      "integrity": "sha512-X5DyNt4NphfxDB/q4hzY/X+978Y+X0jrszTQAcM27deWNvqKJrQWRLn4fDSFFAec+NgZqRuJDS7OJ53R+GeWeQ==",
+      "integrity": "sha512-OS8sQM10bHRnQl05AEJBiXIj33KNLgHmjYY0LOCGa2N0Jy0JZnkG+5MUzdGHtvofgV8v1noggcGCh5kTwL+hAA==",
       "dependencies": {
         "@microsoft/api-extractor": "^7.18.1",
         "@microsoft/applicationinsights-common": "^3.3.6",
@@ -1527,7 +1527,7 @@
     "node_modules/@rush-temp/applicationinsights-rollup-plugin-uglify3-js": {
       "version": "0.0.0",
       "resolved": "file:projects/applicationinsights-rollup-plugin-uglify3-js.tgz",
-      "integrity": "sha512-BwIRV2PMSopLL1hyvkVqiLDqX6h5fvd9PcoagM9cXTk/w4A7fqef/j7MpWUj7flXDMfhFR021AycJl69O98KnA==",
+      "integrity": "sha512-nyTS9NrkpDQoAGTnEEW18/jYPSzOHTrtp38RKb8mcxLOi9e5VntkYfYg2keuseXNzIQL/rrIJMF93BeHP1COfw==",
       "dependencies": {
         "@nevware21/grunt-eslint-ts": "^0.2.2",
         "@nevware21/grunt-ts-plugin": "^0.4.3",
@@ -2680,9 +2680,9 @@
       }
     },
     "node_modules/caniuse-lite": {
-      "version": "1.0.30001704",
-      "resolved": "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001704.tgz",
-      "integrity": "sha512-+L2IgBbV6gXB4ETf0keSvLr7JUrRVbIaB/lrQ1+z8mRcQiisG5k+lG6O4n6Y5q6f5EuNfaYXKgymucphlEXQew==",
+      "version": "1.0.30001705",
+      "resolved": "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001705.tgz",
+      "integrity": "sha512-S0uyMMiYvA7CxNgomYBwwwPUnWzFD83f3B1ce5jHUfHTH//QL6hHsreI8RVC5606R4ssqravelYO5TU6t8sEyg==",
       "funding": [
         {
           "type": "opencollective",
@@ -3046,9 +3046,9 @@
       }
     },
     "node_modules/electron-to-chromium": {
-      "version": "1.5.118",
-      "resolved": "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.5.118.tgz",
-      "integrity": "sha512-yNDUus0iultYyVoEFLnQeei7LOQkL8wg8GQpkPCRrOlJXlcCwa6eGKZkxQ9ciHsqZyYbj8Jd94X1CTPzGm+uIA=="
+      "version": "1.5.120",
+      "resolved": "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.5.120.tgz",
+      "integrity": "sha512-oTUp3gfX1gZI+xfD2djr2rzQdHCwHzPQrrK0CD7WpTdF0nPdQ/INcRVjWgLdCT4a9W3jFObR9DAfsuyFQnI8CQ=="
     },
     "node_modules/emittery": {
       "version": "0.8.1",
