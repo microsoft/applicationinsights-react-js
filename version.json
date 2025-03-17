@@ -4,7 +4,7 @@
     "release": "19.3.6",
     "next": "patch",
     "pkgs": {
-        "@micros19.3.6plicationinsights-react-js": {
+        "@microsoft/applicationinsights-react-js": {
             "package": "package.json",
             "release": "19.3.6"
         },
