@@ -10,7 +10,7 @@ For users on React 17.x, ongoing maintenance and releases will be available from
 
 - #153 [main] Prepare main to support react 19 
 
-## 19.3.6 (March 12th, 2025)
+## 18.3.6 (March 12th, 2025)
 
 This release targets React 18 and upgrades to Application Insights 3.3.6. We are aligning the major version number with the React framework, following the numbering convention outlined [here](https://github.com/microsoft/applicationinsights-angularplugin-js/issues/57)
 For users on React 17.x, ongoing maintenance and releases will be available from the [release17.3.x](https://github.com/microsoft/applicationinsights-react-js/tree/17.3.6)
