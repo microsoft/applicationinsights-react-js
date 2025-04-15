@@ -11,7 +11,7 @@
         "@microsoft/api-extractor": "^7.18.1",
         "@microsoft/applicationinsights-common": "^3.3.6",
         "@microsoft/applicationinsights-core-js": "^3.3.6",
-        "@microsoft/applicationinsights-properties-js": "3.3.6",
+        "@microsoft/applicationinsights-properties-js": "^3.3.6",
         "@microsoft/applicationinsights-rollup-es3": "^1.1.3",
         "@microsoft/applicationinsights-shims": "^3.0.1",
         "@microsoft/dynamicproto-js": "^2.0.3",
@@ -1511,12 +1511,12 @@
     "node_modules/@rush-temp/applicationinsights-react-js": {
       "version": "0.0.0",
       "resolved": "file:projects/applicationinsights-react-js.tgz",
-      "integrity": "sha512-qcbUdAAnkGfwSE//3YNIS29GLIkFVHPB6a5KnwE4OkKR5qP0Xlx/+Fp0ZcysEn1Trc5VqWG2yA1ZHZ+WsFp4mA==",
+      "integrity": "sha512-giICZ805m7VLZeFLCjxBPYiR2As4pU3uOdf2TuWISrbjC89jqOatn3s583JfFQFm6ZamYz7uPwCIvCFn+GMCZw==",
       "dependencies": {
         "@microsoft/api-extractor": "^7.18.1",
         "@microsoft/applicationinsights-common": "^3.3.6",
         "@microsoft/applicationinsights-core-js": "^3.3.6",
-        "@microsoft/applicationinsights-properties-js": "3.3.6",
+        "@microsoft/applicationinsights-properties-js": "^3.3.6",
         "@microsoft/applicationinsights-rollup-es3": "^1.1.3",
         "@microsoft/applicationinsights-shims": "^3.0.1",
         "@microsoft/dynamicproto-js": "^2.0.3",

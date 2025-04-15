@@ -6,7 +6,7 @@
 import dynamicProto from "@microsoft/dynamicproto-js";
 import {
     AnalyticsPluginIdentifier,
-    IAppInsights, IConfig, IEventTelemetry, IExceptionTelemetry, IMetricTelemetry, IPageViewTelemetry, ITraceTelemetry, ITelemetryContext as Common_ITelemetryContext
+    IAppInsights, IConfig, IEventTelemetry, IExceptionTelemetry, IMetricTelemetry, IPageViewTelemetry, ITraceTelemetry, ITelemetryContext as Common_ITelemetryContext, PropertiesPluginIdentifier
 } from "@microsoft/applicationinsights-common";
 import {
     BaseTelemetryPlugin, IAppInsightsCore, IConfiguration, ICookieMgr, ICustomProperties, IPlugin, IProcessTelemetryContext,
@@ -45,7 +45,10 @@ export default class ReactPlugin extends BaseTelemetryPlugin {
             _self.initialize = (config: IConfiguration & IConfig, core: IAppInsightsCore, extensions: IPlugin[], pluginChain?:ITelemetryPluginChain) => {
                 super.initialize(config, core, extensions, pluginChain);
                 
-                properties = new PropertiesPlugin();
+                let thePlugin = core.getPlugin<PropertiesPlugin>(PropertiesPluginIdentifier);
+                if (thePlugin) {
+                    properties = thePlugin.plugin;
+                }
                 objDefine(_self, "context", {
                     g: () => properties.context
                 });
