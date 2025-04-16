@@ -50,7 +50,7 @@ export default class ReactPlugin extends BaseTelemetryPlugin {
                     properties = thePlugin.plugin;
                 }
                 objDefine(_self, "context", {
-                    g: () => properties.context
+                    g: () => properties ? properties.context : null
                 });
 
                 _self._addHook(onConfigChange(config, (details) => {
