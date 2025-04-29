@@ -6,14 +6,14 @@
 import dynamicProto from "@microsoft/dynamicproto-js";
 import {
     AnalyticsPluginIdentifier,
-    IAppInsights, IConfig, IEventTelemetry, IExceptionTelemetry, IMetricTelemetry, IPageViewTelemetry, ITraceTelemetry
+    IAppInsights, IConfig, IEventTelemetry, IExceptionTelemetry, IMetricTelemetry, IPageViewTelemetry, ITraceTelemetry, ITelemetryContext as Common_ITelemetryContext, PropertiesPluginIdentifier
 } from "@microsoft/applicationinsights-common";
 import {
     BaseTelemetryPlugin, IAppInsightsCore, IConfiguration, ICookieMgr, ICustomProperties, IPlugin, IProcessTelemetryContext,
     IProcessTelemetryUnloadContext, ITelemetryItem, ITelemetryPlugin, ITelemetryPluginChain, ITelemetryUnloadState, _eInternalMessageId,
     _throwInternal, arrForEach, eLoggingSeverity, isFunction, proxyFunctions, safeGetCookieMgr, IConfigDefaults, onConfigChange, objDefineAccessors
 } from "@microsoft/applicationinsights-core-js";
-import {objDeepFreeze} from "@nevware21/ts-utils";
+import {objDeepFreeze, objDefine} from "@nevware21/ts-utils";
 
 import { History, Location, Update } from "history";
 
@@ -21,10 +21,13 @@ import { IReactExtensionConfig } from './Interfaces/IReactExtensionConfig';
 const defaultReactExtensionConfig: IConfigDefaults<IReactExtensionConfig> = objDeepFreeze({
     history: { blkVal: true, v: undefined }
 });
+import { PropertiesPlugin } from "@microsoft/applicationinsights-properties-js";
 
 export default class ReactPlugin extends BaseTelemetryPlugin {
     public priority = 185;
     public identifier = 'ReactPlugin';
+    public readonly context: Common_ITelemetryContext;
+
 
     constructor() {
         super();
@@ -33,12 +36,22 @@ export default class ReactPlugin extends BaseTelemetryPlugin {
         let _unlisten: any;
         let _pageViewTimer: any;
         let _pageViewTracked:boolean;
+        let properties: PropertiesPlugin;
+
 
         dynamicProto(ReactPlugin, this, (_self, _base) => {
             _initDefaults();
 
             _self.initialize = (config: IConfiguration & IConfig, core: IAppInsightsCore, extensions: IPlugin[], pluginChain?:ITelemetryPluginChain) => {
                 super.initialize(config, core, extensions, pluginChain);
+                
+                let thePlugin = core.getPlugin<PropertiesPlugin>(PropertiesPluginIdentifier);
+                if (thePlugin) {
+                    properties = thePlugin.plugin;
+                }
+                objDefine(_self, "context", {
+                    g: () => properties ? properties.context : null
+                });
 
                 _self._addHook(onConfigChange(config, (details) => {
                     let ctx = _self._getTelCtx();
@@ -99,6 +112,7 @@ export default class ReactPlugin extends BaseTelemetryPlugin {
                 _unlisten = null;
                 _pageViewTimer = null;
                 _pageViewTracked = false;
+                properties = null;
             }
 
             function _getAnalytics() {
