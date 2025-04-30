@@ -6,7 +6,8 @@
     "license": "MIT",
     "dependencies": {
         "@microsoft/applicationinsights-core-js": "^3.3.6",
-        "@microsoft/applicationinsights-react-js": "19.3.5",
+        "@microsoft/applicationinsights-clickanalytics-js": "file:microsoft-applicationinsights-clickanalytics-js-3.3.6.tgz",
+        "@microsoft/applicationinsights-react-js": "19.3.6-nightly.2503-09",
         "@microsoft/applicationinsights-web": "^3.3.6",
         "react": "^19.0.0",
         "react-dom": "^19.0.0",
