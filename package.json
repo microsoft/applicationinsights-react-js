@@ -38,13 +38,12 @@
         "npm-package": "node ./tools/release-tools/npm-package.js"
     },
     "devDependencies": {
-        "@microsoft/rush": "5.148.0",
+        "@microsoft/rush": "5.153.1",
         "@nevware21/grunt-eslint-ts": "^0.2.2",
         "@nevware21/grunt-ts-plugin": "^0.4.3",
         "@typescript-eslint/eslint-plugin": "^4.28.0",
         "@typescript-eslint/parser": "^4.28.0",
         "archiver": "^5.3.0",
-        "chromium": "^3.0.3",
         "connect": "^3.7.0",
         "eslint": "^7.29.0",
         "eslint-config-standard": "^16.0.3",
@@ -55,10 +54,10 @@
         "grunt": "^1.6.0",
         "grunt-cli": "^1.4.3",
         "grunt-contrib-connect": "^3.0.0",
-        "grunt-contrib-qunit": "^5.0.1",
+        "grunt-contrib-qunit": "^6.2.1",
         "grunt-contrib-uglify": "^5.0.1",
         "grunt-string-replace": "^1.3.1",
-        "puppeteer": "^13.1.3",
+        "puppeteer": "22.12.1",
         "typedoc": "^0.22.8",
         "typescript": "^4.3.4",
         "whatwg-fetch": "^3.0.0"
