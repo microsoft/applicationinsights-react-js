@@ -526,7 +526,6 @@ module.exports = function (grunt) {
         grunt.loadNpmTasks("@nevware21/grunt-ts-plugin");
         grunt.loadNpmTasks("@nevware21/grunt-eslint-ts");
         grunt.loadNpmTasks('grunt-contrib-uglify');
-        grunt.loadNpmTasks('grunt-contrib-qunit');
         grunt.loadNpmTasks('grunt-contrib-connect');
         grunt.loadNpmTasks('grunt-string-replace');
         grunt.loadTasks('./tools/grunt-tasks');
