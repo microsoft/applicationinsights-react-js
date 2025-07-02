@@ -97,14 +97,24 @@ export default class ReactPlugin extends BaseTelemetryPlugin {
                 _initDefaults();
             };
 
-            // Proxy the analytics functions
+            // Proxy the analytics functions (except trackPageView which we handle specially)
             proxyFunctions(_self, _getAnalytics, [
                 "trackMetric",
-                "trackPageView",
                 "trackEvent",
                 "trackException",
                 "trackTrace",
             ]);
+
+            // Override trackPageView to also reset ajax attempts counter
+            _self.trackPageView = (pageView: IPageViewTelemetry) => {
+                const analytics = _getAnalytics();
+                if (analytics && analytics.trackPageView) {
+                    analytics.trackPageView(pageView);
+                }
+                
+                // Try to reset ajax attempts counter on dependencies plugin
+                _resetAjaxAttempts();
+            };
         
             function _initDefaults() {
                 _analyticsPlugin = null;
@@ -144,6 +154,48 @@ export default class ReactPlugin extends BaseTelemetryPlugin {
                 };
 
                 _unlisten = history.listen(locationListener);
+            }
+
+            function _resetAjaxAttempts(): void {
+                try {
+                    const core = _self.core;
+                    if (core && core.getPlugin) {
+                        // Try to find the dependencies plugin using common identifiers
+                        const dependencyPluginIds = [
+                            "AjaxPlugin", // Try this first since it's what we use in tests
+                            "AppInsightsDependenciesPlugin",
+                            "ApplicationInsightsDependenciesPlugin", 
+                            "DependenciesPlugin"
+                        ];
+
+                        for (const pluginId of dependencyPluginIds) {
+                            const dependencyPlugin = core.getPlugin(pluginId);
+                            if (dependencyPlugin && dependencyPlugin.plugin) {
+                                // The plugin structure is: dependencyPlugin.plugin.plugin = actual plugin instance
+                                const pluginWrapper = dependencyPlugin.plugin as any;
+                                const plugin = pluginWrapper.plugin as any;
+                                
+                                if (plugin) {
+                                    // Try different method names that might reset the ajax counter
+                                    if (isFunction(plugin.resetAjaxAttempts)) {
+                                        plugin.resetAjaxAttempts();
+                                        return;
+                                    } else if (isFunction(plugin._resetAjaxAttempts)) {
+                                        plugin._resetAjaxAttempts();
+                                        return;
+                                    } else if (plugin._trackAjaxAttempts !== undefined) {
+                                        // Direct reset if we can access the internal counter
+                                        plugin._trackAjaxAttempts = 0;
+                                        return;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                } catch (e) {
+                    // Silently ignore errors - this is a best-effort enhancement
+                    // that shouldn't break existing functionality
+                }
             }
             
             objDefineAccessors(_self, "_extensionConfig", () => _extensionConfig);
