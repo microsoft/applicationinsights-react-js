@@ -13,13 +13,19 @@ export interface IAppInsightsErrorBoundaryProps {
 
 export interface IAppInsightsErrorBoundaryState {
     hasError: boolean
+    error: Error | null;
+    errorInfo: React.ErrorInfo | null;
 }
 
 export default class AppInsightsErrorBoundary extends React.Component<IAppInsightsErrorBoundaryProps, IAppInsightsErrorBoundaryState> {
-    state = { hasError: false };
+    state: IAppInsightsErrorBoundaryState = {
+        hasError: false,
+        error: null,
+        errorInfo: null,
+    };
 
     componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
-        this.setState({ hasError: true });
+        this.setState({ hasError: true, error, errorInfo });
         this.props.appInsights.trackException({
             error: error,
             exception: error,
@@ -29,11 +35,14 @@ export default class AppInsightsErrorBoundary extends React.Component<IAppInsigh
     }
 
     render() {
-        if (this.state.hasError) {
-            const { onError } = this.props;
-            return React.createElement(onError);
+        const { hasError, error, errorInfo } = this.state;
+ 
+        const { onError, children } = this.props;
+        
+        if (hasError) {
+            return React.createElement(onError, {error, errorInfo});
         }
 
-        return this.props.children;
+        return children;
     }
 }
