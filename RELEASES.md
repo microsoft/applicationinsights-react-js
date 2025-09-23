@@ -1,5 +1,11 @@
 # Releases
 
+## 19.3.8 (Sept 24th, 2025)
+
+### Changelog
+
+- #167: Update to ApplicationInsights 3.3.10
+
 ## 19.3.7 (July 18th, 2025)
 
 ### Changelog
