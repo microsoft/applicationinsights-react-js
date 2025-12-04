@@ -43,14 +43,14 @@
         "@types/jest": "^27.0.2",
         "@types/node": "11.13.2",
         "@types/prop-types": "^15.7.3",
-        "@types/react": "^19.0.0",
-        "@types/react-dom": "^19.0.0",
+        "@types/react": "^19.0.1",
+        "@types/react-dom": "^19.0.1",
         "csstype": "~2.6.7",
         "grunt": "^1.5.3",
         "grunt-cli": "^1.4.3",
         "jest": "^27.3.1",
-        "react": "^19.1.2",
-        "react-dom": "^19.1.2",
+        "react": "^19.0.1",
+        "react-dom": "^19.0.1",
         "globby": "^11.0.0",
         "magic-string": "^0.25.7",
         "@rollup/plugin-commonjs": "^18.0.0",
@@ -74,7 +74,7 @@
     },
     "peerDependencies": {
         "tslib": "*",
-        "react": ">= 19.0.0",
+        "react": ">= 19.0.1",
         "history": ">= 4.10.1"
     }
 }
