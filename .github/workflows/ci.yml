@@ -15,9 +15,8 @@ jobs:
     runs-on: ubuntu-latest
 
     strategy:
-      fail-fast: false
       matrix:
-        node-version: [ 18.x, 20.x ]
+        node-version: [ 16.x, 18.x, 20.x ]
 
     steps:
     - uses: actions/checkout@v4
@@ -26,15 +25,11 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - name: Update rush shrinkwrap dependencies (for different node versions)
-      env:
-        NPM_CONFIG_TMP: /tmp/npm-tmp
-      run: |
-        mkdir -p /tmp/npm-tmp
-        node common/scripts/install-run-rush.js update --full --recheck
     - run: npm install rollup -g
     - run: npm install grunt-cli
     - run: npm install
     - run: node common/scripts/install-run-rush.js check
+    - run: node common/scripts/install-run-rush.js update --full --recheck
     - run: npm run build --verbose
       timeout-minutes: 10
     - run: npm run test --verbose

@@ -38,7 +38,7 @@
         "npm-package": "node ./tools/release-tools/npm-package.js"
     },
     "devDependencies": {
-        "@microsoft/rush": "5.166.0",
+        "@microsoft/rush": "5.153.1",
         "@nevware21/grunt-eslint-ts": "^0.2.2",
         "@nevware21/grunt-ts-plugin": "^0.4.3",
         "@typescript-eslint/eslint-plugin": "^4.28.0",
@@ -67,8 +67,8 @@
         "web-vitals": "^3.4.0"
     },
     "overrides": {
-        "tar": "7.5.3",
-        "form-data": "4.0.1",
-        "glob": "10.5.0"
+        "tar": "^7.5.3",
+        "form-data": "^4.0.1",
+        "glob": "^9.3.5"
     }
 }
