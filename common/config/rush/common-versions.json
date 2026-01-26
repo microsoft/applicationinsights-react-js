@@ -12,7 +12,8 @@
    * SemVer range specifier.  See the Rush documentation for details about this feature.
    */
   "preferredVersions": {
-
+    "form-data": "4.0.1"
+     "glob": "10.5.0"
     /**
      * When someone asks for "^1.0.0" make sure they get "1.2.3" when working in this repo,
      * instead of the latest version.
