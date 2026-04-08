@@ -1,5 +1,31 @@
 # Releases
 
+## 19.3.8 (Sept 24th, 2025)
+
+### Changelog
+
+- #167: Update to ApplicationInsights 3.3.10
+
+## 19.3.7 (July 18th, 2025)
+
+### Changelog
+
+- #139: Update to ApplicationInsights 3.3.9
+- #160: Update Components to address Component Governance issues
+- #164: Removing jquery reference
+- #158: Fix for IAppInsights is incomplete
+
+## 19.3.6 (April 29th, 2025)
+
+This release targets React 19 and upgrades to Application Insights 3.3.6. We are aligning the major version number with the React framework, following the numbering convention outlined [here](https://github.com/microsoft/applicationinsights-angularplugin-js/issues/57)
+For users on React 18.x, ongoing maintenance and releases will be available from the [release18.x](https://github.com/microsoft/applicationinsights-react-js/tree/19.3.6)
+For users on React 17.x, ongoing maintenance and releases will be available from the [release17.3.x](https://github.com/microsoft/applicationinsights-react-js/tree/17.3.6)
+
+### Changelog
+
+- #153 [main] Prepare main to support react 19 
+- #158 Fix for BUG(#19) - IAppInsights is incomplete
+
 ## 18.3.6 (March 12th, 2025)
 
 This release targets React 18 and upgrades to Application Insights 3.3.6. We are aligning the major version number with the React framework, following the numbering convention outlined [here](https://github.com/microsoft/applicationinsights-angularplugin-js/issues/57)
