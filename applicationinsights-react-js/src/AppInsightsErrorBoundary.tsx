@@ -2,7 +2,7 @@
 // Licensed under the MIT License.
 
 import React from "react";
-import { SeverityLevel } from "@microsoft/applicationinsights-common";
+import { SeverityLevel } from "@microsoft/applicationinsights-core-js";
 import ReactPlugin from "./ReactPlugin";
 
 export interface IAppInsightsErrorBoundaryProps {

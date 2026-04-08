@@ -1,5 +1,4 @@
-import { AppInsightsCore, IConfiguration, DiagnosticLogger, ITelemetryItem, IPlugin, IAppInsightsCore } from "@microsoft/applicationinsights-core-js";
-import { IPageViewTelemetry } from "@microsoft/applicationinsights-common";
+import { AppInsightsCore, IConfiguration, DiagnosticLogger, ITelemetryItem, IPlugin, IAppInsightsCore, IPageViewTelemetry } from "@microsoft/applicationinsights-core-js";
 import ReactPlugin from "../src/ReactPlugin";
 import { IReactExtensionConfig } from "../src/Interfaces/IReactExtensionConfig";
 import { createBrowserHistory } from "history";

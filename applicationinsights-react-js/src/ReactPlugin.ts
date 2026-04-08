@@ -5,13 +5,11 @@
 
 import dynamicProto from "@microsoft/dynamicproto-js";
 import {
-    AnalyticsPluginIdentifier,
-    IAppInsights, IConfig, IEventTelemetry, IExceptionTelemetry, IMetricTelemetry, IPageViewTelemetry, ITraceTelemetry, ITelemetryContext as Common_ITelemetryContext, PropertiesPluginIdentifier
-} from "@microsoft/applicationinsights-common";
-import {
+    AnalyticsPluginIdentifier, IAppInsights, IConfig, IEventTelemetry, IExceptionTelemetry, IMetricTelemetry, IPageViewTelemetry, ITraceTelemetry,
+    ITelemetryContext as Common_ITelemetryContext, PropertiesPluginIdentifier,
     BaseTelemetryPlugin, IAppInsightsCore, IConfiguration, ICookieMgr, ICustomProperties, IPlugin, IProcessTelemetryContext,
-    IProcessTelemetryUnloadContext, ITelemetryItem, ITelemetryPlugin, ITelemetryPluginChain, ITelemetryUnloadState, _eInternalMessageId,
-    _throwInternal, arrForEach, eLoggingSeverity, isFunction, proxyFunctions, safeGetCookieMgr, IConfigDefaults, onConfigChange, objDefineAccessors
+    IProcessTelemetryUnloadContext, ITelemetryItem, ITelemetryPluginChain, ITelemetryUnloadState, _eInternalMessageId,
+    _throwInternal, eLoggingSeverity, isFunction, proxyFunctions, safeGetCookieMgr, IConfigDefaults, onConfigChange
 } from "@microsoft/applicationinsights-core-js";
 import {objDeepFreeze, objDefine} from "@nevware21/ts-utils";
 
@@ -42,7 +40,7 @@ export default class ReactPlugin extends BaseTelemetryPlugin {
         dynamicProto(ReactPlugin, this, (_self, _base) => {
             _initDefaults();
 
-            _self.initialize = (config: IConfiguration & IConfig, core: IAppInsightsCore, extensions: IPlugin[], pluginChain?:ITelemetryPluginChain) => {
+            _self.initialize = (config: IConfiguration, core: IAppInsightsCore, extensions: IPlugin[], pluginChain?: ITelemetryPluginChain) => {
                 super.initialize(config, core, extensions, pluginChain);
                 
                 let thePlugin = core.getPlugin<PropertiesPlugin>(PropertiesPluginIdentifier);
@@ -81,8 +79,8 @@ export default class ReactPlugin extends BaseTelemetryPlugin {
         
             _self.getAppInsights = _getAnalytics;
         
-            _self.processTelemetry = (event: ITelemetryItem, itemCtx?: IProcessTelemetryContext) => {
-                _self.processNext(event, itemCtx);
+            _self.processTelemetry = (env: ITelemetryItem, itemCtx?: IProcessTelemetryContext) => {
+                _self.processNext(env, itemCtx as IProcessTelemetryContext);
             };
         
             _self._doTeardown = (unloadCtx?: IProcessTelemetryUnloadContext, unloadState?: ITelemetryUnloadState, asyncCallback?: () => void): void | boolean => {
@@ -146,11 +144,13 @@ export default class ReactPlugin extends BaseTelemetryPlugin {
                 _unlisten = history.listen(locationListener);
             }
             
-            objDefineAccessors(_self, "_extensionConfig", () => _extensionConfig);
+            objDefine(_self as any, "_extensionConfig", {
+                g: () => _extensionConfig
+            });
         });
     }
 
-    initialize(config: IConfiguration & IConfig, core: IAppInsightsCore, extensions: IPlugin[], pluginChain?:ITelemetryPluginChain) {
+    initialize(config: IConfiguration, core: IAppInsightsCore, extensions: IPlugin[], pluginChain?: ITelemetryPluginChain) {
         // @DynamicProtoStub -- DO NOT add any code as this will be removed during packaging
     }
 
@@ -172,9 +172,9 @@ export default class ReactPlugin extends BaseTelemetryPlugin {
 
     /**
      * Add Part A fields to the event
-     * @param event The event that needs to be processed
+     * @param env The event that needs to be processed
      */
-    processTelemetry(event: ITelemetryItem, itemCtx?: IProcessTelemetryContext) {
+    processTelemetry(env: ITelemetryItem, itemCtx?: IProcessTelemetryContext) {
         // @DynamicProtoStub -- DO NOT add any code as this will be removed during packaging
     }
 
