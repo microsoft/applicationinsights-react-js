@@ -36,7 +36,7 @@ const useComponentTracking = (
     idleCount: 0,
     idleTimeout: 5000
   });
-  const savedCallback = useRef<() => void>();
+  const savedCallback = useRef<() => void>(null);
 
   const callback = () => {
     let trackedData = tracking.current;
