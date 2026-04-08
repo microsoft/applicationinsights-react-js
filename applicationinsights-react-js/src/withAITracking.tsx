@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
-import { IMetricTelemetry } from '@microsoft/applicationinsights-common';
+import { IMetricTelemetry } from '@microsoft/applicationinsights-core-js';
 import { dateNow } from '@microsoft/applicationinsights-core-js';
 import * as React from 'react';
 import ReactPlugin from './ReactPlugin';
@@ -92,10 +92,10 @@ export abstract class AITrackedComponentBase<P> extends React.Component<P> {
  * Higher-order component function to hook Application Insights tracking 
  * in a React component's lifecycle.
  * 
- * @param reactPlugin ReactPlugin instance
- * @param Component the React component to be instrumented 
- * @param componentName (optional) component name
- * @param className (optional) className of the HOC div
+ * @param reactPlugin - ReactPlugin instance
+ * @param Component - the React component to be instrumented 
+ * @param componentName - (optional) component name
+ * @param className - (optional) className of the HOC div
  */
 export default function withAITracking<P>(reactPlugin: ReactPlugin, Component: React.ComponentType<P>, componentName?: string, className?: string): React.ComponentClass<P> {
 

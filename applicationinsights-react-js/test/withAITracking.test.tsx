@@ -1,4 +1,4 @@
-import { IPageViewTelemetry, IMetricTelemetry } from "@microsoft/applicationinsights-common";
+import { IPageViewTelemetry, IMetricTelemetry } from "@microsoft/applicationinsights-core-js";
 import * as React from "react";
 import ReactPlugin from "../src/ReactPlugin";
 import withAITracking from "../src/withAITracking";

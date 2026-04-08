@@ -1,5 +1,86 @@
 # Releases
 
+## 19.4.0 (April 8th, 2026)
+
+### Breaking Changes
+
+**TThis release bumps the Application Insights dependency from ^3.3.10 to ^3.4.1., which contains potential breaking changes:**
+
+The 3.4.x release of Application Insights includes significant changes that may affect your application. Please review the following before upgrading.
+
+This version is NOT supported on any eariler versions of Application Insights.
+
+#### Type Signature Compatibility
+
+- **Fixed**: `ReactPlugin.initialize` method signature now properly matches `ITelemetryPlugin` interface requirements
+  - Changed from `IConfiguration & IConfig` to `IConfiguration` to follow TypeScript contravariance rules
+  - **Impact**: Should resolve "Type 'ReactPlugin' is not assignable to type 'ITelemetryPlugin'" errors that users encountered in previous releases
+  - Fixes parameter type compatibility issues when passing ReactPlugin instance to SDK initialization
+
+#### Application Insights 3.4.1 Breaking Changes
+
+- **Distributed Tracing Refactoring** ([Details](https://github.com/microsoft/ApplicationInsights-JS/blob/main/RELEASES.md#L62-L67)):
+  - The `TelemetryTrace` class has been removed; functionality integrated into W3C trace state implementation
+  - `appInsights.context.telemetryTrace` is now deprecated (adapter to `core.getTraceCtx()`)
+  - Core instance now always has a valid `traceId` (either generated or inherited from parent trace context)
+
+- **Flush Method Signature**: Parameter renamed from `async` to `isAsync` in `IChannelControls` interface
+  - Only affects code using named parameters
+
+### Package Deprecation Notice
+
+**`@microsoft/applicationinsights-common` is now DEPRECATED** and will be removed in Application Insights 4.0.0:
+
+- All exports from `applicationinsights-common` have been merged into `@microsoft/applicationinsights-core-js`
+- The common package continues to work as a compatibility shim (re-exports from Core) 
+- **Action Required**: Update imports from `@microsoft/applicationinsights-common` to `@microsoft/applicationinsights-core-js`
+- See the [Migration Guide](https://github.com/microsoft/ApplicationInsights-JS/blob/main/docs/upgrade/MergeCommonToCore.md) for details
+- This version of the plugin now only uses `@microsoft/applicationinsights-core-js` and therefore will no longer work with older releases.
+
+### Significant Changes
+
+- **Update to Application Insights 3.4.1** (from 3.3.10):
+  - Enhanced W3C trace state support and distributed tracing improvements
+  - Enhanced cookie management with memory caching when cookies are disabled
+  - OsPlugin reliability improvements with proactive OS retrieval
+  - URL redaction enhancements for improved flexibility
+  - Better handling of dependency tracking with W3C trace state
+
+### Security Updates
+
+- **#169**: Upgrade React and react-dom to 19.1.2 to address **CVE-2025-55182** (CVSS 10.0)
+  - Critical security vulnerability: unauthenticated remote code execution in React Server Components
+  - **Action Required**: All users should update immediately
+
+### Changelog
+
+- #135: Enhance AppInsightsErrorBoundary to Pass Error Details to onError Component
+- #156: Fix: use `React.ReactNode` for children prop type (improved TypeScript compatibility)
+- #171: Fix vulnerable dependencies
+  - Updated multiple package dependencies to address security vulnerabilities
+  - Updated npm version in rush config
+- #169: Fix security vulnerability CVE-2025-55182 in React 19.1.2
+- Fixed: `ReactPlugin` function signatures now properly match `BaseTelemetryPlugin` interface
+  - Corrected `initialize` method parameter types for TypeScript compatibility
+  - Fixed `processTelemetry` to ensure valid context handling
+- Updated to Application Insights Core 3.4.1 and Properties 3.4.1
+
+### Migration Notes
+
+If you've encountered TypeScript errors like "Type 'ReactPlugin' is not assignable to type 'ITelemetryPlugin'", this release resolves those issues. No code changes should be required in your application.
+
+For the Application Insights common package deprecation, you should begin migrating your imports:
+
+```typescript
+// Before (deprecated)
+import { IConfig, ContextTagKeys } from "@microsoft/applicationinsights-common";
+
+// After (recommended)
+import { IConfig, ContextTagKeys } from "@microsoft/applicationinsights-core-js";
+```
+
+For full details see the [Application Insights JS 3.4.1 release notes](https://github.com/microsoft/ApplicationInsights-JS/blob/main/RELEASES.md#341-april-7th-2026).
+
 ## 19.3.8 (Sept 24th, 2025)
 
 ### Changelog
