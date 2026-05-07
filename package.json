@@ -38,7 +38,7 @@
         "npm-package": "node ./tools/release-tools/npm-package.js"
     },
     "devDependencies": {
-        "@microsoft/rush": "5.172.1",
+        "@microsoft/rush": "5.175.1",
         "@nevware21/grunt-eslint-ts": "^0.5.2",
         "@nevware21/grunt-ts-plugin": "^0.5.2",
         "@typescript-eslint/eslint-plugin": "^7.14.1",
@@ -47,7 +47,7 @@
         "connect": "^3.7.0",
         "eslint": "^8.56.0",
         "eslint-plugin-security": "^1.5.0",
-        "grunt": "^1.6.1",
+        "grunt": "^1.6.2",
         "grunt-cli": "^1.5.0",
         "grunt-contrib-connect": "^5.0.0",
         "grunt-contrib-uglify": "^5.2.1",
@@ -68,6 +68,8 @@
         "tar": "^7.5.13",
         "glob": "^9.3.5",
         "lodash": "^4.18.1",
-        "minimatch": "^3.1.4"
+        "minimatch": "^3.1.5",
+        "protobufjs": ">=7.6.0",
+        "@azure/msal-browser": ">=4.25.0"
     }
 }

@@ -16,7 +16,8 @@
     "declaration": true,
     "declarationDir": "types",
     "outDir": "dist-esm",
-    "rootDir": "src"
+    "rootDir": "src",
+    "skipLibCheck": true
   },
   "include": [
     "./src/**/*.ts"
