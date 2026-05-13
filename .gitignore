@@ -252,10 +252,9 @@ jspm_packages/
 # Common toolchain intermediate files
 temp
 
-# Rush files
+# Build temp files
 common/temp/**
 package-deps.json
-package-lock.json
 
 # test output
 aicore.tests.js*
