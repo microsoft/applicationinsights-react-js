@@ -30,28 +30,21 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 2. Install all dependencies
 	```
 	npm install
-	npm install -g @microsoft/rush
 	```
-3. Navigate to the root folder and update rush dependencies
+3. Build and test
 	```
-	rush update
-	```
-4. Build and test
-	```
-	rush build
+	npm run build
 	npm run test
 	```
 
 ## Build and test
 
-The root folder contains 8 packages that are components of this next version of the SDK. When making changes in multiple packages, you can build using the following commands in root folder:
+The root folder uses npm workspaces to manage sub-packages. When making changes, you can build and test using the following commands in the root folder:
 
-1. rush rebuild --verbose
+1. npm run build
 
-    This will build all packages in order of dependencies. If there are build errors, verbose options is required to view error details.
+    This will build all packages in order of dependencies.
 
-2. rush test --verbose
+2. npm run test
 
-    This will run tests in all packages in parallel.
-
-If you are changing package versions or adding/removing any package dependencies, run> **rush update --purge --recheck --full** before building. Please check-in any files that change under common\ folder.
+    This will run tests in all packages.

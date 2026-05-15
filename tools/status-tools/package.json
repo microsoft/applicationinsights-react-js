@@ -7,7 +7,6 @@
     "sideEffects": false,
     "scripts": {
         "clean": "git clean -xdf",
-        "update": "rush update",
         "build": "",
         "rebuild": "",
         "test": "",
