@@ -6,7 +6,6 @@
     "homepage": "https://github.com/microsoft/applicationinsights-react-js#readme",
     "sideEffects": false,
     "scripts": {
-        "update": "rush update",
         "build": "",
         "rebuild": "",
         "test": "",
