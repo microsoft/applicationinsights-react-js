@@ -1,6 +1,6 @@
 {
     "name": "@microsoft/applicationinsights-react-js",
-    "version": "19.4.0",
+    "version": "19.4.1",
     "description": "Microsoft Application Insights React plugin",
     "author": "Microsoft Application Insights Team",
     "license": "MIT",
@@ -59,7 +59,7 @@
         "whatwg-fetch": "^3.0.0"
     },
     "dependencies": {
-        "@nevware21/ts-utils": ">= 0.11.3 < 2.x",
+        "@nevware21/ts-utils": ">= 0.14.0 < 2.x",
         "web-vitals": "^3.4.0"
     },
     "overrides": {
@@ -68,6 +68,7 @@
         "lodash": "^4.18.1",
         "minimatch": "^3.1.5",
         "protobufjs": ">=7.6.0",
-        "@azure/msal-browser": ">=4.25.0"
+        "@azure/msal-browser": ">=4.25.0",
+        "ws": ">=8.21.0"
     }
 }

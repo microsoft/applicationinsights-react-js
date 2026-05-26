@@ -1,5 +1,23 @@
 # Releases
 
+## 19.4.1 (Unreleased)
+
+### Changelog
+
+- #173: Fix vulnerable dependencies, update supportability, and remove Rush
+  - Upgraded Rush 5.172.1 → 5.175.1
+  - Upgraded grunt ^1.6.1 → ^1.6.2 (fixes minimatch CVE-2026-27903, CVE-2026-27904)
+  - Upgraded jest 27 → 29, ts-jest 27 → 29, @types/jest 27 → 29
+  - Added overrides for protobufjs >=7.6.0 (CVE-2026-41242), @azure/msal-browser >=4.25.0
+  - Upgraded jest-environment-jsdom to 30.x (resolves @tootallnate/once vulnerabilities)
+  - **Removed Rush**: switched to npm workspaces for multi-package orchestration
+  - Updated CI workflow and CONTRIBUTING.md to reflect npm workspaces
+
+### Security Updates
+
+- Upgraded `@nevware21/ts-utils` minimum from `>= 0.11.3` to `>= 0.14.0` to fix **GHSA-x7j8-49r8-mr43** (HIGH: Prototype Pollution in objDeepCopy/objCopyProps)
+- Added `ws` `>=8.21.0` override to fix **GHSA-58qx-3vcg-4xpx** (MODERATE: Uninitialized memory disclosure)
+
 ## 19.4.0 (April 8th, 2026)
 
 ### Breaking Changes
