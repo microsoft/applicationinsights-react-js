@@ -3,6 +3,8 @@ name: NodeJS with Grunt
 on:
   push:
     branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
   build:
@@ -20,43 +22,22 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
-    
-    - name: Update dependencies in package.json
+
+    - name: Install and build main library
       run: |
-        current_version=$(jq -r '.version' package.json)
+        npm install
+        npm run build
 
-        echo "Current version: $current_version"
-
-        # Extract the part of the version after the first dot
-        remaining_version=${current_version#*.}
-        # Concatenate "3." with the remaining part
-        ai_version="3.$remaining_version"
-
-        echo "AI version: $ai_version"
-
-        # Replace the versions in sample/applicationinsights-react-sample/package.json with the current reactJS version
-        sed -i "s/\"@microsoft\\/applicationinsights-core-js\": \"[^\"]*\"/\"@microsoft\/applicationinsights-core-js\": \"$ai_version\"/" sample/applicationinsights-react-sample/package.json
-        sed -i "s/\"@microsoft\\/applicationinsights-react-js\": \"[^\"]*\"/\"@microsoft\/applicationinsights-react-js\": \"$current_version\"/" sample/applicationinsights-react-sample/package.json
-        sed -i "s/\"@microsoft\\/applicationinsights-web\": \"[^\"]*\"/\"@microsoft\/applicationinsights-web\": \"$ai_version\"/" sample/applicationinsights-react-sample/package.json
-
-        # add applicationinsights-common into package.json also
-        echo "\"@microsoft/applicationinsights-common\": \"$current_version\"," | sed -i "/\"@microsoft\/applicationinsights-core-js\": \"$ai_version\"/i \        \"@microsoft/applicationinsights-common\": \"$ai_version\"," sample/applicationinsights-react-sample/package.json
-    - name: Display updated package.json
-      run: cat sample/applicationinsights-react-sample/package.json
-    
-    - name: Get latest version of @microsoft/applicationinsights-web
-      id: get_version
+    - name: Pack local library
       run: |
-        latest_version=$(npm show @microsoft/applicationinsights-web version)
-        echo "Latest version: $latest_version"
-        echo "latest_version=$latest_version" >> $GITHUB_ENV
-        
-    - name: Build
+        cd applicationinsights-react-js
+        npm pack
+        echo "REACT_PLUGIN_TGZ=$(ls *.tgz)" >> $GITHUB_ENV
+
+    - name: Build sample app
       working-directory: sample/applicationinsights-react-sample
       run: |
         npm install
-        npm install @microsoft/applicationinsights-web@${{ env.latest_version }} --verbose
+        npm install ../../applicationinsights-react-js/${{ env.REACT_PLUGIN_TGZ }}
         npm run build
-      env:
-          latest_version: ${{ env.latest_version }}
 
