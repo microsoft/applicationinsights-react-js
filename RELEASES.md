@@ -1,10 +1,17 @@
 # Releases
 
+## 19.4.1 (June 22nd, 2026)
+
+### Changes
+
+- Bump `@microsoft/applicationinsights-core-js` and `@microsoft/applicationinsights-properties-js` dependency from `^3.4.1` to `^3.4.2`.
+- Resolved all reported `npm audit` vulnerabilities (`ws`, `@babel/core`, `markdown-it`, and the `js-yaml` transitive chain) with no breaking changes to consumers.
+
 ## 19.4.0 (April 8th, 2026)
 
 ### Breaking Changes
 
-**TThis release bumps the Application Insights dependency from ^3.3.10 to ^3.4.1., which contains potential breaking changes:**
+**This release bumps the Application Insights dependency from ^3.3.10 to ^3.4.1., which contains potential breaking changes:**
 
 The 3.4.x release of Application Insights includes significant changes that may affect your application. Please review the following before upgrading.
 
