@@ -11,11 +11,16 @@ Full documentation for the React Plugin for the Application Insights JavaScript 
 
 ## Getting Started
 
-Install npm package:
+Install the React plugin and the Application Insights web SDK together:
 
 ```bash
-npm install @microsoft/applicationinsights-react-js
+npm install @microsoft/applicationinsights-react-js @microsoft/applicationinsights-web
 ```
+
+Use compatible versions of the two packages from the
+[compatibility matrix](https://github.com/microsoft/applicationinsights-react-js#compatibility-matrix),
+and update them together. Mismatched Application Insights dependencies can cause TypeScript errors
+such as `Type 'ReactPlugin' is not assignable to type 'ITelemetryPlugin'`.
 
 ## Basic Usage
 
@@ -62,6 +67,36 @@ var appInsights = new ApplicationInsights({
 appInsights.loadAppInsights();
 ```
 
+## Choosing a tracking approach
+
+The tracking options collect different telemetry and can be used together:
+
+| Option | Telemetry | When to use it |
+|--------|-----------|----------------|
+| `enableAutoRouteTracking` | Page views | Track URL changes made through the browser History API, including routes in a single-page application. Virtual page-view duration is reported as zero because a URL change does not identify when rendering finishes. |
+| `autoTrackPageVisitTime` | `PageVisitTime` metrics | Measure how long a user stays on a page. The metric for the previous page is sent when the next page view is tracked. This is visit time, not page-load time. |
+| `withAITracking` | `React Component Engaged Time (seconds)` metrics | Measure how long a wrapped React component is mounted, excluding idle time. The metric is sent when the component unmounts. |
+
+For example, enable `enableAutoRouteTracking` for navigation telemetry and wrap only the
+components whose engagement time you want to measure with `withAITracking`. Enabling automatic
+route tracking does not make component tracking redundant because the options send different
+telemetry.
+
+Use the SDK's explicit tracking methods for application-specific telemetry:
+
+| Method | Common use case |
+|--------|-----------------|
+| `trackEvent` | Record a user action or business event. Use `startTrackEvent` and `stopTrackEvent` when the event duration matters. |
+| `trackPageView` | Record navigation when automatic route tracking is disabled, or attach custom page-view properties. Avoid calling it for the same navigation already captured by `enableAutoRouteTracking`. Use `startTrackPage` and `stopTrackPage` when you can determine when a virtual page finishes loading. |
+| `trackPageViewPerformance` | Record browser page-load performance measurements. |
+| `trackException` | Record a handled error that automatic exception collection does not capture. |
+| `trackTrace` | Record diagnostic or workflow information. |
+| `trackMetric` | Record an application-specific measurement or preaggregated metric. |
+| `trackDependencyData` | Record a dependency call that automatic `fetch` or `XMLHttpRequest` collection does not capture. |
+
+See the [Application Insights JavaScript SDK API documentation](https://microsoft.github.io/ApplicationInsights-JS/webSdk/applicationinsights-web/classes/ApplicationInsights.html)
+for method parameters and additional configuration.
+
 
 
 ## Configuration
@@ -93,7 +128,7 @@ Please note that it can take up to 10 minutes for new custom metric to appear in
 
 ## Sample App
 
-[Azure-Samples/application-insights-react-demo](https://github.com/Azure-Samples/application-insights-react-demo).
+[Application Insights React sample](https://github.com/microsoft/applicationinsights-react-js/tree/main/sample/applicationinsights-react-sample).
 
 ## React Router
 
