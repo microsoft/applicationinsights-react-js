@@ -9,6 +9,7 @@
 - Removed the duplicate bundled core SDK dependency so the published plugin consistently uses the consumer-provided peer dependency.
 - Updated non-breaking transitive dependencies, including `fast-uri`, `ip-address`, `linkify-it`, `js-yaml`, and `morgan`.
 - Updated local browser tests to use the approved Microsoft Edge installation.
+- Expanded the documentation for compatible package installation, route and component tracking choices, explicit tracking APIs, and the maintained sample application.
 
 ## 19.4.1 (June 22nd, 2026)
 
