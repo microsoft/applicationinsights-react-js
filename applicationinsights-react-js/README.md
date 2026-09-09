@@ -20,7 +20,11 @@ npm install @microsoft/applicationinsights-react-js @microsoft/applicationinsigh
 Use compatible versions of the two packages from the
 [compatibility matrix](https://github.com/microsoft/applicationinsights-react-js#compatibility-matrix),
 and update them together. Mismatched Application Insights dependencies can cause TypeScript errors
-such as `Type 'ReactPlugin' is not assignable to type 'ITelemetryPlugin'`.
+such as:
+
+```plaintext
+Type 'ReactPlugin' is not assignable to type 'ITelemetryPlugin'.
+```
 
 ## Basic Usage
 
