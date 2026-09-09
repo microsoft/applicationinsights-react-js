@@ -45,7 +45,7 @@
         "@types/cheerio": "0.22.13",
         "@types/history": "^4.7.9",
         "@types/jest": "^29.5.14",
-        "@types/node": "11.13.2",
+        "@types/node": "18.11.19",
         "@types/prop-types": "^15.7.3",
         "@types/react": "^19.0.0",
         "@types/react-dom": "^19.0.0",
