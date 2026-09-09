@@ -1,5 +1,20 @@
 # Releases
 
+## 19.4.2 (September 9th, 2026)
+
+### Changes
+
+- Updated `@microsoft/applicationinsights-core-js` and `@microsoft/applicationinsights-properties-js` to `3.4.4`, including the core SDK peer dependency.
+- Updated the React sample to `@microsoft/applicationinsights-web` and `@microsoft/applicationinsights-core-js` `3.4.4`.
+- Removed the duplicate bundled core SDK dependency so the published plugin consistently uses the consumer-provided peer dependency.
+- Updated non-breaking transitive dependencies, including `fast-uri`, `ip-address`, `linkify-it`, `js-yaml`, and `morgan`.
+- Updated local browser tests to use the approved Microsoft Edge installation.
+
+### Security
+
+- Applied all relevant non-breaking `npm audit` fixes available through the approved Azure Artifacts feed.
+- Four high-severity development-tool findings remain in Puppeteer's `@puppeteer/browsers`, `puppeteer-core`, and `extract-zip` dependency chain. Resolving them requires the breaking upgrade to Puppeteer 25 and is deferred.
+
 ## 19.4.1 (June 22nd, 2026)
 
 ### Changes
