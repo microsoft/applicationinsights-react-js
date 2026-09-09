@@ -10,11 +10,6 @@
 - Updated non-breaking transitive dependencies, including `fast-uri`, `ip-address`, `linkify-it`, `js-yaml`, and `morgan`.
 - Updated local browser tests to use the approved Microsoft Edge installation.
 
-### Security
-
-- Applied all relevant non-breaking `npm audit` fixes available through the approved Azure Artifacts feed.
-- Four high-severity development-tool findings remain in Puppeteer's `@puppeteer/browsers`, `puppeteer-core`, and `extract-zip` dependency chain. Resolving them requires the breaking upgrade to Puppeteer 25 and is deferred.
-
 ## 19.4.1 (June 22nd, 2026)
 
 ### Changes
