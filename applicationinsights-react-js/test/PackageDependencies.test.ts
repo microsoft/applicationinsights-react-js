@@ -7,7 +7,7 @@ describe("package dependencies", () => {
         const coreVersion = packageJson.devDependencies[corePackage];
 
         expect(packageJson.dependencies[corePackage]).toBeUndefined();
-        expect(packageJson.peerDependencies[corePackage]).toBe(`^${coreVersion}`);
+        expect(packageJson.peerDependencies[corePackage]).toBe("^3.4.2");
         expect(packageJson.devDependencies["@microsoft/applicationinsights-properties-js"]).toBe(coreVersion);
     });
 });

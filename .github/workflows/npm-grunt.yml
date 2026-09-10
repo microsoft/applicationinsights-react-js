@@ -37,7 +37,5 @@ jobs:
     - name: Build sample app
       working-directory: sample/applicationinsights-react-sample
       run: |
-        npm install
         npm install ../../applicationinsights-react-js/${{ env.REACT_PLUGIN_TGZ }}
         npm run build
-

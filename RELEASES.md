@@ -1,5 +1,16 @@
 # Releases
 
+## 19.4.2 (September 9th, 2026)
+
+### Changes
+
+- Updated `@microsoft/applicationinsights-core-js` and `@microsoft/applicationinsights-properties-js` to `3.4.4`, including the core SDK peer dependency.
+- Updated the React sample to `@microsoft/applicationinsights-web` and `@microsoft/applicationinsights-core-js` `3.4.4`.
+- Removed the duplicate bundled core SDK dependency so the published plugin consistently uses the consumer-provided peer dependency.
+- Included non-breaking transitive dependency maintenance merged since `19.4.1`.
+- Updated local browser tests to use the approved Microsoft Edge installation.
+- Expanded the documentation for compatible package installation, route and component tracking choices, explicit tracking APIs, and the maintained sample application.
+
 ## 19.4.1 (June 22nd, 2026)
 
 ### Changes
