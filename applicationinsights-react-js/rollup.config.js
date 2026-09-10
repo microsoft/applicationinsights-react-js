@@ -21,6 +21,9 @@ const replaceValues = {
   "// Copyright (c) Microsoft Corporation. All rights reserved.": "",
   "// Licensed under the MIT License.": ""
 };
+const outputGlobals = {
+  "@microsoft/applicationinsights-core-js": "Microsoft.ApplicationInsights"
+};
 
 function doCleanup() {
   return cleanup({
@@ -40,6 +43,7 @@ const browserRollupConfigFactory = isProduction => {
       banner: banner,
       format: "umd",
       name: "Microsoft.ApplicationInsights",
+      globals: outputGlobals,
       extend: true,
       freeze: false,
       sourcemap: true
@@ -95,6 +99,7 @@ const nodeUmdRollupConfigFactory = (isProduction) => {
       banner: banner,
       format: "umd",
       name: "Microsoft.ApplicationInsights",
+      globals: outputGlobals,
       extend: true,
       freeze: false,
       sourcemap: true
