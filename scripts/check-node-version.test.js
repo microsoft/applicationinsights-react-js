@@ -31,14 +31,16 @@ test("the developer runtime pin meets the security baseline", () => {
     assert.equal(isSupportedNodeVersion(version), true, version);
 });
 
-test("both build matrices select only reviewed, patched runtimes", () => {
+test("both build matrices map stable job names to patched runtimes", () => {
     ["ci.yml", "npm-grunt.yml"].forEach(file => {
         const workflow = fs.readFileSync(path.join(__dirname, "..", ".github", "workflows", file), "utf8");
-        const matrix = /^\s*node-version:\s*\[([^\]]+)\]\s*$/m.exec(workflow);
-        assert.ok(matrix, file + " must have an explicit Node.js version matrix");
-        const versions = matrix[1].split(",").map(version => version.trim().replace(/^["']|["']$/g, ""));
-        versions.forEach(version => {
+        assert.ok(workflow.includes("name: build (${{ matrix.node-line }})"), file);
+        assert.ok(workflow.includes("node-version: ${{ matrix.node-version }}"), file);
+        const entries = [...workflow.matchAll(/^\s*- node-line: (\d+\.x)\r?\n\s*node-version: "([^"]+)"\s*$/gm)];
+        assert.deepEqual(entries.map(entry => entry[1]), ["22.x", "24.x"], file);
+        entries.forEach(([, line, version]) => {
             assert.equal(isSupportedNodeVersion(version), true, file + ": " + version);
+            assert.equal(line, version.split(".")[0] + ".x", file + ": " + line);
         });
     });
 });
