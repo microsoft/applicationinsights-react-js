@@ -3,6 +3,16 @@ React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Development runtime
+
+Use Node.js 24.22.1, as pinned in the repository's `.nvmrc`, before installing,
+building, testing, or starting this sample. Later patched releases in the 22.x
+(22.23.4+), 24.x (24.22.1+), and 26.x (26.12.1+) lines are also supported.
+Run `npm run check-node-version` before `npm install`; the sample's npm commands
+also enforce this development-only security baseline. See the repository's
+[contributing guide](../../CONTRIBUTING.md#nodejs-security-baseline) for details.
+This does not change the browser application's React or SDK compatibility.
+
 ## Available Scripts
 
 In the project directory, you can run:

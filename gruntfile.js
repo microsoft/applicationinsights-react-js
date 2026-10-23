@@ -1,3 +1,5 @@
+require("./scripts/check-node-version").checkNodeVersion();
+
 module.exports = function (grunt) {
 
    const versionPlaceholder = '"#version#"';

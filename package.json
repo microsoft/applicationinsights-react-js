@@ -23,9 +23,15 @@
         "tools/release-tools"
     ],
     "scripts": {
+        "check-node-version": "node scripts/check-node-version.js",
+        "test:node-version": "node --test scripts/check-node-version.test.js",
+        "preinstall": "npm run check-node-version",
+        "prebuild": "npm run check-node-version",
         "build": "npm run build --workspaces --if-present",
         "rebuild": "npm run build",
+        "pretest": "npm run check-node-version && npm run test:node-version",
         "test": "npm run test --workspaces --if-present",
+        "prelint": "npm run check-node-version",
         "lint": "npm run lint --workspaces --if-present",
         "serve": "grunt serve",
         "setVersion": "node ./tools/release-tools/setVersion.js",

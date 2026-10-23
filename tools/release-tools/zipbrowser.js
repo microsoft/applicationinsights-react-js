@@ -1,3 +1,5 @@
+require("../../scripts/check-node-version").checkNodeVersion();
+
 const fs = require("fs");
 const path = require("path");
 const archiver = require("archiver");
