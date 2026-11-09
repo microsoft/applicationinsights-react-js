@@ -1,5 +1,13 @@
 # Releases
 
+## 19.4.3 (November 5th, 2026)
+
+### Changes
+
+- Updated dependency resolution for approved/private package feeds and pinned browser tooling dependencies to feed-available versions.
+
+- Updated Node.js tooling and CI for the October 2026 Node.js security releases.
+
 ## 19.4.2 (September 9th, 2026)
 
 ### Changes
