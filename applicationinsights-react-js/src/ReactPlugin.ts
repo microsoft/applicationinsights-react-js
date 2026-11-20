@@ -17,7 +17,8 @@ import { History, Location, Update } from "history";
 
 import { IReactExtensionConfig } from './Interfaces/IReactExtensionConfig';
 const defaultReactExtensionConfig: IConfigDefaults<IReactExtensionConfig> = objDeepFreeze({
-    history: { blkVal: true, v: undefined }
+    history: { blkVal: true, v: undefined },
+    excludePageViewOnReplace: false
 });
 import { PropertiesPlugin } from "@microsoft/applicationinsights-properties-js";
 
@@ -123,14 +124,19 @@ export default class ReactPlugin extends BaseTelemetryPlugin {
             }
 
             function _addHistoryListener(history: History): void {
-                const locationListener = (arg: Location | Update): void => {
-                    // v4 of the history API passes "location" as the first argument, while v5 passes an object that contains location and action 
+                const locationListener = (arg: Location | Update, action?: string): void => {
+                    // History v4 passes location and action separately; v5 passes an object containing both.
                     let locn: Location = null;
                     if ("location" in arg) {
                         // Looks like v5
                         locn = arg["location"];
+                        action = arg["action"];
                     } else {
                         locn = arg as Location;
+                    }
+
+                    if (_extensionConfig.excludePageViewOnReplace && action === "REPLACE") {
+                        return;
                     }
         
                     // Timeout to ensure any changes to the DOM made by route changes get included in pageView telemetry

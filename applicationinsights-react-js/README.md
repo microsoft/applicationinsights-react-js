@@ -108,6 +108,21 @@ for method parameters and additional configuration.
 | Name | Default | Description |
 |------|---------|-------------|
 | history | null | React router history for more information see the [documentation][react-router] of the `react-router` package. |
+| excludePageViewOnReplace | false | When `true`, the React plugin does not track a page view for history `REPLACE` actions, including state-only replacements. Initial page views and `PUSH`/`POP` navigation are still tracked. |
+
+To exclude replacements, configure the React plugin as follows:
+
+```js
+extensionConfig: {
+    [reactPlugin.identifier]: {
+        history: browserHistory,
+        excludePageViewOnReplace: true
+    }
+}
+```
+
+This option supports history v4 and v5. It only affects the React plugin's history listener,
+not manual `trackPageView` calls or the SDK's separate `enableAutoRouteTracking` option.
 
 #### React components usage tracking
 
