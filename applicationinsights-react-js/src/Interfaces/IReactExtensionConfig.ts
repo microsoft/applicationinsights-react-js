@@ -14,4 +14,11 @@ export interface IReactExtensionConfig {
    * @memberof IReactAISettings
    */
   readonly history?: History;
+
+  /**
+   * Exclude history REPLACE actions from automatic PageView tracking.
+   * Initial PageViews and PUSH/POP actions are still tracked.
+   * Only applies when history is configured; defaults to false.
+   */
+  readonly excludePageViewOnReplace?: boolean;
 }
