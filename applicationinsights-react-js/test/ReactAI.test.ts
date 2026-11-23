@@ -1,7 +1,7 @@
 import { AppInsightsCore, IConfiguration, DiagnosticLogger, ITelemetryItem, IPlugin, IAppInsightsCore, IPageViewTelemetry } from "@microsoft/applicationinsights-core-js";
 import ReactPlugin from "../src/ReactPlugin";
 import { IReactExtensionConfig } from "../src/Interfaces/IReactExtensionConfig";
-import { createBrowserHistory } from "history";
+import { createBrowserHistory, createMemoryHistory, History, Location } from "history";
 
 let reactPlugin: ReactPlugin;
 let core: AppInsightsCore;
@@ -44,6 +44,7 @@ describe("ReactAI", () => {
     core.initialize(coreConfig, [ reactPlugin, new ChannelPlugin() ]);
     const reactConfig: IReactExtensionConfig = reactPlugin['_extensionConfig'];
     expect(reactConfig.history).toEqual(history);
+    expect(reactConfig.excludePageViewOnReplace).toBe(false);
   });
 
   it("React PageView using Analytics plugin", () => {
@@ -90,6 +91,95 @@ describe("ReactAI", () => {
     expect(event.uri).toBe("/home");
     event = analyticsMock.mock.calls[1][0]
     expect(event.uri).toBe("/new-fancy-page");
+  });
+
+  describe("history replacement page views", () => {
+    beforeEach(() => {
+      jest.useFakeTimers();
+      init();
+    });
+
+    afterEach(() => {
+      core.unload(false);
+      jest.clearAllTimers();
+      jest.useRealTimers();
+    });
+
+    function initializeHistoryTracking(history: History, excludePageViewOnReplace?: boolean) {
+      coreConfig.extensionConfig = {
+        [reactPlugin.identifier]: {
+          history,
+          excludePageViewOnReplace
+        }
+      };
+      const trackPageView = reactPlugin.trackPageView = jest.fn();
+      core.initialize(coreConfig, [reactPlugin, new ChannelPlugin()]);
+      return trackPageView;
+    }
+
+    it.each([undefined, false, true])("history v5: excludePageViewOnReplace=%s", (excludePageViewOnReplace) => {
+      const history = createMemoryHistory({ initialEntries: ["/initial"] });
+      const trackPageView = initializeHistoryTracking(history, excludePageViewOnReplace);
+      expect(trackPageView).toHaveBeenCalledWith({ uri: "/initial" });
+
+      history.push("/home");
+      history.replace("/home", { some: "state" });
+      history.replace("/replaced");
+      history.back();
+      expect(trackPageView).toHaveBeenCalledTimes(1);
+      jest.runOnlyPendingTimers();
+      reactPlugin.trackPageView({ uri: "/manual" });
+
+      const expectedPaths = excludePageViewOnReplace
+        ? ["/initial", "/home", "/initial", "/manual"]
+        : ["/initial", "/home", "/home", "/replaced", "/initial", "/manual"];
+      expect(trackPageView.mock.calls.map(([pageView]) => pageView.uri)).toEqual(expectedPaths);
+    });
+
+    it.each([undefined, false, true])("history v4: excludePageViewOnReplace=%s", (excludePageViewOnReplace) => {
+      const history = createMemoryHistory({ initialEntries: ["/initial"] });
+      let listener: (location: Location, action: string) => void;
+      // History v4 calls the listener with separate location and action arguments.
+      jest.spyOn(history, "listen").mockImplementation((callback) => {
+        listener = callback as unknown as (location: Location, action: string) => void;
+        return jest.fn();
+      });
+      const trackPageView = initializeHistoryTracking(history, excludePageViewOnReplace);
+
+      listener({ ...history.location, pathname: "/home" }, "PUSH");
+      listener({ ...history.location, pathname: "/home", state: { some: "state" } }, "REPLACE");
+      listener({ ...history.location, pathname: "/replaced" }, "REPLACE");
+      listener(history.location, "POP");
+      expect(trackPageView).toHaveBeenCalledTimes(1);
+      jest.runOnlyPendingTimers();
+      reactPlugin.trackPageView({ uri: "/manual" });
+
+      const expectedPaths = excludePageViewOnReplace
+        ? ["/initial", "/home", "/initial", "/manual"]
+        : ["/initial", "/home", "/home", "/replaced", "/initial", "/manual"];
+      expect(trackPageView.mock.calls.map(([pageView]) => pageView.uri)).toEqual(expectedPaths);
+    });
+
+    it("updates replacement tracking when the configuration changes", () => {
+      const history = createMemoryHistory({ initialEntries: ["/initial"] });
+      const trackPageView = initializeHistoryTracking(history);
+      history.replace("/tracked-by-default");
+      jest.runOnlyPendingTimers();
+
+      core.config.extensionConfig[reactPlugin.identifier].excludePageViewOnReplace = true;
+      jest.advanceTimersByTime(1000);
+      history.replace("/excluded");
+      jest.runOnlyPendingTimers();
+
+      core.config.extensionConfig[reactPlugin.identifier].excludePageViewOnReplace = false;
+      jest.advanceTimersByTime(1000);
+      history.replace("/tracked-again");
+      jest.runOnlyPendingTimers();
+
+      expect(trackPageView.mock.calls.map(([pageView]) => pageView.uri)).toEqual([
+        "/initial", "/tracked-by-default", "/tracked-again"
+      ]);
+    });
   });
 
   it("React plugin with Analytics not available", () => {
